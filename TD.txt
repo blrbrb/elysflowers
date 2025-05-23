@@ -1,0 +1,8 @@
+* think of a name for this mode
+* get a list of all registered biomes from all mods I want this mod to work with
+* make it so that mods like ethereal will work, and plants will be placed properly in the new biomes
+* tropical plants in tropical biomes
+
+* useful crafts and crafting recipes for things, so that this mod is more than just an aesthetic mod
+* integrate crafts with other mods
+* create a drop texture item for mined blooming frangipani leaves that allows you to pot the flower
