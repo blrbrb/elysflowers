@@ -1,0 +1,11 @@
+{
+  "diagnostics.globals": ["core", "xcompat"],
+  "workspace.library": [
+    "/home/eli/.var/app/net.minetest.Minetest/.minetest/mods",
+    "/home/eli/.var/app/net.minetest.Minetest/.minetest/games/mineclonia/mods",
+    "/home/eli/.var/app/net.minetest.Minetest/.minetest/games/minetest_game/mods"
+  ],
+    "diagnostics.disable": [
+        "lowercase-global"
+    ]
+}

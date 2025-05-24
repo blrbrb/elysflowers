@@ -1,5 +1,33 @@
 local S = core.get_translator("elysflowers")
 
+local gameid = core.get_game_info().id
+-- debug, func to print table properties to the console
+local function tprint(tbl, indent)
+    if not indent then indent = 0 end
+    local toprint = string.rep(" ", indent) .. "{\r\n"
+    indent = indent + 2
+    for k, v in pairs(tbl) do
+        toprint = toprint .. string.rep(" ", indent)
+        if (type(k) == "number") then
+            toprint = toprint .. "[" .. k .. "] = "
+        elseif (type(k) == "string") then
+            toprint = toprint .. k .. "= "
+        end
+        if (type(v) == "number") then
+            toprint = toprint .. v .. ",\r\n"
+        elseif (type(v) == "string") then
+            toprint = toprint .. "\"" .. v .. "\",\r\n"
+        elseif (type(v) == "table") then
+            toprint = toprint .. tprint(v, indent + 2) .. ",\r\n"
+        else
+            toprint = toprint .. "\"" .. tostring(v) .. "\",\r\n"
+        end
+    end
+    toprint = toprint .. string.rep(" ", indent - 2) .. "}"
+    return toprint
+end
+
+
 elysflowers = {
     nodes = { {
         name                = "elysflowers:babys_breath",
@@ -38,7 +66,7 @@ elysflowers = {
         paramtype           = "light",
         sunlight_propagates = false,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, deco_block = 1, compostability = 35, not_in_creative_inventory = 0 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, deco_block = 1, compostability = 35, not_in_creative_inventory = 1 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -62,16 +90,35 @@ elysflowers = {
         paramtype           = "light",
         sunlight_propagates = false,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, color_violet = 1, compostability = 45 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, color_violet = 1, compostability = 45 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
         },
+
         floodable           = true,
         selection_box       = {
             type = "fixed",
             fixed = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-        }
+        },
+        on_place            = function(itemstack, placer, pointed_thing)
+            if not pointed_thing or pointed_thing.type ~= "node" then
+                return itemstack
+            end
+
+            local variant = math.random(1, 4)
+            local pos = pointed_thing.above
+            local node_name = "elysflowers" .. ":fireweed_" .. variant
+
+            if variant == 1 then
+                core.set_node(pos, { name = "elysflowers:fireweed" })
+            else
+                core.set_node(pos, { name = node_name })
+            end
+            itemstack:take_item()
+            return itemstack
+        end
+
     }, {
         name                = "elysflowers:fireweed_2",
         _botanical_name     = "C. angustifolium",
@@ -87,7 +134,7 @@ elysflowers = {
         sunlight_propagates = false,
         light_source        = 2,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, place_flowerlike = 1, deco_block = 1, color_violet = 1, compostability = 45 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, place_flowerlike = 1, deco_block = 1, color_violet = 1, compostability = 45, not_in_creative_inventory = 1 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -112,7 +159,7 @@ elysflowers = {
         sunlight_propagates = false,
         light_source        = 2,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, place_flowerlike = 1, compostability = 45 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, color_violet = 1, place_flowerlike = 1, compostability = 45, not_in_creative_inventory = 1 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -137,7 +184,7 @@ elysflowers = {
         sunlight_propagates = true,
         light_source        = 2,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, place_flowerlike = 1, color_violet = 1, compostability = 45 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, place_flowerlike = 1, color_violet = 1, compostability = 45, not_in_creative_inventory = 1 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -160,7 +207,7 @@ elysflowers = {
         paramtype = "light",
         sunlight_propagates = true,
         walkable = false,
-        groups = { snappy = 3, flammable = 2, flower = 1, flora = 1, color_violet = 1 },
+        groups = { dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, place_flowerlike = 1, flower = 1, flora = 1, color_violet = 1 },
         _sound_def = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -182,7 +229,7 @@ elysflowers = {
         paramtype = "light",
         sunlight_propagates = true,
         walkable = false,
-        groups = { snappy = 3, flammable = 2, flower = 1, flora = 1, color_white = 1 },
+        groups = { dig_immediate = 3, snappy = 3, deco_block = 1, flammable = 2, flower = 1, flora = 1, color_white = 1 },
         _sound_def = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -204,7 +251,7 @@ elysflowers = {
         paramtype = "light",
         sunlight_propagates = true,
         walkable = false,
-        groups = { snappy = 3, flammable = 2, flower = 1, flora = 1, color_yellow = 1 },
+        groups = { dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, flower = 1, flora = 1, color_yellow = 1 },
         _sound_def = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -228,7 +275,7 @@ elysflowers = {
         paramtype           = "light",
         sunlight_propagates = true,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, color_yellow = 1 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, flower = 1, flora = 1, color_yellow = 1 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -254,7 +301,7 @@ elysflowers = {
         paramtype           = "light",
         sunlight_propagates = true,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, color_yellow = 1 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, color_yellow = 1 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -277,7 +324,7 @@ elysflowers = {
         paramtype           = "light",
         sunlight_propagates = true,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, color_yellow = 1 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, color_pink = 1 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -299,7 +346,7 @@ elysflowers = {
         paramtype           = "light",
         sunlight_propagates = true,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, color_yellow = 1 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, color_pink = 1 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -317,14 +364,14 @@ elysflowers = {
         _doc_items_longdesc = "Herbacious & fragrant perennial with alluring purple blooms",
         long_description    =
         "Herbacious & fragrant perennial with alluring purple blooms. Can be found growing in cooler biomes, in open fields.",
-        tiles               = { "lavender2.png" },
-        wield_image         = "lavender2.png",
-        inventory_image     = "lavender2.png",
+        tiles               = { "lavender.png" },
+        wield_image         = "lavender.png",
+        inventory_image     = "lavender.png",
         waving              = 1,
         paramtype           = "light",
         sunlight_propagates = true,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_blue = 1, compostability = 75 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -349,7 +396,33 @@ elysflowers = {
         paramtype           = "light",
         sunlight_propagates = true,
         walkable            = false,
-        groups              = { snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_blue = 1, compostability = 75 },
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, plant = 1, color_blue = 1, compostability = 75 },
+        _sound_def          = {
+            key = "node_sound_leaves_defaults",
+            input = {},
+        },
+        floodable           = true,
+        selection_box       = {
+            type = "fixed",
+            fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+        }
+    }, {
+        name                = "elysflowers:california_poppy",
+        _botanical_name     = "E. californica",
+        description         = S("California Poppy"),
+        drawtype            = "plantlike",
+        _doc_items_longdesc =
+        "Perennial with golden domelike blooms, found in arid climates that receive plenty of sunlight and warmth.",
+        long_description    =
+        "",
+        tiles               = { "california_poppy.png" },
+        wield_image         = "california_poppy.png",
+        inventory_image     = "california_poppy.png",
+        waving              = 1,
+        paramtype           = "light",
+        sunlight_propagates = true,
+        walkable            = false,
+        groups              = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, deco_block = 1, plant = 1, color_orange = 1, compostability = 75 },
         _sound_def          = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -362,31 +435,6 @@ elysflowers = {
     } }
 }
 
--- debug, func to print table properties to the console
-local function tprint(tbl, indent)
-    if not indent then indent = 0 end
-    local toprint = string.rep(" ", indent) .. "{\r\n"
-    indent = indent + 2
-    for k, v in pairs(tbl) do
-        toprint = toprint .. string.rep(" ", indent)
-        if (type(k) == "number") then
-            toprint = toprint .. "[" .. k .. "] = "
-        elseif (type(k) == "string") then
-            toprint = toprint .. k .. "= "
-        end
-        if (type(v) == "number") then
-            toprint = toprint .. v .. ",\r\n"
-        elseif (type(v) == "string") then
-            toprint = toprint .. "\"" .. v .. "\",\r\n"
-        elseif (type(v) == "table") then
-            toprint = toprint .. tprint(v, indent + 2) .. ",\r\n"
-        else
-            toprint = toprint .. "\"" .. tostring(v) .. "\",\r\n"
-        end
-    end
-    toprint = toprint .. string.rep(" ", indent - 2) .. "}"
-    return toprint
-end
 
 -- add botanical names to item descriptions if global setting == yes
 local function format_description(dat)
@@ -396,7 +444,8 @@ local function format_description(dat)
     end
 end
 
-if core.get_game_info().id == "mineclonia" then
+--register biomes
+if gameid == "mineclonia" then
     core.register_biome({
         name = "TaigaValley",
         node_top = "mcl_core:dirt_with_grass",
@@ -412,9 +461,8 @@ if core.get_game_info().id == "mineclonia" then
         _mcl_biome_type = "cold",
         _mcl_palette_index = 5,
         _mcl_skycolor = "#7DA3FF",
-        _mcl_fogcolor = overworld_fogcolor,
+        _mcl_fogcolor = "#C0D8FF",
         weight = 1.0
-
     })
 else
     core.register_biome({
@@ -433,349 +481,20 @@ else
     })
 end
 
--- register nodes
-for a, dat in pairs(elysflowers.nodes) do
-    if not core.settings:get("elysflowers_botanical_descriptions") then
+
+-- botanical formatting for inventory, if enabled
+if not core.settings:get("elysflowers_botanical_descriptions") then
+    for a, dat in pairs(elysflowers.nodes) do
         format_description(dat)
+        core.register_node(dat.name, dat)
     end
-    core.register_node(dat.name, dat)
 end
 
-core.register_decoration({
-    name         = "elysflowers:babys_breath",
-    deco_type    = "schematic",
-    noise_params = {
-        offset = -0.031,
-        scale = 0.0147,
-        spread = { x = 16, y = 16, z = 16 },
-        seed = 453322,
-        octaves = 1,
-        persist = 0.2
-    },
-    _sound_def   = {
-        key = "node_sound_leaves_defaults",
-        input = {},
-    },
-    schematic    = core.get_modpath("elysflowers") .. "/schems/" .. "babysbreath.mts",
-    place_on     = { xcompat.dirt_with_grass, "ethereal:grove_dirt", "mcl_core:podzol", "mcl_core:dirt"
-    },
-    sidelen      = 16,
-    waving       = true,
-    biomes       = { "FlowerForest", "CherryGrove", "bamboo", "grassytwo", "deciduous_forest", "Plains", "grassland", "jumble" },
-    y_min        = 1,
-    y_max        = 31000,
-    decoration   = "elysflowers:babys_breath",
-})
 
-core.register_decoration({
-    name         = "elysflowers:fireweed_0",
-    deco_type    = "simple",
-    noise_params = {
-        offset = -0.031,
-        scale = 0.240,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 17822,
-        octaves = 2,
-        persist = 0.6
-    },
-    _sound_def   = {
-        key = "node_sound_leaves_defaults",
-        input = {},
-    },
-    place_on     = { "mcl_core:podzol", "default:dirt_with_coniferous_litter"
-    },
-    sidelen      = 16,
-    waving       = true,
-    biomes       = { "taiga_valley", "TaigaValley" },
-    y_min        = 1,
-    y_max        = 50,
-    decoration   = "elysflowers:fireweed",
-})
+dofile(core.get_modpath("elysflowers") .. "/decorations.lua")
 
 
-core.register_decoration({
-    name         = "elysflowers:fireweed_1",
-    deco_type    = "simple",
-    noise_params = {
-        offset = -0.04,
-        scale = 0.940,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 374142,
-        octaves = 2,
-        persist = 0.6
-    },
-    _sound_def   = {
-        key = "node_sound_leaves_defaults",
-        input = {},
-    },
-    place_on     = { "mcl_core:dirt_with_grass", "default:dirt_with_coniferous_litter"
-    },
-    sidelen      = 16,
-    waving       = true,
-    biomes       = { "taiga_valley", "TaigaValley" },
-    y_min        = 1,
-    y_max        = 50,
-    decoration   = "elysflowers:fireweed_1",
-})
-core.register_decoration({
-    name         = "elysflowers:fireweed_2",
-    deco_type    = "simple",
-    noise_params = {
-        offset = -0.09109,
-        scale = 0.940,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 28912,
-        octaves = 1,
-        persist = 0.6
-    },
-    _sound_def   = {
-        key = "node_sound_leaves_defaults",
-        input = {},
-    },
-    place_on     = { "mcl_core:dirt_with_grass", "default:dirt_with_coniferous_litter"
-    },
-    sidelen      = 16,
-    waving       = true,
-    biomes       = { "taiga_valley", "TaigaValley" },
-    y_min        = 1,
-    y_max        = 50,
-    decoration   = "elysflowers:fireweed_2",
-})
-
-core.register_decoration({
-    name         = "elysflowers:fireweed_3",
-    deco_type    = "simple",
-    noise_params = {
-        offset = -0.1211,
-        scale = 0.940,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 97822,
-        octaves = 1,
-        persist = 0.6
-    },
-    _sound_def   = {
-        key = "node_sound_leaves_defaults",
-        input = {},
-    },
-    place_on     = { "mcl_core:dirt_with_grass", "default:dirt_with_coniferous_litter"
-    },
-    sidelen      = 16,
-    waving       = true,
-    biomes       = { "taiga_valley", "TaigaValley" },
-    y_min        = 1,
-    y_max        = 50,
-    decoration   = "elysflowers:fireweed_3",
-})
-
-core.register_decoration({
-    name = "elysflowers:crocus",
-    deco_type = "simple",
-    noise_params = {
-        offset = -0.02,
-        scale = 0.03,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 2342,
-        octaves = 3,
-        persist = 0.5,
-        flags = { "absvalue" }
-
-    },
-    place_on = { "default:snow", "mcl_core:snow", "default:permafrost_with_stones",
-        "default:permafrost_with_moss", "etheral:cold_dirt", "mcl_core:podzol",
-        "default:dirt_with_snow"
-    },
-    sidelen = 16,
-    waving = true,
-    biomes = { "snowy_grassland", "tundra", "taiga", "confierous_forest", "Tundra", "Taiga", "MegaTaiga", "IcePlains" },
-    y_min = 1,
-    y_max = 31000,
-    rotation = "random",
-    decoration = "elysflowers:crocus",
-})
-
-core.register_decoration({
-    name = "elysflowers:dames_rocket",
-    deco_type = "simple",
-    noise_params = {
-        offset = -0.62,
-        scale = 0.15,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 123193,
-        octaves = 1,
-        persist = 0.5,
-
-    },
-    place_on = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves", "woodsoils:grass_with_leaves_1"
-    },
-    sidelen = 16,
-    waving = true,
-    biomes = { "Forest", "deciduous_forest" },
-    y_min = 1,
-    y_max = 31000,
-    rotation = "random",
-    spawn_by = { "default:tree", "mcl_trees:tree" },
-    num_spawn_by = 1,
-    decoration = "elysflowers:dames_rocket",
-})
-
-core.register_decoration({
-    name = "elysflowers:arctic_poppy",
-    deco_type = "simple",
-    noise_params = {
-        offset = -0.02,
-        scale = 0.04,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 22123,
-        octaves = 2,
-        persist = 0.7,
-
-    },
-    place_on = { "mcl_core:snow", "default:permafrost_with_stones", "default:permafrost_with_moss",
-        "etheral:cold_dirt", "mcl_core:podzol",
-        "default:dirt_with_snow", "default:dirt_with_coniferous_litter"
-    },
-    sidelen = 16,
-    waving = true,
-    biomes = { "tundra", "taiga", "Taiga", "ColdTaiga", "IcePlains", "IcePlainsSpikes", "coniferous_forest" }, --mcl core uses the same biome names but capitalized
-    y_min = 1,
-    y_max = 31000,
-    rotation = "random",
-    decoration = "elysflowers:arctic_poppy",
-})
-
-core.register_decoration({
-    name = "elysflowers:african_marigold",
-    deco_type = "simple",
-    noise_params = {
-        offset = -0.02,
-        scale = 0.029,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 29132,
-        octaves = 2,
-        persist = 0.6,
-
-    },
-    place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dry_dirt_with_dry_grass", "ethereal:dry_dirt" },
-    sidelen = 16,
-    waving = true,
-    biomes = { "savanna", "Savanna", "mesa", "MesaPlateauF_grasstop", "jumble" }, --compat for mcl core "Savanna" biome
-    y_min = 1,
-    y_max = 31000,
-    rotation = "random",
-    decoration = "elysflowers:african_marigold",
-})
-
-core.register_decoration({
-    name = "elysflowers:golden_groundsel",
-    deco_type = "simple",
-    spawn_by = { "default:apple_tree", "mcl_trees:tree_oak", "mcl_trees:tree_birch", "mcl_leaves:tree_oak" },
-
-    noise_params = {
-        offset = -0.2,
-        scale = 0.1,
-        spread = { x = 8, y = 8, z = 8 },
-        seed = 29132,
-        octaves = 1,
-        persist = 1.01,
-        flags = { "eased", "absvalue" }
-
-    },
-    place_on = { xcompat.materials.dirt_with_grass, "woodsoils:grass_with_leaves_1" },
-    sidelen = 8,
-    rotation = "random",
-    waving = true,
-    biomes = { "coniferous_forest", "Forest", "deciduous_forest", "Forest", "BirchForest", "BirchForestM" }, --compat for mcl core "Savanna" biome
-    y_min = 1,
-    y_max = 31000,
-    decoration = "elysflowers:golden_groundsel",
-})
-
-core.register_decoration({
-    name = "elysflowers:yarrow_pink",
-    deco_type = "simple",
-    noise_params = {
-        offset = -0.02,
-        scale = 0.09,
-        spread = { x = 32, y = 32, z = 32 },
-        seed = 86312,
-        octaves = 1,
-        persist = 0.7,
-        flags = { "eased" }
-
-    },
-    place_on = { xcompat.materials.sand },
-    sidelen = 16,
-    waving = true,
-    biomes = { "grassland_dunes", "FlowerForest" },
-    y_min = 1,
-    y_max = 31000,
-    --spawn_by = "default:acacia_tree",
-    decoration = "elysflowers:yarrow_pink",
-})
-
-core.register_decoration({
-    name         = "elysflowers:marshmallow",
-    deco_type    = "simple",
-    noise_params = {
-        offset = -0.12,
-        scale = 0.19,
-        spread = { x = 32, y = 32, z = 32 },
-        seed = 14398,
-        octaves = 1,
-        persist = 0.7
-    },
-    place_on     = { xcompat.materials.dirt_with_grass, "default:dirt", "woodsoils:dirt_with_leaves" },
-    sidelen      = 16,
-    waving       = true,
-    biomes       = { "grassland_ocean", "swamp", "rainforest_ocean", "deciduous_forest_ocean", "Swampland", "JungleEdge", "FlowerForest", "RoofedForest" },
-    spawn_by     = { "default:water_source", "mcl_core:water_source" },
-    num_spawn_by = 1,
-    y_min        = 1,
-    y_max        = 31000,
-    decoration   = "elysflowers:marshmallow",
-})
-
-core.register_decoration({
-    name = "elysflowers:lavender",
-    deco_type = "simple",
-    noise_params = {
-        offset = -0.013,
-        scale = 0.012,
-        spread = { x = 16, y = 16, z = 16 },
-        seed = 19132,
-        octaves = 2,
-        persist = 0.4,
-    },
-    place_on = { xcompat.materials.dirt_with_grass },
-    sidelen = 16,
-    waving = true,
-    biomes = { "grassland", "grassytwo", "deciduous_forest", "Plains", "Forest" },
-    y_min = 1,
-    y_max = 31000,
-    decoration = "elysflowers:lavender",
-})
-
-core.register_decoration({
-    name = "elysflowers:hyacinth",
-    deco_type = "simple",
-    noise_params = {
-        offset = -0.013,
-        scale = 0.012,
-        spread = { x = 16, y = 16, z = 16 },
-        seed = 19132,
-        octaves = 2,
-        persist = 0.4,
-    },
-    place_on = { xcompat.materials.dirt_with_grass },
-    sidelen = 16,
-    waving = true,
-    biomes = { "grassland", "grassytwo", "deciduous_forest", "Plains", "Forest" },
-    y_min = 1,
-    y_max = 31000,
-    decoration = "elysflowers:hyacinth",
-})
-
--- handle mineclonia
+-- handle misc mineclonia registration
 if core.get_game_info().id == "mineclonia" then
     --  core.debug(tprint(mcl_flowers))
     mcl_flowerpots.register_potted_flower("elysflowers:crocus", {
@@ -783,6 +502,7 @@ if core.get_game_info().id == "mineclonia" then
         desc = "Crocus",
         image = "crocus.png"
     })
+
     mcl_flowerpots.register_potted_flower("elysflowers:yarrow_pink",
         { name = "elysflowers:yarrow_pink", desc = "Pink Yarrow", image = "yarrow.png" })
     mcl_flowerpots.register_potted_flower("elysflowers:lavender",
@@ -822,7 +542,6 @@ if core.get_game_info().id == "mineclonia" then
         })
     end
 end
-
 
 if core.global_exists("flowerpot") then
     flowerpot.register_node("elysflowers:african_marigold")
