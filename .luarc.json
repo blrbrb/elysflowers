@@ -1,11 +1,10 @@
 {
   "diagnostics.globals": ["core", "xcompat"],
   "workspace.library": [
-    "/home/eli/.var/app/net.minetest.Minetest/.minetest/mods",
-    "/home/eli/.var/app/net.minetest.Minetest/.minetest/games/mineclonia/mods",
-    "/home/eli/.var/app/net.minetest.Minetest/.minetest/games/minetest_game/mods"
+    "/home/eli/.var/app/org.luanti.luanti/.minetest/mods",
+    "/home/eli/.var/app/org.luanti.luanti/.minetest/games/mineclonia/mods",
+    "/home/eli/.var/app/org.luanti.luanti/.minetest/games/minetest_game/mods",
+    "/home/eli/.var/app/org.luanti.luanti/.minetest/games/mineclonia/mods/ITEMS/mcl_flowers"
   ],
-    "diagnostics.disable": [
-        "lowercase-global"
-    ]
+  "diagnostics.disable": ["lowercase-global"]
 }
