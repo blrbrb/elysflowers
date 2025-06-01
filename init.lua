@@ -557,34 +557,33 @@ elysflowers = {
             fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
         },
         drop                 = "elysflowers:purple_coneflower"
-    },
-        {
-            name                 = "elysflowers:phlox",
-            _botanical_name      = "P. drummondii",
-            description          = S("Phlox"),
-            drawtype             = "plantlike",
-            _doc_items_longdesc  = "",
-            long_description     =
-            "Charming, abundant blooms on tall stems.",
-            tiles                = { "phlox.png" },
-            wield_image          = "phlox.png",
-            inventory_image      = "phlox.png",
-            waving               = 1,
-            paramtype            = "light",
-            sunlight_propagates  = true,
-            walkable             = false,
-            groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
-            _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
-            _sound_def           = {
-                key = "node_sound_leaves_defaults",
-                input = {},
-            },
-            floodable            = true,
-            selection_box        = {
-                type = "fixed",
-                fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            }
+    }, {
+        name                 = "elysflowers:phlox",
+        _botanical_name      = "P. drummondii",
+        description          = S("Phlox"),
+        drawtype             = "plantlike",
+        _doc_items_longdesc  = "",
+        long_description     =
+        "Charming, abundant blooms on tall stems.",
+        tiles                = { "phlox.png" },
+        wield_image          = "phlox.png",
+        inventory_image      = "phlox.png",
+        waving               = 1,
+        paramtype            = "light",
+        sunlight_propagates  = true,
+        walkable             = false,
+        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
+        _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
+        _sound_def           = {
+            key = "node_sound_leaves_defaults",
+            input = {},
         },
+        floodable            = true,
+        selection_box        = {
+            type = "fixed",
+            fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+        }
+    },
         {
             name                 = "elysflowers:black_eyed_susan",
             _botanical_name      = "R. Hertia",
@@ -629,6 +628,60 @@ elysflowers = {
             walkable             = false,
             groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
             _mcl_crafting_output = { single = { output = "mcl_dyes:light_blue" } },
+            _sound_def           = {
+                key = "node_sound_leaves_defaults",
+                input = {},
+            },
+            floodable            = true,
+            selection_box        = {
+                type = "fixed",
+                fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            }
+        },
+        {
+            name                 = "elysflowers:larkspur",
+            _botanical_name      = "D. nuttallianum",
+            description          = S("Larkspur"),
+            drawtype             = "plantlike",
+            _doc_items_longdesc  = "",
+            long_description     =
+            "",
+            tiles                = { "larkspur.png" },
+            wield_image          = "larkspur.png",
+            inventory_image      = "larkspur.png",
+            waving               = 1,
+            paramtype            = "light",
+            sunlight_propagates  = true,
+            walkable             = false,
+            groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
+            _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
+            _sound_def           = {
+                key = "node_sound_leaves_defaults",
+                input = {},
+            },
+            floodable            = true,
+            selection_box        = {
+                type = "fixed",
+                fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            }
+        },
+        {
+            name                 = "elysflowers:hibiscus",
+            _botanical_name      = "D. nuttallianum",
+            description          = S("Hibiscus"),
+            drawtype             = "plantlike",
+            _doc_items_longdesc  = "",
+            long_description     =
+            "",
+            tiles                = { "hibiscus_flower.png" },
+            wield_image          = "hibiscus_flower.png",
+            inventory_image      = "hibiscus_flower.png",
+            waving               = 1,
+            paramtype            = "light",
+            sunlight_propagates  = true,
+            walkable             = false,
+            groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_pink = 1, compostability = 30 },
+            _mcl_crafting_output = { single = { output = "mcl_dyes:pink" } },
             _sound_def           = {
                 key = "node_sound_leaves_defaults",
                 input = {},
@@ -705,6 +758,22 @@ if gameid == "mineclonia" or gameid == "mineclone2" then
         { name = "elysflowers:yarrow_pink", desc = "Pink Yarrow", image = "yarrow.png" })
     mcl_flowerpots.register_potted_flower("elysflowers:lavender",
         { name = "elysflowers:lavender", desc = "Lavender", image = "lavender_potted.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:hibiscus",
+        { name = "elysflowers:hibiscus", desc = "Hibiscus", image = "hibiscus_flower.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:california_poppy",
+        { name = "elysflowers:california_poppy", desc = "California Poppy", image = "california_poppy.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:purple_coneflower",
+        { name = "elysflowers:purple_coneflower", desc = "Purple Coneflower", image = "purple_coneflower_0.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:hyacinth",
+        { name = "elysflowers:hyacinth", desc = "Hyacinth", image = "hyacinth.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:phlox",
+        { name = "elysflowers:phlox", desc = "Phlox", image = "phlox.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:forget_me_not",
+        { name = "elysflowers:forget_me_not", desc = "Chinese Forget-me-not", image = "forget_me_not.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:arctic_poppy",
+        { name = "elysflowers:arctic_poppy", desc = "Arctic Poppy", image = "arctic_poppy.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:black_eyed_susan",
+        { name = "elysflowers:black_eyed_susan", desc = "Arctic Poppy", image = "black_eyed_susan.png" })
 end
 
 if core.global_exists("flowerpot") then
@@ -716,6 +785,15 @@ if core.global_exists("flowerpot") then
     flowerpot.register_node("elysflowers:lavender")
     flowerpot.register_node("elysflowers:fireweed")
     flowerpot.register_node("elysflowers:babys_breath")
+    flowerpot.register_node("elysflowers:california_poppy")
+    flowerpot.register_node("elysflowers:larkspur")
+    flowerpot.register_node("elysflowers:hibiscus")
+    flowerpot.register_node("elysflowers:purple_coneflower")
+    flowerpot.register_node("elysflowers:hyacinth")
+    flowerpot.register_node("elysflowers:phlox")
+    flowerpot.register_node("elysflowers:foxglove")
+    flowerpot.register_node("elysflowers:forget_me_not")
+    flowerpot.register_node("elysflowers:black_eyed_susan")
 end
 
 dofile(core.get_modpath("elysflowers") .. "/crafting.lua")

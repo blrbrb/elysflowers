@@ -126,7 +126,7 @@ core.register_decoration({
     name = "elysflowers:crocus",
     deco_type = "simple",
     noise_params = {
-        offset = -0.02,
+        offset = -0.0287,
         scale = 0.013,
         spread = { x = 64, y = 64, z = 64 },
         seed = 2342,
@@ -135,7 +135,7 @@ core.register_decoration({
         flags = { "absvalue" }
 
     },
-    place_on = { xcompat.materials.snow, xcompat.materials.dirt_with_grass, "default:snow",
+    place_on = { xcompat.materials.snow, xcompat.materials.dirt_with_grass,
         "default:permafrost_with_stones",
         "default:permafrost_with_moss", "etheral:cold_dirt",
         "default:dirt_with_snow"
@@ -165,11 +165,11 @@ core.register_decoration({
     },
     sidelen = 16,
     waving = true,
-    biomes = { "Forest", "deciduous_forest", "RoofedForest", "BirchForest" },
+    biomes = { "Forest", "deciduous_forest", "RoofedForest", "BirchForest", "deciduous_forest" },
     y_min = 1,
     y_max = 31000,
     rotation = "random",
-    spawn_by = { "default:tree", "mcl_trees:tree", "mcl_core:tree", "mcl_core:birchtree", "mcl_trees:tree_dark_oak", "mcl_core:darktree", "mcl_trees:birch_tree" },
+    spawn_by = { "default:tree", "default:aspen_tree", "default:tree", "mcl_trees:tree", "mcl_core:tree", "mcl_core:birchtree", "mcl_trees:tree_dark_oak", "mcl_core:darktree", "mcl_trees:birch_tree" },
     num_spawn_by = 1,
     decoration = "elysflowers:dames_rocket",
 })
@@ -178,7 +178,7 @@ core.register_decoration({
     name = "elysflowers:arctic_poppy",
     deco_type = "simple",
     noise_params = {
-        offset = -0.02,
+        offset = -0.01945,
         scale = 0.04,
         spread = { x = 64, y = 64, z = 64 },
         seed = 22123,
@@ -187,12 +187,12 @@ core.register_decoration({
 
     },
     place_on = { xcompat.materials.dirt_with_grass, "default:permafrost_with_stones", "default:permafrost_with_moss",
-        "etheral:cold_dirt",
+        "etheral:cold_dirt", "default:snowblock", "default:silver_sand",
         "default:dirt_with_snow", "default:dirt_with_coniferous_litter"
     },
     sidelen = 16,
     waving = true,
-    biomes = { "tundra", "taiga", "Taiga", "ColdTaiga", "IcePlains", "IcePlainsSpikes", "coniferous_forest" }, --mcl core uses the same biome names but capitalized
+    biomes = { "tundra", "taiga", "frost", "Taiga", "ColdTaiga", "IcePlains", "IcePlainsSpikes", "coniferous_forest", "cold_desert" }, --mcl core uses the same biome names but capitalized
     y_min = 1,
     y_max = 31000,
     rotation = "random",
@@ -246,7 +246,7 @@ core.register_decoration({
 core.register_decoration({
     name = "elysflowers:golden_groundsel",
     deco_type = "simple",
-    spawn_by = { "default:birch_trunk", "mcl_trees:tree", "mcl_core:tree", "mcl_trees:tree_birch", "mcl_core:birchtree" },
+    spawn_by = { "default:birch_trunk", "default:aspen_tree", "mcl_trees:tree", "mcl_core:tree", "mcl_trees:tree_birch", "mcl_core:birchtree" },
     num_spawn_by = 1,
     noise_params = {
         offset = -0.092,
@@ -272,19 +272,18 @@ core.register_decoration({
     deco_type = "simple",
     noise_params = {
         offset = -0.021,
-        scale = 0.09,
+        scale = 0.0019,
         spread = { x = 32, y = 32, z = 32 },
         seed = 86312,
         octaves = 1,
-        persist = 0.7,
-
-
+        persist = 0.4,
     },
     place_on = { xcompat.materials.dirt_with_grass },
     sidelen = 16,
     waving = true,
     spawn_by = { "default:water_source", "mcl_core:water_source" },
-    biomes = { "grassland_dunes", "Swampland_shore", "Taiga_beach", "SunflowerPlains_ocean", "Savanna_beach" },
+    num_spawn_by = 1,
+    biomes = { "grassland_dunes", "Swampland_shore", "Taiga_beach", "SunflowerPlains_ocean", "Savanna_beach", "coniferous_forest_dunes", "deciduous_forest_shore" },
     y_min = 1,
     y_max = 31000,
     --spawn_by = "default:acacia_tree",
@@ -306,7 +305,7 @@ core.register_decoration({
     place_on     = { xcompat.materials.dirt_with_grass },
     sidelen      = 16,
     waving       = true,
-    biomes       = { "SunflowerPlains", "Plains", "grassland", "savanna" },
+    biomes       = { "SunflowerPlains", "Plains", "grassland", "plains", "savanna" },
     y_min        = 1,
     y_max        = 31000,
     decoration   = "elysflowers:black_eyed_susan",
@@ -347,13 +346,34 @@ core.register_decoration({
     },
     sidelen = 16,
     waving = true,
-    biomes = { "Forest", "deciduous_forest", "RoofedForest", "Taiga_valley", "taiga_valley", "taiga" },
+    biomes = { "Forest", "coniferous_forest", "RoofedForest" },
     y_min = 1,
     y_max = 31000,
     rotation = "random",
     spawn_by = { "default:tree", "mcl_trees:tree", "mcl_core:tree", "mcl_core:birchtree", "mcl_core:darktree", "mcl_trees:tree_dark_oak" },
     num_spawn_by = 1,
     decoration = "elysflowers:phlox",
+})
+
+core.register_decoration({
+    name         = "elysflowers:marshmallow",
+    deco_type    = "simple",
+    noise_params = {
+        offset = -0.0496,
+        scale = 0.029,
+        spread = { x = 32, y = 32, z = 32 },
+        seed = 19173,
+        octaves = 2,
+        persist = 0.4
+    },
+    place_on     = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter" },
+    sidelen      = 16,
+    waving       = true,
+    biomes       = { "swamp", "Swampland", "Swampland_ocean", "swamp", "JungleEdgeM" },
+    spawn_by     = { "default:water_source", "mcl_core:water_source" },
+    y_min        = 1,
+    y_max        = 31000,
+    decoration   = "elysflowers:marshmallow",
 })
 
 core.register_decoration({
@@ -372,7 +392,7 @@ core.register_decoration({
     },
     sidelen = 8,
     waving = true,
-    biomes = { "Forest", "RoofedForest", "BirchForest", "BirchForestM" },
+    biomes = { "Forest", "RoofedForest", "BirchForest", "BirchForestM", "deciduous_forest", "" },
     y_min = 1,
     y_max = 31000,
     rotation = "random",
@@ -390,10 +410,10 @@ core.register_decoration({
         octaves = 2,
         persist = 0.5,
     },
-    place_on = { xcompat.materials.dirt_with_grass },
+    place_on = { xcompat.materials.dirt_with_grass, "ethereal:bamboo_dirt", "ethereal:grove_dirt" },
     sidelen = 16,
     waving = true,
-    biomes = { "Plains", "ExtremeHills", "grassland", "grassytwo", "CherryGrove" },
+    biomes = { "Plains", "ExtremeHills", "grassland", "grassytwo", "CherryGrove", "bamboo", "deciduous_forest", "meditteranean" },
     y_min = 1,
     y_max = 31000,
     decoration = "elysflowers:lavender",
@@ -413,7 +433,7 @@ core.register_decoration({
     place_on = { xcompat.materials.dirt_with_grass },
     sidelen = 16,
     waving = true,
-    biomes = { "Taiga", "MegaTaiga", "ExtremeHills", "grassland", "grassytwo", "deciduous_forest", "RoofedForest", "taiga" },
+    biomes = { "Taiga", "MegaTaiga", "ExtremeHills", "grassland", "grassytwo", "RoofedForest", "taiga", "coniferous_forest" },
     y_min = 1,
     y_max = 31000,
     decoration = "elysflowers:hyacinth",
@@ -459,4 +479,43 @@ core.register_decoration({
     y_min = 1,
     y_max = 31000,
     decoration = "elysflowers:purple_coneflower_1",
+})
+core.register_decoration({
+    name = "elysflowers:larkspur",
+    deco_type = "simple",
+    noise_params = {
+        offset = -0.09029,
+        scale = 0.0212,
+        spread = { x = 32, y = 32, z = 32 },
+        seed = 22269,
+        octaves = 1,
+        persist = 0.5,
+    },
+    place_on = { xcompat.materials.dirt_with_grass },
+    sidelen = 16,
+    waving = true,
+    biomes = { "Forest", "BirchForest", "grassland", "grassytwo", "deciduous_forest", "RoofedForest", "coniferous_forest" },
+    y_min = 1,
+    y_max = 31000,
+    decoration = "elysflowers:larkspur",
+})
+
+core.register_decoration({
+    name = "elysflowers:hibiscus",
+    deco_type = "simple",
+    noise_params = {
+        offset = -0.00929,
+        scale = 0.01412,
+        spread = { x = 32, y = 32, z = 32 },
+        seed = 2983671,
+        octaves = 2,
+        persist = 0.5,
+    },
+    place_on = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter", "everness:dirt_with_grass" },
+    sidelen = 16,
+    waving = true,
+    biomes = { "rainforest_ocean", "Forest_beach", "everness:bamboo_forest", "Swampland_ocean", "Swampland_deep_ocean", "Swampland_shore", "JungleEdge", "JungleEdge_ocean", "Savanna_beach", "Plains_beach", "MangroveSwamp_shore", "JungleM_shore", "Jungle_shore", "JungleEdge_ocean", "JungleEdge_deep_ocean", "JungleM_ocean", "Jungle_ocean", "savanna_shore", "savanna_ocean", "sandstone_desert_ocean", "desert_ocean", "rainforest" },
+    y_min = 1,
+    y_max = 31000,
+    decoration = "elysflowers:hibiscus",
 })
