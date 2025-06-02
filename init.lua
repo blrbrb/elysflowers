@@ -28,7 +28,8 @@ local function tprint(tbl, indent)
 end
 
 
---register biomes
+
+--register biomes, handle mineclonia specific parameters
 if gameid == "mineclonia" or gameid == "mineclone2" then
     core.register_biome({
         name = "Taiga_valley",
@@ -66,6 +67,8 @@ else
 end
 
 
+
+
 elysflowers = {
     nodes = { {
         name                 = "elysflowers:babys_breath",
@@ -91,14 +94,31 @@ elysflowers = {
         selection_box        = {
             type = "fixed",
             fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-        }
+        },
+        on_place             = function(itemstack, placer, pointed_thing)
+            if not pointed_thing or pointed_thing.type ~= "node" then
+                return itemstack
+            end
+
+            local variant = math.random(0, 1)
+            local pos = pointed_thing.above
+            local node_name = "elysflowers" .. ":babys_breath_" .. variant
+
+            if variant == 1 then
+                core.set_node(pos, { name = "elysflowers:babys_breath" })
+            else
+                core.set_node(pos, { name = node_name })
+            end
+            itemstack:take_item()
+            return itemstack
+        end
     }, {
-        name                 = "elysflowers:babys_breath_2",
+        name                 = "elysflowers:babys_breath_0",
         _botanical_name      = "G. Repens",
         description          = S("Baby's Breath"),
         drawtype             = "plantlike",
         _doc_items_longdesc  = "Baby's Breath",
-        tiles                = { "babys_breath_2.png" },
+        tiles                = { "babys_breath.png" },
         wield_image          = "babys_breath.png",
         inventory_image      = "babys_breath.png",
         waving               = 1,
@@ -228,6 +248,7 @@ elysflowers = {
         walkable             = false,
         groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, place_flowerlike = 1, color_violet = 1, compostability = 45, not_in_creative_inventory = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:magenta" } },
+        _on_bone_meal        = _on_bone_meal,
         _sound_def           = {
             key = "node_sound_leaves_defaults",
             input = {},
@@ -279,6 +300,7 @@ elysflowers = {
             key = "node_sound_leaves_defaults",
             input = {},
         },
+        _on_bone_meal = _on_bone_meal,
         floodable = true,
         selection_box = {
             type = "fixed",
@@ -302,6 +324,7 @@ elysflowers = {
             key = "node_sound_leaves_defaults",
             input = {},
         },
+        _on_bone_meal = _
         floodable = true,
         selection_box = {
             type = "fixed",
@@ -309,7 +332,7 @@ elysflowers = {
         },
     }, {
         name                 = "elysflowers:african_marigold",
-        _botanical_name      = "T. Erecta",
+        _botanical_name      = "Tagetes. Erecta",
         description          = S("African Marigold"),
         drawtype             = "plantlike",
         long_description     =
@@ -408,7 +431,7 @@ elysflowers = {
         },
     }, {
         name                 = "elysflowers:lavender",
-        _botanical_name      = "L. officinalis",
+        _botanical_name      = "Lavandula officinalis",
         description          = S("Lavender"),
         drawtype             = "plantlike",
         _doc_items_longdesc  = "Herbacious & fragrant perennial with alluring purple blooms",
@@ -434,7 +457,7 @@ elysflowers = {
         }
     }, {
         name                 = "elysflowers:hyacinth",
-        _botanical_name      = "",
+        _botanical_name      = "Hyacinthus Orientalis",
         description          = S("Hyacinth"),
         drawtype             = "plantlike",
         _doc_items_longdesc  = "Herbacious & fragrant perennial with alluring purple blooms",
@@ -586,7 +609,7 @@ elysflowers = {
     },
         {
             name                 = "elysflowers:black_eyed_susan",
-            _botanical_name      = "R. Hertia",
+            _botanical_name      = "Rudbeka. Hertia",
             description          = S("Black-eyed-susan"),
             drawtype             = "plantlike",
             _doc_items_longdesc  = "",
@@ -667,7 +690,7 @@ elysflowers = {
         },
         {
             name                 = "elysflowers:hibiscus",
-            _botanical_name      = "D. nuttallianum",
+            _botanical_name      = "H. Aponeurus",
             description          = S("Hibiscus"),
             drawtype             = "plantlike",
             _doc_items_longdesc  = "",
@@ -694,7 +717,7 @@ elysflowers = {
         },
         {
             name                 = "elysflowers:foxglove",
-            _botanical_name      = "Digitalis. purpurea",
+            _botanical_name      = "Digitalis purpurea",
             description          = S("Foxglove"),
             drawtype             = "plantlike",
             _doc_items_longdesc  = "Careful this plant is poisonous!",
@@ -718,10 +741,39 @@ elysflowers = {
                 type = "fixed",
                 fixed = { -0.25, -0.49, -0.25, 0.25, 0.50, 0.25 },
             }
+        }, {
+        name                 = "elysflowers:indian_paintbrush",
+        _botanical_name      = "Castilleja coccinea",
+        description          = S("Indian Paintbrush"),
+        drawtype             = "plantlike",
+        _doc_items_longdesc  = "",
+        long_description     =
+        "Commonly found in temperate praries",
+        tiles                = { "indian_paintbrush.png" },
+        wield_image          = "indian_paintbrush.png",
+        inventory_image      = "indian_paintbrush.png",
+        waving               = 1,
+        paramtype            = "light",
+        sunlight_propagates  = true,
+        walkable             = false,
+        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_red = 1, compostability = 45 },
+        _mcl_crafting_output = { single = { output = "mcl_dyes:red" } },
+        _sound_def           = {
+            key = "node_sound_leaves_defaults",
+            input = {},
+        },
+        floodable            = true,
+        selection_box        = {
+            type = "fixed",
+            fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
         }
+    }
+
     },
 
+
 }
+
 
 
 -- add botanical names to item descriptions if global setting == yes
@@ -773,7 +825,9 @@ if gameid == "mineclonia" or gameid == "mineclone2" then
     mcl_flowerpots.register_potted_flower("elysflowers:arctic_poppy",
         { name = "elysflowers:arctic_poppy", desc = "Arctic Poppy", image = "arctic_poppy.png" })
     mcl_flowerpots.register_potted_flower("elysflowers:black_eyed_susan",
-        { name = "elysflowers:black_eyed_susan", desc = "Arctic Poppy", image = "black_eyed_susan.png" })
+        { name = "elysflowers:black_eyed_susan", desc = "Black-eyed-susan", image = "black_eyed_susan.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:indian_paintbrush",
+        { name = "elysflowers:indian_paintbrush", desc = "Indian Paintbrush", image = "indian_paintbrush.png" })
 end
 
 if core.global_exists("flowerpot") then
@@ -795,5 +849,3 @@ if core.global_exists("flowerpot") then
     flowerpot.register_node("elysflowers:forget_me_not")
     flowerpot.register_node("elysflowers:black_eyed_susan")
 end
-
-dofile(core.get_modpath("elysflowers") .. "/crafting.lua")

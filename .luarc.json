@@ -1,5 +1,6 @@
 {
-  "diagnostics.globals": ["core", "xcompat"],
+  "diagnostics.globals": ["core", "xcompat",
+        "vector"],
   "workspace.library": [
     "/home/eli/.var/app/org.luanti.luanti/.minetest/mods",
     "/home/eli/.var/app/org.luanti.luanti/.minetest/games/mineclonia/mods",

@@ -98,28 +98,53 @@ core.register_decoration({
 
 core.register_decoration({
     name         = "elysflowers:babys_breath",
-    deco_type    = "schematic",
+    deco_type    = "simple",
     noise_params = {
-        offset = 0.021,
-        scale = 0.0947,
-        spread = { x = 128, y = 128, z = 128 },
+        offset = -0.0021,
+        scale = 0.00947,
+        spread = { x = 32, y = 32, z = 32 },
         seed = 453392,
-        octaves = 5,
+        octaves = 2,
         persist = 0.6
     },
     _sound_def   = {
         key = "node_sound_leaves_defaults",
         input = {},
     },
-    schematic    = core.get_modpath("elysflowers") .. "/schems/" .. "babysbreath.mts",
-    place_on     = { xcompat.dirt_with_grass, xcompat.materials.dirt
+    place_on     = { xcompat.dirt_with_grass, xcompat.materials.dirt, "ethereal:grove_dirt"
     },
     sidelen      = 16,
     waving       = true,
-    biomes       = { "deciduous_forest", "BirchForest", "BirchForestM" },
+    biomes       = { "deciduous_forest", "BirchForest", "BirchForestM", "grove" },
     y_min        = 1,
     y_max        = 31000,
     decoration   = "elysflowers:babys_breath",
+})
+
+core.register_decoration({
+    name         = "elysflowers:babys_breath_0",
+    deco_type    = "simple",
+    noise_params = {
+        offset = -0.001732,
+        scale = 0.0052912,
+        spread = { x = 16, y = 16, z = 16 },
+        seed = 567182,
+        octaves = 1,
+        persist = 0.5
+    },
+    _sound_def   = {
+        key = "node_sound_leaves_defaults",
+        input = {},
+    },
+    place_on     = { xcompat.dirt_with_grass, xcompat.materials.dirt, "ethereal:grove_dirt"
+    },
+    sidelen      = 16,
+    waving       = true,
+    biomes       = { "deciduous_forest", "BirchForest", "BirchForestM", "grove" },
+    spawn_by     = { "elysflowers:babys_breath" },
+    y_min        = 1,
+    y_max        = 31000,
+    decoration   = "elysflowers:babys_breath_0",
 })
 
 core.register_decoration({
@@ -127,18 +152,17 @@ core.register_decoration({
     deco_type = "simple",
     noise_params = {
         offset = -0.0287,
-        scale = 0.013,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 2342,
+        scale = 0.0013,
+        spread = { x = 32, y = 32, z = 32 },
+        seed = 2323142,
         octaves = 3,
         persist = 0.2,
         flags = { "absvalue" }
 
     },
-    place_on = { xcompat.materials.snow, xcompat.materials.dirt_with_grass,
+    place_on = { xcompat.materials.snow, "default:dirt_with_snow", xcompat.materials.dirt_with_grass,
         "default:permafrost_with_stones",
-        "default:permafrost_with_moss", "etheral:cold_dirt",
-        "default:dirt_with_snow"
+        "default:permafrost_with_moss", "etheral:cold_dirt"
     },
     sidelen = 16,
     waving = true,
@@ -148,7 +172,32 @@ core.register_decoration({
     rotation = "random",
     decoration = "elysflowers:crocus",
 })
+core.register_decoration({
+    name = "elysflowers:indian_paintbrush",
+    deco_type = "simple",
+    noise_params = {
+        offset = 0.006227,
+        scale = 0.0002343,
+        spread = { x = 32, y = 32, z = 32 },
+        seed = 4209842,
+        octaves = 1,
+        persist = 0.3,
 
+    },
+    place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt_with_dry_grass", "default:dry_dirt",
+        "ethereal:dry_dirt",
+        "everness:dry_dirt_with_dry_grass", "everness:mineral_sand"
+    },
+    spawn_by = { "mcl_flowers:tallgrass", "default:dry_grass" },
+    num_spawn_by = 2,
+    sidelen = 16,
+    waving = true,
+    biomes = { "savanna", "Savanna", "everness:baobab_savanna", "everness:mineral_springs", "MesaPlateauFM_grasstop", "Mesa_sandlevel", "MesaPlateauFM", "mesa_redwood" },
+    y_min = 1,
+    y_max = 31000,
+    rotation = "random",
+    decoration = "elysflowers:indian_paintbrush",
+})
 core.register_decoration({
     name = "elysflowers:dames_rocket",
     deco_type = "simple",
@@ -161,11 +210,12 @@ core.register_decoration({
         persist = 0.5,
 
     },
-    place_on = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves", "woodsoils:grass_with_leaves_1"
+    place_on = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves", "woodsoils:grass_with_leaves_1",
+        "ethereal:grove_dirt"
     },
     sidelen = 16,
     waving = true,
-    biomes = { "Forest", "deciduous_forest", "RoofedForest", "BirchForest", "deciduous_forest" },
+    biomes = { "Forest", "deciduous_forest", "RoofedForest", "BirchForest", "deciduous_forest", "grove" },
     y_min = 1,
     y_max = 31000,
     rotation = "random",
@@ -180,7 +230,7 @@ core.register_decoration({
     noise_params = {
         offset = -0.01945,
         scale = 0.04,
-        spread = { x = 64, y = 64, z = 64 },
+        spread = { x = 32, y = 32, z = 32 },
         seed = 22123,
         octaves = 2,
         persist = 0.6,
@@ -203,18 +253,18 @@ core.register_decoration({
     name = "elysflowers:african_marigold",
     deco_type = "simple",
     noise_params = {
-        offset = -0.02,
-        scale = 0.029,
-        spread = { x = 64, y = 64, z = 64 },
+        offset = 0.00545,
+        scale = 0.000029,
+        spread = { x = 16, y = 16, z = 16 },
         seed = 29132,
-        octaves = 2,
-        persist = 0.6,
+        octaves = 1,
+        persist = 0.4,
 
     },
-    place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dry_dirt_with_dry_grass", "ethereal:dry_dirt" },
-    sidelen = 16,
+    place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
+    sidelen = 32,
     waving = true,
-    biomes = { "savanna", "Savanna", "mesa", "MesaPlateauF_grasstop", "jumble" }, --compat for mcl core "Savanna" biome
+    biomes = { "savanna", "Savanna", "mesa", "MesaPlateauF_grasstop", "jumble", "mesa_redwood", "everness:baobab_savanna" },
     y_min = 1,
     y_max = 31000,
     rotation = "random",
@@ -233,10 +283,10 @@ core.register_decoration({
         persist = 0.3,
 
     },
-    place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dry_dirt_with_dry_grass", "ethereal:dry_dirt" },
+    place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dry_dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
     sidelen = 16,
     waving = true,
-    biomes = { "savanna", "mesa", "Savanna", "MesaPlateauF", "MesaPlateauFM_grasstop", "MesaPlateauFM" },
+    biomes = { "savanna", "mesa", "Savanna", "MesaPlateauF", "MesaPlateauFM_grasstop", "MesaPlateauFM", "everness:baobab_savanna" },
     y_min = 1,
     y_max = 31000,
     rotation = "random",
@@ -257,11 +307,11 @@ core.register_decoration({
         persist = 0.4
 
     },
-    place_on = { xcompat.materials.dirt_with_grass, "mcl_core:dirt_with_grass", "woodsoils:grass_with_leaves_1", "woodsoils:grass_with_leaves_2", "woodsoils:grass_with_leaves_3" },
+    place_on = { xcompat.materials.dirt_with_grass, "ethereal:grove_dirt", "mcl_core:dirt_with_grass", "woodsoils:grass_with_leaves_1", "woodsoils:grass_with_leaves_2", "woodsoils:grass_with_leaves_3" },
     sidelen = 16,
     rotation = "random",
     waving = true,
-    biomes = { "Forest", "deciduous_forest", "BirchForest", "BirchForestM" }, --compat for mcl core "Savanna" biome
+    biomes = { "Forest", "deciduous_forest", "BirchForest", "BirchForestM", "grove" }, --compat for mcl core "Savanna" biome
     y_min = 1,
     y_max = 31000,
     decoration = "elysflowers:golden_groundsel",
@@ -403,17 +453,17 @@ core.register_decoration({
     name = "elysflowers:lavender",
     deco_type = "simple",
     noise_params = {
-        offset = -0.013,
-        scale = 0.00222,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 19132,
-        octaves = 2,
-        persist = 0.5,
+        offset = -0.0135193,
+        scale = 0.0522,
+        spread = { x = 32, y = 32, z = 32 },
+        seed = 747423,
+        octaves = 1,
+        persist = 0.4,
     },
     place_on = { xcompat.materials.dirt_with_grass, "ethereal:bamboo_dirt", "ethereal:grove_dirt" },
-    sidelen = 16,
+    sidelen = 32,
     waving = true,
-    biomes = { "Plains", "ExtremeHills", "grassland", "grassytwo", "CherryGrove", "bamboo", "deciduous_forest", "meditteranean" },
+    biomes = { "Plains", "ExtremeHills", "grassytwo", "CherryGrove", "bamboo", "meditteranean" },
     y_min = 1,
     y_max = 31000,
     decoration = "elysflowers:lavender",
@@ -423,10 +473,10 @@ core.register_decoration({
     name = "elysflowers:hyacinth",
     deco_type = "simple",
     noise_params = {
-        offset = -0.0723,
+        offset = -0.0423,
         scale = 0.012,
-        spread = { x = 64, y = 64, z = 64 },
-        seed = 19132,
+        spread = { x = 16, y = 16, z = 16 },
+        seed = 36945,
         octaves = 2,
         persist = 0.4,
     },
