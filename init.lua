@@ -27,6 +27,48 @@ local function tprint(tbl, indent)
     return toprint
 end
 
+local function register_plant(def)
+    local groups = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, deco_block = 1, compostability = 35 }
+
+    if def.not_in_creative then
+        groups["not_in_creative_inventory"] = 1
+    else
+        groups["not_in_creative_inventory"] = 0
+    end
+
+    if def.dye then
+        groups["color_" .. def.dye] = 1
+    end
+
+    core.register_node(def.name, {
+        name                 = def.name,
+        _botanical_name      = def._botanical_name,
+        description          = def.description,
+        drawtype             = "plantlike",
+        _doc_items_longdesc  = def.longdesc,
+        tiles                = def.tiles,
+        wield_image          = def.wield_image,
+        inventory_image      = def.inventory_image,
+        visual_scale         = def.visual_scale,
+        waving               = 1,
+        paramtype            = "light",
+        sunlight_propagates  = true,
+        walkable             = false,
+        groups               = groups,
+        _mcl_crafting_output = { single = { output = def.mcl_dye } },
+        _sound_def           = {
+            key = "node_sound_leaves_defaults",
+            input = {},
+        },
+        floodable            = true,
+        selection_box        = {
+            type = "fixed",
+            fixed = def.selection_box,
+        },
+        drop                 = def.drop,
+        on_place             = def.on_place
+    })
+end
 
 
 --register biomes, handle mineclonia specific parameters
@@ -49,6 +91,7 @@ if gameid == "mineclonia" or gameid == "mineclone2" then
         _mcl_fogcolor = "#C0D8FF",
         weight = 1.0
     })
+    _on_bone_meal = mcl_flowers.on_bone_meal_simple
 else
     core.register_biome({
         name = "taiga_valley",
@@ -68,7 +111,6 @@ end
 
 
 
-
 elysflowers = {
     nodes = { {
         name                 = "elysflowers:babys_breath",
@@ -84,7 +126,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = false,
         walkable             = false,
-        groups               = { snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, compostability = 35 },
+        groups               = { attached_node = 1, unsticky = 1, deco_block = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, compostability = 35 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:white" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -125,7 +167,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = false,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, deco_block = 1, compostability = 35, not_in_creative_inventory = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, deco_block = 1, compostability = 35, not_in_creative_inventory = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:white" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -150,7 +192,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = false,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, color_violet = 1, compostability = 45 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, color_violet = 1, compostability = 45 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:magenta" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -194,7 +236,7 @@ elysflowers = {
         sunlight_propagates  = false,
         light_source         = 2,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, place_flowerlike = 1, deco_block = 1, color_violet = 1, compostability = 45, not_in_creative_inventory = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, place_flowerlike = 1, deco_block = 1, color_violet = 1, compostability = 45, not_in_creative_inventory = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:magenta" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -220,7 +262,7 @@ elysflowers = {
         sunlight_propagates  = false,
         light_source         = 2,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, color_violet = 1, place_flowerlike = 1, compostability = 45, not_in_creative_inventory = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, color_violet = 1, place_flowerlike = 1, compostability = 45, not_in_creative_inventory = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:magenta" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -246,7 +288,7 @@ elysflowers = {
         sunlight_propagates  = true,
         light_source         = 2,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, place_flowerlike = 1, color_violet = 1, compostability = 45, not_in_creative_inventory = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, deco_block = 1, place_flowerlike = 1, color_violet = 1, compostability = 45, not_in_creative_inventory = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:magenta" } },
         _on_bone_meal        = _on_bone_meal,
         _sound_def           = {
@@ -271,7 +313,7 @@ elysflowers = {
         paramtype = "light",
         sunlight_propagates = true,
         walkable = false,
-        groups = { dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, place_flowerlike = 1, flower = 1, flora = 1, color_violet = 1 },
+        groups = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, place_flowerlike = 1, flower = 1, flora = 1, color_violet = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
         _sound_def = {
             key = "node_sound_leaves_defaults",
@@ -294,7 +336,7 @@ elysflowers = {
         paramtype = "light",
         sunlight_propagates = true,
         walkable = false,
-        groups = { dig_immediate = 3, snappy = 3, deco_block = 1, flammable = 2, flower = 1, flora = 1, color_white = 1 },
+        groups = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, deco_block = 1, flammable = 2, flower = 1, flora = 1, color_white = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:light_grey" } },
         _sound_def = {
             key = "node_sound_leaves_defaults",
@@ -318,13 +360,13 @@ elysflowers = {
         paramtype = "light",
         sunlight_propagates = true,
         walkable = false,
-        groups = { dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, flower = 1, flora = 1, color_yellow = 1 },
+        groups = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, flower = 1, flora = 1, color_yellow = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:yellow" } },
         _sound_def = {
             key = "node_sound_leaves_defaults",
             input = {},
         },
-        _on_bone_meal = _
+        _on_bone_meal = _on_bonemeal,
         floodable = true,
         selection_box = {
             type = "fixed",
@@ -344,7 +386,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, flower = 1, flora = 1, color_yellow = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, deco_block = 1, flower = 1, flora = 1, color_yellow = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:orange" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -371,7 +413,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, color_yellow = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, color_yellow = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:yellow" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -395,7 +437,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, color_pink = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, color_pink = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:pink" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -418,7 +460,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, color_pink = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, color_pink = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:pink" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -444,7 +486,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
+        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, color_pink = 1, attached_node = 1, unsticky = 1, deco_block = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, color_violet = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -470,7 +512,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, plant = 1, color_blue = 1, compostability = 75 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, deco_block = 1, flora = 1, plant = 1, color_blue = 1, compostability = 75 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:dark_blue" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -497,7 +539,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, deco_block = 1, plant = 1, color_orange = 1, compostability = 75 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, deco_block = 1, plant = 1, color_orange = 1, compostability = 75 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:orange" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -524,7 +566,7 @@ elysflowers = {
         paramtype = "light",
         sunlight_propagates = true,
         walkable = false,
-        groups = { dig_immediate = 3, snappy = 3, flammable = 2, flora = 1, deco_block = 1, plant = 1, color_purple = 1, compostability = 75 },
+        groups = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flora = 1, deco_block = 1, plant = 1, color_purple = 1, compostability = 75 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
         _sound_def = {
             key = "node_sound_leaves_defaults",
@@ -568,7 +610,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, seagrass = 1, flora = 1, deco_block = 1, plant = 1, color_orange = 1, compostability = 75, not_in_creative_inventory = 1 },
+        groups               = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, seagrass = 1, flora = 1, deco_block = 1, plant = 1, color_orange = 1, compostability = 75, not_in_creative_inventory = 1 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -595,7 +637,7 @@ elysflowers = {
         paramtype            = "light",
         sunlight_propagates  = true,
         walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
+        groups               = { attached_node = 1, unsticky = 1, deco_block = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
         _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
         _sound_def           = {
             key = "node_sound_leaves_defaults",
@@ -622,7 +664,7 @@ elysflowers = {
             paramtype            = "light",
             sunlight_propagates  = true,
             walkable             = false,
-            groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
+            groups               = { attached_node = 1, unsticky = 1, deco_block = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
             _mcl_crafting_output = { single = { output = "mcl_dyes:yellow" } },
             _sound_def           = {
                 key = "node_sound_leaves_defaults",
@@ -649,7 +691,7 @@ elysflowers = {
             paramtype            = "light",
             sunlight_propagates  = true,
             walkable             = false,
-            groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
+            groups               = { attached_node = 1, unsticky = 1, deco_block = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
             _mcl_crafting_output = { single = { output = "mcl_dyes:light_blue" } },
             _sound_def           = {
                 key = "node_sound_leaves_defaults",
@@ -676,7 +718,7 @@ elysflowers = {
             paramtype            = "light",
             sunlight_propagates  = true,
             walkable             = false,
-            groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
+            groups               = { attached_node = 1, unsticky = 1, deco_block = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
             _mcl_crafting_output = { single = { output = "mcl_dyes:purple" } },
             _sound_def           = {
                 key = "node_sound_leaves_defaults",
@@ -703,7 +745,7 @@ elysflowers = {
             paramtype            = "light",
             sunlight_propagates  = true,
             walkable             = false,
-            groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_pink = 1, compostability = 30 },
+            groups               = { attached_node = 1, unsticky = 1, deco_block = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_pink = 1, compostability = 30 },
             _mcl_crafting_output = { single = { output = "mcl_dyes:pink" } },
             _sound_def           = {
                 key = "node_sound_leaves_defaults",
@@ -730,7 +772,7 @@ elysflowers = {
             paramtype            = "light",
             sunlight_propagates  = true,
             walkable             = false,
-            groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
+            groups               = { attached_node = 1, unsticky = 1, deco_block = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_violet = 1, compostability = 75 },
             _mcl_crafting_output = { single = { output = "mcl_dyes:pink" } },
             _sound_def           = {
                 key = "node_sound_leaves_defaults",
@@ -741,40 +783,364 @@ elysflowers = {
                 type = "fixed",
                 fixed = { -0.25, -0.49, -0.25, 0.25, 0.50, 0.25 },
             }
-        }, {
-        name                 = "elysflowers:indian_paintbrush",
-        _botanical_name      = "Castilleja coccinea",
-        description          = S("Indian Paintbrush"),
-        drawtype             = "plantlike",
-        _doc_items_longdesc  = "",
-        long_description     =
-        "Commonly found in temperate praries",
-        tiles                = { "indian_paintbrush.png" },
-        wield_image          = "indian_paintbrush.png",
-        inventory_image      = "indian_paintbrush.png",
-        waving               = 1,
-        paramtype            = "light",
-        sunlight_propagates  = true,
-        walkable             = false,
-        groups               = { dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_red = 1, compostability = 45 },
-        _mcl_crafting_output = { single = { output = "mcl_dyes:red" } },
-        _sound_def           = {
-            key = "node_sound_leaves_defaults",
-            input = {},
         },
-        floodable            = true,
-        selection_box        = {
-            type = "fixed",
-            fixed = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+    },
+    nodes2 =
+    {
+        {
+            name            = "elysflowers:indian_paintbrush",
+            _botanical_name = "Castilleja coccinea",
+            description     = S("Indian Paintbrush"),
+            longdesc        =
+            "Commonly found in temperate praries",
+            tiles           = { "indian_paintbrush.png" },
+            wield_image     = "indian_paintbrush.png",
+            inventory_image = "indian_paintbrush.png",
+            mcl_dye         = "mcl_dyes:red",
+            dye             = "red",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+        },
+        {
+            name            = "elysflowers:forget_me_not",
+            _botanical_name = "C. Amabile",
+            description     = S("Chinese Forget-me-not"),
+            longdesc        = "",
+            tiles           = { "forget_me_not.png" },
+            dye             = "blue",
+            mcl_dye         = "mcl_dyes:light_blue",
+            wield_image     = "forget_me_not.png",
+            inventory_image = "forget_me_not.png",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+        },
+        {
+            name             = "elysflowers:foxglove",
+            _botanical_name  = "Digitalis purpurea",
+            description      = S("Foxglove"),
+            long_description = "",
+            tiles            = { "foxglove2.png" },
+            wield_image      = "foxglove2.png",
+            dye              = "pink",
+            mcl_dye          = "mcl_dyes:pink",
+            inventory_image  = "foxglove2.png",
+            selection_box    = { -0.25, -0.49, -0.25, 0.25, 0.50, 0.25 }
+        },
+        {
+            name            = "elysflowers:hibiscus",
+            _botanical_name = "H. Aponeurus",
+            description     = S("Hibiscus"),
+            tiles           = { "hibiscus_flower.png" },
+            wield_image     = "hibiscus_flower.png",
+            inventory_image = "hibiscus_flower.png",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 }
+        },
+        {
+            name            = "elysflowers:larkspur",
+            _botanical_name = "D. nuttallianum",
+            description     = S("Larkspur"),
+            tiles           = { "larkspur.png" },
+            dye             = "white",
+            mcl_dye         = "mcl_dyes:white",
+            wield_image     = "larkspur.png",
+            inventory_image = "larkspur.png",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 }
+        },
+        {
+            name            = "elysflowers:black_eyed_susan",
+            _botanical_name = "Rudbeka. Hertia",
+            description     = S("Black-eyed-susan"),
+            tiles           = { "black_eyed_susan.png" },
+            wield_image     = "black_eyed_susan.png",
+            dye             = "yellow",
+            mcl_dye         = "mcl_dyes:yellow",
+            inventory_image = "black_eyed_susan.png",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 }
+        },
+        {
+            name            = "elysflowers:phlox",
+            _botanical_name = "P. drummondii",
+            description     = S("Phlox"),
+            longdesc        = "Charming, abundant blooms on tall stems.",
+            tiles           = { "phlox.png" },
+            dye             = "violet",
+            mcl_dye         = "mcl_dyes:purple",
+            wield_image     = "phlox.png",
+            inventory_image = "phlox.png",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 }
+        },
+        {
+            name                      = "elysflowers:purple_coneflower_1",
+            _botanical_name           = "E. purpurea",
+            description               = S("Purple Coneflower"),
+            longdesc                  = "",
+            tiles                     = { "purple_coneflower_1.png" },
+            dye                       = "violet",
+            mcl_dye                   = "mcl_dyes:purple",
+            wield_image               = "purple_coneflower_0.png",
+            not_in_creative_inventory = true,
+            inventory_image           = "purple_coneflower_0.png",
+            selection_box             = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            drop                      = "elysflowers:purple_coneflower"
+        },
+        {
+            name = "elysflowers:purple_coneflower",
+            _botanical_name = "E. purpurea",
+            description = S("Purple Coneflower"),
+            longdesc = "",
+            tiles = { "purple_coneflower_0.png" },
+            wield_image = "purple_coneflower_0.png",
+            inventory_image = "purple_coneflower_0.png",
+            dye = "violet",
+            mcl_dye = "mcl_dyes:purple",
+            on_place = function(itemstack, placer, pointed_thing)
+                if not pointed_thing or pointed_thing.type ~= "node" then
+                    return itemstack
+                end
+
+                local variant = math.random(0, 1)
+                local pos = pointed_thing.above
+                local node_name = "elysflowers" .. ":purple_coneflower_" .. variant
+
+                if variant == 0 then
+                    core.set_node(pos, { name = "elysflowers:purple_coneflower" })
+                else
+                    core.set_node(pos, { name = node_name })
+                end
+                itemstack:take_item()
+                return itemstack
+            end,
+            selection_box = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 }
+        },
+        {
+            name            = "elysflowers:california_poppy",
+            _botanical_name = "E. californica",
+            description     = S("California Poppy"),
+            drawtype        = "plantlike",
+            longdesc        =
+            "Perennial with golden domelike blooms, found in arid climates that receive plenty of sunlight and warmth.",
+            tiles           = { "california_poppy.png" },
+            wield_image     = "california_poppy.png",
+            inventory_image = "california_poppy.png",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 }
+        },
+        {
+            name            = "elysflowers:hyacinth",
+            _botanical_name = "Hyacinthus Orientalis",
+            description     = S("Hyacinth"),
+            longdesc        = "Herbacious & fragrant perennial with alluring purple blooms",
+            tiles           = { "hyacinth.png" },
+            wield_image     = "hyacinth.png",
+            dye             = "blue",
+            mcl_dye         = "mcl_dyes:blue",
+            inventory_image = "hyacinth.png",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 }
+        },
+        {
+            name            = "elysflowers:lavender",
+            _botanical_name = "Lavandula officinalis",
+            description     = S("Lavender"),
+            longdesc        = "Herbacious & fragrant perennial with alluring purple blooms",
+            tiles           = { "lavender.png" },
+            wield_image     = "lavender.png",
+            dye             = "violet",
+            mcl_dye         = "mcl_dyes:purple",
+            inventory_image = "lavender.png",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+        },
+        {
+            name            = "elysflowers:marshmallow",
+            _botanical_name = "A. officinalis",
+            description     = S("Marshmallow"),
+            tiles           = { "marshmallow.png" },
+            wield_image     = "marshmallow.png",
+            inventory_image = "marshmallow.png",
+            dye             = "pink",
+            mcl_dye         = "mcl_dyes:pink",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+        },
+        {
+            name            = "elysflowers:yarrow_pink",
+            _botanical_name = "A. millefolium",
+            description     = S("Yarrow"),
+            tiles           = { "yarrow.png" },
+            wield_image     = "yarrow.png",
+            inventory_image = "yarrow.png",
+            dye             = "pink",
+            mcl_dye         = "mcl_dyes:pink",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+        },
+        {
+            name            = "elysflowers:african_marigold",
+            _botanical_name = "Tagetes. Erecta",
+            description     = S("African Marigold"),
+            longdesc        =
+            "Mounding Annual. Despite it's name, this flower is actually native to the hot and humid steppes of Latin America, inhabiting a wide variety of tropical and subtropical climates",
+            tiles           = { "marigold.png" },
+            wield_image     = "marigold.png",
+            inventory_image = "marigold.png",
+            dye             = "orange",
+            mcl_dye         = "mcl_dyes:orange",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 }
+        },
+        {
+            name = "elysflowers:arctic_poppy",
+            _botanical_name = "P. radicatum",
+            description = S("Arctic Poppy"),
+            tiles = { "arctic_poppy.png" },
+            wield_image = "arctic_poppy.png",
+            inventory_image = "arctic_poppy.png",
+            dye = "yellow",
+            mcl_dye = "mcl_dyes:yellow",
+            selection_box = { -0.45, -0.5, -0.35, 0.35, 0.45, 0.35, },
+        },
+        {
+            name = "elysflowers:dames_rocket",
+            _botanical_name = "H. matronalis",
+            description = S("Dame's Rocket"),
+            tiles = { "dames_rocket.png" },
+            wield_image = "dames_rocket.png",
+            inventory_image = "dames_rocket.png",
+            dye = "light_grey",
+            mcl_dye = "mcl_dyes:light_grey",
+            selection_box = { -0.25, -0.5, -0.25, 0.25, 0.3, 0.25 },
+        },
+        {
+            name = "elysflowers:crocus",
+            _botanical_name = "C. sativus",
+            description = S("Crocus"),
+            tiles = { "crocus.png" },
+            wield_image = "crocus.png",
+            inventory_image = "crocus.png",
+            dye = "violet",
+            mcl_dye = "mcl_dyes:purple",
+            selection_box = { -0.25, -0.5, -0.25, 0.25, 0.3, 0.25 },
+        },
+        {
+            name            = "elysflowers:fireweed_4",
+            _botanical_name = "C. angustifolium",
+            description     = S("Fireweed"),
+            longdesc        = "Fireweed",
+            tiles           = { "fireweed_3.png" },
+            wield_image     = "fireweed_0.png",
+            inventory_image = "fireweed_0.png",
+            dye             = "magenta",
+            mcl_dye         = "mcl_dyes:magenta",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.10, 0.35, },
+            drop            = "elysflowers:fireweed"
+        },
+        {
+            name            = "elysflowers:fireweed_3",
+            _botanical_name = "C. angustifolium",
+            description     = S("Fireweed"),
+            longdesc        = "Fireweed",
+            tiles           = { "fireweed_2.png" },
+            wield_image     = "fireweed_0.png",
+            inventory_image = "fireweed_0.png",
+            light_source    = 2,
+            dye             = "magenta",
+            mcl_dye         = "mcl_dyes:magenta",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            drop            = "elysflowers:fireweed"
+        },
+        {
+            name            = "elysflowers:fireweed_2",
+            _botanical_name = "C. angustifolium",
+            description     = S("Fireweed"),
+            longdesc        = "Fireweed",
+            tiles           = { "fireweed_1.png" },
+            wield_image     = "fireweed_0.png",
+            inventory_image = "fireweed_0.png",
+            visual_scale    = 1.5,
+            selection_box   = { -0.25, -0.5, -0.25, 0.30, 1.0, 0.30, },
+            drop            = "elysflowers:fireweed"
+        },
+        {
+            name            = "elysflowers:fireweed",
+            _botanical_name = "C. angustifolium",
+            description     = S("Fireweed"),
+            longdesc        = "Fireweed",
+            tiles           = { "fireweed_0.png" },
+            dye             = "magenta",
+            mcl_dye         = "mcl_dyes:magenta",
+            wield_image     = "fireweed_0.png",
+            inventory_image = "fireweed_0.png",
+            selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            on_place        = function(itemstack, placer, pointed_thing)
+                if not pointed_thing or pointed_thing.type ~= "node" then
+                    return itemstack
+                end
+
+                local variant = math.random(1, 4)
+                local pos = pointed_thing.above
+                local node_name = "elysflowers" .. ":fireweed_" .. variant
+
+                if variant == 1 then
+                    core.set_node(pos, { name = "elysflowers:fireweed" })
+                else
+                    core.set_node(pos, { name = node_name })
+                end
+                itemstack:take_item()
+                return itemstack
+            end
+        },
+        {
+            name            = "elysflowers:babys_breath",
+            _botanical_name = "G. Repens",
+            description     = S("baby's breath"),
+            longdesc        = "Baby's Breath",
+            tiles           = { "babys_breath.png" },
+            wield_image     = "babys_breath.png",
+            inventory_image = "babys_breath.png",
+            dye             = "white",
+            mcl_dye         = "mcl_dyes:white",
+            visual_scale    = 0.9,
+            paramtype       = "light",
+            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            on_place        = function(itemstack, placer, pointed_thing)
+                if not pointed_thing or pointed_thing.type ~= "node" then
+                    return itemstack
+                end
+                local variant = math.random(0, 1)
+                local pos = pointed_thing.above
+                local node_name = "elysflowers" .. ":babys_breath_" .. variant
+
+                if variant == 1 then
+                    core.set_node(pos, { name = "elysflowers:babys_breath" })
+                else
+                    core.set_node(pos, { name = node_name })
+                end
+                itemstack:take_item()
+                return itemstack
+            end
+        },
+        {
+            name            = "elysflowers:babys_breath_0",
+            _botanical_name = "G. Repens",
+            description     = S("Baby's Breath"),
+            longdesc        = "Baby's Breath",
+            tiles           = { "babys_breath.png" },
+            wield_image     = "babys_breath.png",
+            inventory_image = "babys_breath.png",
+            dye             = "white",
+            mcl_dye         = "mcl_dyes:white",
+            selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.10, 0.35 },
+            drop            = "elysflowers:babys_breath"
         }
     }
-
-    },
-
-
 }
 
-
+register_plant({
+    name            = "elysflowers:indian_paintbrush",
+    _botanical_name = "Castilleja coccinea",
+    description     = S("Indian Paintbrush"),
+    longdesc        =
+    "Commonly found in temperate praries",
+    tiles           = { "indian_paintbrush.png" },
+    wield_image     = "indian_paintbrush.png",
+    inventory_image = "indian_paintbrush.png",
+    mcl_dye         = "mcl_dyes:red",
+    dye             = "red",
+    selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+})
 
 -- add botanical names to item descriptions if global setting == yes
 local function format_description(dat)
@@ -784,13 +1150,11 @@ local function format_description(dat)
     end
 end
 
-
-
 -- botanical formatting for inventory, if enabled
 if not core.settings:get("elysflowers_botanical_descriptions") then
-    for a, dat in pairs(elysflowers.nodes) do
+    for a, dat in pairs(elysflowers.nodes2) do
         format_description(dat)
-        core.register_node(dat.name, dat)
+        register_plant(dat)
     end
 end
 
@@ -808,6 +1172,8 @@ if gameid == "mineclonia" or gameid == "mineclone2" then
     })
     mcl_flowerpots.register_potted_flower("elysflowers:yarrow_pink",
         { name = "elysflowers:yarrow_pink", desc = "Pink Yarrow", image = "yarrow.png" })
+    mcl_flowerpots.register_potted_flower("elysflowers:foxglove",
+        { name = "elysflowers:foxglove", desc = "Foxglove", image = "foxglove.png" })
     mcl_flowerpots.register_potted_flower("elysflowers:lavender",
         { name = "elysflowers:lavender", desc = "Lavender", image = "lavender_potted.png" })
     mcl_flowerpots.register_potted_flower("elysflowers:hibiscus",
@@ -838,7 +1204,7 @@ if core.global_exists("flowerpot") then
     flowerpot.register_node("elysflowers:marshmallow")
     flowerpot.register_node("elysflowers:lavender")
     flowerpot.register_node("elysflowers:fireweed")
-    flowerpot.register_node("elysflowers:babys_breath")
+    --flowerpot.register_node("elysflowers:babys_breath")
     flowerpot.register_node("elysflowers:california_poppy")
     flowerpot.register_node("elysflowers:larkspur")
     flowerpot.register_node("elysflowers:hibiscus")
@@ -848,4 +1214,5 @@ if core.global_exists("flowerpot") then
     flowerpot.register_node("elysflowers:foxglove")
     flowerpot.register_node("elysflowers:forget_me_not")
     flowerpot.register_node("elysflowers:black_eyed_susan")
+    flowerpot.register_node("elysflowers:indian_paintbrush")
 end

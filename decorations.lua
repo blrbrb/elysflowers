@@ -454,7 +454,7 @@ core.register_decoration({
     deco_type = "simple",
     noise_params = {
         offset = -0.0135193,
-        scale = 0.0522,
+        scale = 0.0222,
         spread = { x = 32, y = 32, z = 32 },
         seed = 747423,
         octaves = 1,
