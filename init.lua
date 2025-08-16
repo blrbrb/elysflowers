@@ -72,10 +72,10 @@ local function register_plant(def)
     core.register_decoration({
         name = def.name,
         deco_type = "simple",
-        spawn_by = {""} or def.spawn_by,
+        spawn_by = { "" } or def.spawn_by,
         num_spawn_by = 0 or def.num_spawn_by,
         noise_params = def.noise_params,
-        place_on = def.place_on or {xcompat.materials.dirt_with_grass},
+        place_on = def.place_on or { xcompat.materials.dirt_with_grass },
         sidelen = 16 or def.sidelen,
         rotation = "random",
         waving = true,
@@ -84,7 +84,6 @@ local function register_plant(def)
         y_max = 31000,
         decoration = def.name,
     })
-
 end
 
 
@@ -144,22 +143,22 @@ elysflowers = {
             mcl_dye         = "mcl_dyes:red",
             dye             = "red",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = 0.006227,
                 scale = 0.0002343,
                 spread = { x = 32, y = 32, z = 32 },
-                seed = 4209842,
+                seed = math.random(),
                 octaves = 1,
                 persist = 0.3,
             },
-            place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt_with_dry_grass", "default:dry_dirt",
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dry_dirt_with_dry_grass", "default:dry_dirt",
                 "ethereal:dry_dirt",
                 "everness:dry_dirt_with_dry_grass", "everness:mineral_sand"
             },
-            biomes = { "savanna", "Savanna", "everness:baobab_savanna", "everness:mineral_springs", "MesaPlateauFM_grasstop", "Mesa_sandlevel", "MesaPlateauFM", "mesa_redwood" },
-            spawn_by = { "mcl_flowers:tallgrass", "default:dry_grass" },
-            num_spawn_by = 2,
-            potted = true
+            biomes          = { "savanna", "Savanna", "everness:baobab_savanna", "everness:mineral_springs", "MesaPlateauFM_grasstop", "Mesa_sandlevel", "MesaPlateauFM", "mesa_redwood" },
+            spawn_by        = { "mcl_flowers:tallgrass", "default:dry_grass" },
+            num_spawn_by    = 2,
+            potted          = true
         },
         {
             name            = "elysflowers:forget_me_not",
@@ -172,18 +171,18 @@ elysflowers = {
             wield_image     = "forget_me_not.png",
             inventory_image = "forget_me_not.png",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = 0.00022,
                 scale = 0.0029,
                 spread = { x = 32, y = 32, z = 32 },
-                seed = 228123,
+                seed = math.random(),
                 octaves = 2,
                 persist = 0.4
             },
-            place_on     = { xcompat.materials.dirt_with_grass, },
-            biomes       = { "RoofedForest", "Forest", "BirchForest", "BirchForestM", "grassland",
+            place_on        = { xcompat.materials.dirt_with_grass, },
+            biomes          = { "RoofedForest", "Forest", "BirchForest", "BirchForestM", "grassland",
                 "deciduous_forest", "coniferous_forest", "grassytwo" },
-            potted = true
+            potted          = true
         },
         {
             name             = "elysflowers:foxglove",
@@ -196,7 +195,7 @@ elysflowers = {
             mcl_dye          = "mcl_dyes:pink",
             inventory_image  = "foxglove2.png",
             selection_box    = { -0.25, -0.49, -0.25, 0.25, 0.50, 0.25 },
-            noise_params = {
+            noise_params     = {
                 offset = -0.003123,
                 scale = 0.00414,
                 spread = { x = 32, y = 32, z = 64 },
@@ -204,11 +203,12 @@ elysflowers = {
                 octaves = 3,
                 persist = 0.4,
             },
-            place_on = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves", "woodsoils:grass_with_leaves_1"
+            place_on         = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves",
+                "woodsoils:grass_with_leaves_1"
             },
-            biomes = { "Forest", "RoofedForest", "BirchForest", "BirchForestM", "deciduous_forest"},
-            sidelen = 8,
-            potted = true
+            biomes           = { "Forest", "RoofedForest", "BirchForest", "BirchForestM", "deciduous_forest" },
+            sidelen          = 8,
+            potted           = true
         },
         {
             name            = "elysflowers:hibiscus",
@@ -218,7 +218,7 @@ elysflowers = {
             wield_image     = "hibiscus_flower.png",
             inventory_image = "hibiscus_flower.png",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = -0.00929,
                 scale = 0.01412,
                 spread = { x = 32, y = 32, z = 32 },
@@ -226,10 +226,10 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.5,
             },
-            place_on = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter", "everness:dirt_with_grass" },
-            biomes = { "rainforest_ocean", "Forest_beach", "everness:bamboo_forest", "Swampland_ocean", "Swampland_deep_ocean", "Swampland_shore", "JungleEdge", "JungleEdge_ocean", "Savanna_beach", "Plains_beach", "MangroveSwamp_shore", "JungleM_shore", "Jungle_shore", "JungleEdge_ocean", "JungleEdge_deep_ocean", "JungleM_ocean", "Jungle_ocean", "savanna_shore", "savanna_ocean", "sandstone_desert_ocean", "desert_ocean", "rainforest" },
-            sidelen = 16,
-            potted = true
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter", "everness:dirt_with_grass" },
+            biomes          = { "rainforest_ocean", "Forest_beach", "everness:bamboo_forest", "Swampland_ocean", "Swampland_deep_ocean", "Swampland_shore", "JungleEdge", "JungleEdge_ocean", "Savanna_beach", "Plains_beach", "MangroveSwamp_shore", "JungleM_shore", "Jungle_shore", "JungleEdge_ocean", "JungleEdge_deep_ocean", "JungleM_ocean", "Jungle_ocean", "savanna_shore", "savanna_ocean", "sandstone_desert_ocean", "desert_ocean", "rainforest" },
+            sidelen         = 16,
+            potted          = true
         },
         {
             name            = "elysflowers:larkspur",
@@ -241,7 +241,7 @@ elysflowers = {
             wield_image     = "larkspur.png",
             inventory_image = "larkspur.png",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = -0.09029,
                 scale = 0.0212,
                 spread = { x = 32, y = 32, z = 32 },
@@ -249,10 +249,10 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.5,
             },
-            place_on = { xcompat.materials.dirt_with_grass },
-            sidelen = 16,
-            biomes = { "Forest", "BirchForest", "grassland", "grassytwo", "deciduous_forest", "RoofedForest", "coniferous_forest" },
-            potted = true
+            place_on        = { xcompat.materials.dirt_with_grass },
+            sidelen         = 16,
+            biomes          = { "Forest", "BirchForest", "grassland", "grassytwo", "deciduous_forest", "RoofedForest", "coniferous_forest" },
+            potted          = true
         },
         {
             name            = "elysflowers:black_eyed_susan",
@@ -264,7 +264,7 @@ elysflowers = {
             mcl_dye         = "mcl_dyes:yellow",
             inventory_image = "black_eyed_susan.png",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = 0.00052,
                 scale = 0.0019,
                 spread = { x = 32, y = 32, z = 32 },
@@ -272,9 +272,9 @@ elysflowers = {
                 octaves = 3,
                 persist = 0.4
             },
-            place_on     = { xcompat.materials.dirt_with_grass },
-            biomes       = { "SunflowerPlains", "Plains", "grassland", "plains", "savanna" },
-            potted = true
+            place_on        = { xcompat.materials.dirt_with_grass },
+            biomes          = { "SunflowerPlains", "Plains", "grassland", "plains", "savanna" },
+            potted          = true
         },
         {
             name            = "elysflowers:phlox",
@@ -287,21 +287,22 @@ elysflowers = {
             wield_image     = "phlox.png",
             inventory_image = "phlox.png",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = 0.00593,
-                scale = 0.0045,
+                scale = 0.0015,
                 spread = { x = 32, y = 64, z = 32 },
-                seed = 881933,
+                seed = math.random(),
                 octaves = 2,
                 persist = 0.6,
 
             },
-            place_on = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves", "woodsoils:grass_with_leaves_1"
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves",
+                "woodsoils:grass_with_leaves_1"
             },
-            biomes = { "Forest", "coniferous_forest", "RoofedForest" },
-            spawn_by = { "default:tree", "mcl_trees:tree", "mcl_core:tree", "mcl_core:birchtree", "mcl_core:darktree", "mcl_trees:tree_dark_oak" },
-            num_spawn_by = 1,
-            potted = true
+            biomes          = { "Forest", "coniferous_forest", "RoofedForest" },
+            spawn_by        = { "default:tree", "mcl_trees:tree", "mcl_core:tree", "mcl_core:birchtree", "mcl_core:darktree", "mcl_trees:tree_dark_oak" },
+            num_spawn_by    = 1,
+            potted          = true
         },
         {
             name                      = "elysflowers:purple_coneflower_1",
@@ -315,7 +316,7 @@ elysflowers = {
             not_in_creative_inventory = true,
             inventory_image           = "purple_coneflower_0.png",
             selection_box             = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params              = {
                 offset = -0.0274,
                 scale = 0.0212,
                 spread = { x = 32, y = 32, z = 32 },
@@ -323,11 +324,11 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.5,
             },
-            place_on = { xcompat.materials.dirt_with_grass },
-            biomes = { "ExtremeHills", "grassland", "grassytwo", "deciduous_forest", "Plains", "ExtremeHillsM", "ExtremeHills++" },
-            spawn_by = "elysflowers:purple_coneflower",
-            num_spawn_by = 1,
-            sidelen = 16,
+            place_on                  = { xcompat.materials.dirt_with_grass },
+            biomes                    = { "ExtremeHills", "grassland", "grassytwo", "deciduous_forest", "Plains", "ExtremeHillsM", "ExtremeHills++" },
+            spawn_by                  = "elysflowers:purple_coneflower",
+            num_spawn_by              = 1,
+            sidelen                   = 16,
             drop                      = "elysflowers:purple_coneflower"
         },
         {
@@ -346,6 +347,7 @@ elysflowers = {
                 end
 
                 local variant = math.random(0, 1)
+
                 local pos = pointed_thing.above
                 local node_name = "elysflowers" .. ":purple_coneflower_" .. variant
 
@@ -369,7 +371,7 @@ elysflowers = {
             place_on = { xcompat.materials.dirt_with_grass },
             biomes = { "ExtremeHills", "grassland", "grassytwo", "deciduous_forest", "Plains", "ExtremeHillsM", "ExtremeHills++" },
             sidelen = 16,
-            potted = true
+            potted = false
         },
         {
             name            = "elysflowers:california_poppy",
@@ -382,7 +384,7 @@ elysflowers = {
             wield_image     = "california_poppy.png",
             inventory_image = "california_poppy.png",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = 0.0049,
                 scale = 0.0042,
                 spread = { x = 16, y = 16, z = 16 },
@@ -390,10 +392,10 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.3,
             },
-            biomes = { "savanna", "mesa", "Savanna", "MesaPlateauF", "MesaPlateauFM_grasstop", "MesaPlateauFM", "everness:baobab_savanna" },
-            place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dry_dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
-            sidelen = 16,
-            potted = true
+            biomes          = { "savanna", "mesa", "Savanna", "MesaPlateauF", "MesaPlateauFM_grasstop", "MesaPlateauFM", "everness:baobab_savanna" },
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dry_dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
+            sidelen         = 16,
+            potted          = true
         },
         {
             name            = "elysflowers:hyacinth",
@@ -406,7 +408,7 @@ elysflowers = {
             mcl_dye         = "mcl_dyes:blue",
             inventory_image = "hyacinth.png",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = -0.0423,
                 scale = 0.012,
                 spread = { x = 16, y = 16, z = 16 },
@@ -414,10 +416,10 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.4,
             },
-            place_on = { xcompat.materials.dirt_with_grass },
-            biomes = { "Taiga", "MegaTaiga", "ExtremeHills", "grassland", "grassytwo", "RoofedForest", "taiga", "coniferous_forest" },
-            sidelen = 16,
-            potted = true
+            place_on        = { xcompat.materials.dirt_with_grass },
+            biomes          = { "Taiga", "MegaTaiga", "ExtremeHills", "grassland", "grassytwo", "RoofedForest", "taiga", "coniferous_forest" },
+            sidelen         = 16,
+            potted          = true
         },
         {
             name            = "elysflowers:lavender",
@@ -430,7 +432,7 @@ elysflowers = {
             mcl_dye         = "mcl_dyes:purple",
             inventory_image = "lavender.png",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = -0.0135193,
                 scale = 0.0222,
                 spread = { x = 32, y = 32, z = 32 },
@@ -438,10 +440,10 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.4,
             },
-            place_on = { xcompat.materials.dirt_with_grass, "ethereal:bamboo_dirt", "ethereal:grove_dirt" },
-            biomes = { "Plains", "ExtremeHills", "grassytwo", "CherryGrove", "bamboo", "meditteranean" },
-            potted = true,
-            potted_image = "lavender_potted.png"
+            place_on        = { xcompat.materials.dirt_with_grass, "ethereal:bamboo_dirt", "ethereal:grove_dirt" },
+            biomes          = { "Plains", "ExtremeHills", "grassytwo", "CherryGrove", "bamboo", "meditteranean" },
+            potted          = true,
+            potted_image    = "lavender_potted.png"
         },
         {
             name            = "elysflowers:marshmallow",
@@ -453,17 +455,17 @@ elysflowers = {
             dye             = "pink",
             mcl_dye         = "mcl_dyes:pink",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = -0.0496,
                 scale = 0.029,
                 spread = { x = 32, y = 32, z = 32 },
-                seed = 19173,
+                seed = math.random(),
                 octaves = 2,
             },
-            place_on     = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter" },
-            biomes       = { "swamp", "Swampland", "Swampland_ocean", "swamp", "JungleEdgeM" },
-            spawn_by     = { "default:water_source", "mcl_core:water_source" },
-            potted = true
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter" },
+            biomes          = { "swamp", "Swampland", "Swampland_ocean", "swamp", "JungleEdgeM" },
+            spawn_by        = { "default:water_source", "mcl_core:water_source" },
+            potted          = true
         },
         {
             name            = "elysflowers:yarrow_pink",
@@ -475,7 +477,7 @@ elysflowers = {
             dye             = "pink",
             mcl_dye         = "mcl_dyes:pink",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = -0.021,
                 scale = 0.0019,
                 spread = { x = 32, y = 32, z = 32 },
@@ -483,10 +485,10 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.4,
             },
-            place_on = { xcompat.materials.dirt_with_grass },
-            spawn_by = { "default:water_source", "mcl_core:water_source" },
-            biomes = { "grassland_dunes", "Swampland_shore", "Taiga_beach", "SunflowerPlains_ocean", "Savanna_beach", "coniferous_forest_dunes", "deciduous_forest_shore" },
-            potted = true
+            place_on        = { xcompat.materials.dirt_with_grass },
+            spawn_by        = { "default:water_source", "mcl_core:water_source" },
+            biomes          = { "grassland_dunes", "Swampland_shore", "Taiga_beach", "SunflowerPlains_ocean", "Savanna_beach", "coniferous_forest_dunes", "deciduous_forest_shore" },
+            potted          = true
         },
         {
             name            = "elysflowers:african_marigold",
@@ -500,18 +502,18 @@ elysflowers = {
             dye             = "orange",
             mcl_dye         = "mcl_dyes:orange",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
-                offset = 0.00545,
+            noise_params    = {
+                offset = -0.00545,
                 scale = 0.000029,
                 spread = { x = 16, y = 16, z = 16 },
-                seed = 29132,
+                seed = math.random(),
                 octaves = 1,
                 persist = 0.4,
             },
-            place_on = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
-            sidelen = 32,
-            biomes = { "savanna", "Savanna", "mesa", "MesaPlateauF_grasstop", "jumble", "mesa_redwood", "everness:baobab_savanna" },
-            potted = true
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
+            sidelen         = 32,
+            biomes          = { "savanna", "Savanna", "mesa", "MesaPlateauF_grasstop", "jumble", "mesa_redwood", "everness:baobab_savanna" },
+            potted          = true
         },
         {
             name = "elysflowers:arctic_poppy",
@@ -531,12 +533,13 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.6,
             },
-            place_on = { xcompat.materials.dirt_with_grass, "default:permafrost_with_stones", "default:permafrost_with_moss",
+            place_on = { xcompat.materials.dirt_with_grass, "default:permafrost_with_stones",
+                "default:permafrost_with_moss",
                 "etheral:cold_dirt", "default:snowblock", "default:silver_sand",
                 "default:dirt_with_snow", "default:dirt_with_coniferous_litter"
             },
             biomes = { "tundra", "taiga", "frost", "Taiga", "ColdTaiga", "IcePlains", "IcePlainsSpikes", "coniferous_forest", "cold_desert" },
-            potted = true
+            potted = false
         },
         {
             name = "elysflowers:dames_rocket",
@@ -550,9 +553,9 @@ elysflowers = {
             selection_box = { -0.25, -0.5, -0.25, 0.25, 0.3, 0.25 },
             noise_params = {
                 offset = -0.0127,
-                scale = 0.055,
+                scale = 0.020,
                 spread = { x = 64, y = 64, z = 64 },
-                seed = 12193,
+                seed = math.random(),
                 octaves = 1,
                 persist = 0.5,
             },
@@ -590,18 +593,18 @@ elysflowers = {
             potted = true
         },
         {
-            name            = "elysflowers:fireweed_4",
-            _botanical_name = "C. angustifolium",
-            description     = S("Fireweed"),
-            longdesc        = "Fireweed",
-            tiles           = { "fireweed_3.png" },
-            wield_image     = "fireweed_0.png",
-            inventory_image = "fireweed_0.png",
-            dye             = "magenta",
-            mcl_dye         = "mcl_dyes:magenta",
+            name                      = "elysflowers:fireweed_4",
+            _botanical_name           = "C. angustifolium",
+            description               = S("Fireweed"),
+            longdesc                  = "Fireweed",
+            tiles                     = { "fireweed_3.png" },
+            wield_image               = "fireweed_0.png",
+            inventory_image           = "fireweed_0.png",
+            dye                       = "magenta",
+            mcl_dye                   = "mcl_dyes:magenta",
             not_in_creative_inventory = true,
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.10, 0.35, },
-            noise_params = {
+            selection_box             = { -0.35, -0.5, -0.35, 0.35, 0.10, 0.35, },
+            noise_params              = {
                 offset = -0.1211,
                 scale = 0.940,
                 spread = { x = 64, y = 64, z = 64 },
@@ -609,24 +612,24 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.6
             },
-            place_on     = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
+            place_on                  = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
             },
-            biomes       = { "taiga_valley", "Taiga_valley" },
-            drop            = "elysflowers:fireweed"
+            biomes                    = { "taiga_valley", "Taiga_valley" },
+            drop                      = "elysflowers:fireweed"
         },
         {
-            name            = "elysflowers:fireweed_3",
-            _botanical_name = "C. angustifolium",
-            description     = S("Fireweed"),
-            longdesc        = "Fireweed",
-            tiles           = { "fireweed_2.png" },
-            wield_image     = "fireweed_0.png",
-            inventory_image = "fireweed_0.png",
+            name                      = "elysflowers:fireweed_3",
+            _botanical_name           = "C. angustifolium",
+            description               = S("Fireweed"),
+            longdesc                  = "Fireweed",
+            tiles                     = { "fireweed_2.png" },
+            wield_image               = "fireweed_0.png",
+            inventory_image           = "fireweed_0.png",
             not_in_creative_inventory = true,
-            dye             = "magenta",
-            mcl_dye         = "mcl_dyes:magenta",
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            dye                       = "magenta",
+            mcl_dye                   = "mcl_dyes:magenta",
+            selection_box             = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            noise_params              = {
                 offset = -0.09109,
                 scale = 0.940,
                 spread = { x = 64, y = 64, z = 64 },
@@ -634,23 +637,23 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.6
             },
-            place_on     = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
+            place_on                  = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
             },
-            biomes       = { "taiga_valley", "Taiga_valley" },
-            drop            = "elysflowers:fireweed"
+            biomes                    = { "taiga_valley", "Taiga_valley" },
+            drop                      = "elysflowers:fireweed"
         },
         {
-            name            = "elysflowers:fireweed_2",
-            _botanical_name = "C. angustifolium",
-            description     = S("Fireweed"),
-            longdesc        = "Fireweed",
-            tiles           = { "fireweed_1.png" },
-            wield_image     = "fireweed_0.png",
-            inventory_image = "fireweed_0.png",
+            name                      = "elysflowers:fireweed_2",
+            _botanical_name           = "C. angustifolium",
+            description               = S("Fireweed"),
+            longdesc                  = "Fireweed",
+            tiles                     = { "fireweed_1.png" },
+            wield_image               = "fireweed_0.png",
+            inventory_image           = "fireweed_0.png",
             not_in_creative_inventory = true,
-            visual_scale    = 1.5,
-            selection_box   = { -0.25, -0.5, -0.25, 0.30, 1.0, 0.30, },
-            noise_params = {
+            visual_scale              = 1.5,
+            selection_box             = { -0.25, -0.5, -0.25, 0.30, 1.0, 0.30, },
+            noise_params              = {
                 offset = -0.04,
                 scale = 0.940,
                 spread = { x = 64, y = 64, z = 64 },
@@ -658,10 +661,10 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.6
             },
-            place_on     = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
+            place_on                  = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
             },
-            biomes       = { "taiga_valley", "Taiga_valley" },
-            drop            = "elysflowers:fireweed"
+            biomes                    = { "taiga_valley", "Taiga_valley" },
+            drop                      = "elysflowers:fireweed"
         },
         {
             name            = "elysflowers:fireweed",
@@ -674,7 +677,7 @@ elysflowers = {
             wield_image     = "fireweed_0.png",
             inventory_image = "fireweed_0.png",
             selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = -0.031,
                 scale = 0.240,
                 spread = { x = 64, y = 64, z = 64 },
@@ -682,9 +685,9 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.6
             },
-            place_on     = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
             },
-            biomes       = { "taiga_valley", "Taiga_valley" },
+            biomes          = { "taiga_valley", "Taiga_valley" },
             on_place        = function(itemstack, placer, pointed_thing)
                 if not pointed_thing or pointed_thing.type ~= "node" then
                     return itemstack
@@ -702,20 +705,20 @@ elysflowers = {
                 itemstack:take_item()
                 return itemstack
             end,
-            potted = true
+            potted          = true
         },
         {
-            name = "elysflowers:chamomile",
+            name            = "elysflowers:chamomile",
             _botanical_name = "M. chamomilla",
-            description = S("chamomile"),
-            longdesc = "chamomile",
-            tiles = {"chamomile.png"},
-            dye = "white",
-            mcl_dye = "mcl_dyes:light_grey",
-            wield_image = "chamomile.png",
+            description     = S("chamomile"),
+            longdesc        = "chamomile",
+            tiles           = { "chamomile.png" },
+            dye             = "white",
+            mcl_dye         = "mcl_dyes:light_grey",
+            wield_image     = "chamomile.png",
             inventory_image = "chamomile.png",
             selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-            noise_params = {
+            noise_params    = {
                 offset = -0.0064239,
                 scale = 0.0059872,
                 spread = { x = 32, y = 32, z = 32 },
@@ -723,10 +726,85 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.5,
             },
-            sidelen = 16,
-            biomes = { "Forest", "deciduous_forest","Plains", "grassland", "BirchForest", "BirchForestM"},
-            potted = true
-        }
+            sidelen         = 16,
+            biomes          = { "Forest", "deciduous_forest", "Plains", "grassland", "BirchForest", "BirchForestM" },
+            potted          = true
+        },
+        {
+            name            = "elysflowers:rose_pogonia",
+            _botanical_name = "P. ophioglossoides",
+            description     = S("rose pogonia"),
+            longdesc        = "rose pogonia",
+            tiles           = { "rose_pogonia.png" },
+            dye             = "white",
+            mcl_dye         = "mcl_dyes:light_grey",
+            wield_image     = "rose_pogonia.png",
+            inventory_image = "rose_pogonia.png",
+            selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params    = {
+                offset = -0.0041998,
+                scale = 0.0024332,
+                spread = { x = 32, y = 32, z = 32 },
+                seed = math.random(),
+                octaves = 2,
+                persist = 0.5,
+            },
+            sidelen         = 16,
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
+            biomes          = { "coniferous_forest", "Plains", "grassland", "BirchForest", "BirchForestM", "Taiga",
+                "taiga_valley", "Taiga_valley",
+                "Taiga_beach" },
+            potted          = true
+        },
+        {
+            name            = "elysflowers:yellow_bell",
+            _botanical_name = "P. ophioglossoides",
+            description     = S("yellow bell"),
+            longdesc        = "yellow bell",
+            tiles           = { "yellow_bell.png" },
+            dye             = "yellow",
+            mcl_dye         = "mcl_dyes:yellow",
+            wield_image     = "yellow_bell.png",
+            inventory_image = "yellow_bell.png",
+            selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params    = {
+                offset = -0.0182020,
+                scale = 0.00114512,
+                spread = { x = 16, y = 16, z = 16 },
+                seed = math.random(),
+                octaves = 2,
+                persist = 0.39,
+            },
+            sidelen         = 16,
+            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
+            biomes          = { "coniferous_forest", "BirchForest", "BirchForestM", "Taiga",
+                "taiga_valley", "Taiga_valley",
+                "Taiga_beach" },
+            potted          = true
+        }, {
+        name            = "elysflowers:bergamot",
+        _botanical_name = "P. ophioglossoides",
+        description     = S("bergamot"),
+        longdesc        = "bergamot",
+        tiles           = { "bergamot.png" },
+        dye             = "violet",
+        mcl_dye         = "mcl_dyes:purple",
+        wield_image     = "bergamot.png",
+        inventory_image = "bergamot.png",
+        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+        noise_params    = {
+            offset = -0.0277660,
+            scale = 0.0021572,
+            spread = { x = 32, y = 32, z = 32 },
+            seed = math.random(),
+            octaves = 3,
+            persist = 0.29,
+        },
+        sidelen         = 16,
+        place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
+        biomes          = { "Forest", "BirchForest", "BirchForestM", "grassland", "Plains", "ExtremeHills" },
+        potted          = false
+    }
     }
 }
 
@@ -741,7 +819,6 @@ end
 
 
 for a, dat in pairs(elysflowers.nodes) do
-
     if not core.settings:get("elysflowers_botanical_descriptions") then
         format_description(dat)
     end
@@ -750,11 +827,17 @@ for a, dat in pairs(elysflowers.nodes) do
 
     if dat.potted then
         if gameid == "mineclonia" or gameid == "mineclone2" then
-            mcl_flowerpots.register_potted_flower(dat.name,{name = dat.name, desc = dat.description, image = dat.tiles[1] })
+            if dat.potted_image then
+                mcl_flowerpots.register_potted_flower(dat.name,
+                    { name = dat.name, desc = dat.description, image = dat.potted_image })
+            else
+                mcl_flowerpots.register_potted_flower(dat.name,
+                    { name = dat.name, desc = dat.description, image = dat.tiles[1] })
+            end
         elseif core.global_exists("flowerpot") then
             flowerpot.register_node(dat.name)
         else
-    end
+        end
     end
 end
 
