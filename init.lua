@@ -68,7 +68,7 @@ local function register_plant(def)
         drop                 = def.drop,
         on_place             = def.on_place
     })
-
+if not def._no_register_decoration then 
     core.register_decoration({
         name = def.name,
         deco_type = "simple",
@@ -84,6 +84,7 @@ local function register_plant(def)
         y_max = 31000,
         decoration = def.name,
     })
+    end
 end
 
 
@@ -386,12 +387,12 @@ elysflowers = {
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
            noise_params = {
 			offset = -0.7,
-			scale = 1.5,
+			scale = 0.9,
 			spread = {x = 32, y = 64, z = 32},
 			seed = math.random(),
 			octaves = 1,
 			persist = 0.0,
-			flags = "absvalue, eased"
+			flags = {"absvalue, eased"}
 		},
 	    y_min = 25,
 	    y_max = 100,
@@ -506,7 +507,7 @@ elysflowers = {
             mcl_dye         = "mcl_dyes:orange",
             selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
             noise_params    = {
-                offset = -0.00545,
+                offset = 0.000545,
                 scale = 0.00029,
                 spread = { x = 16, y = 16, z = 16 },
                 seed = math.random(),
@@ -798,16 +799,15 @@ elysflowers = {
         inventory_image = "bergamot.png",
         selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
         noise_params    = {
-            offset = -0.0277660,
-            scale = 0.0021572,
+            offset = 0.000277660,
+            scale = 0.00021572,
             spread = { x = 32, y = 32, z = 32 },
             seed = math.random(),
-            octaves = 3,
+            octaves = 1,
             persist = 0.29,
         },
-        sidelen         = 16,
         place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
-        biomes          = { "Forest", "BirchForest", "BirchForestM", "grassland", "Plains", "ExtremeHills" },
+        biomes          = { "Forest", "BirchForest", "BirchForestM", "grassland", "Plains", "ExtremeHills", "ExtremeHills++","Taiga" },
         potted          = false
     },
     {
@@ -878,6 +878,54 @@ elysflowers = {
         },
         place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_snow" , "default:permafrost_with_moss", "default:dirt_with_coniferous_litter"},
         biomes          = { "Taiga","MegaSpruceTaiga","taiga", "tundra"},
+        potted          = true
+    }, {
+        name            = "elysflowers:evening_primrose",
+        _botanical_name = "",
+        description     = S("Evening Primrose"),
+        _doc_items_longdesc        = "The common evening primrose is native to eastern and central North America. The flowers open in the evening, and close by noon.\n It can be found scattered in fields, alongside roads, in irrigation ditches, and just about anywhere that gets enough light and water across North America.",
+        tiles           = { "evening_primrose.png" },
+        dye             = "yellow",
+        mcl_dye         = "mcl_dyes:yellow",
+        wield_image     = "evening_primrose.png",
+        inventory_image = "evening_primrose.png",
+        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+        noise_params    = {
+            offset = 0.0008121,
+            scale = 0.0000212314,
+            spread = { x = 16, y = 16, z = 16 },
+            seed = math.random(),
+            octaves = 1,
+            persist = 0.4,
+            flags = {"eased"}
+        },
+        place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_snow" , "default:permafrost_with_moss", "default:dirt_with_coniferous_litter"},
+        biomes          = { "Plains","Forest","RoofedForest","JungleEdgeM","JungleEdge","ExtremeHills","ExtremeHills++","MegaSpruceTaiga","Taiga","taiga", "tundra", "grassland"},
+        potted          = true
+    },
+     {
+        name            = "elysflowers:yellow_flag",
+        _botanical_name = "L. pseudoacorus",
+        description     = S("Yellow Flag"),
+        _doc_items_longdesc        = "The yellow flag is recognized as an invasive species of iris in North America. \n The yellow flag iris is highly tolerant of low oxygen, and high salinity enviornments. It prefers to grow in salt or freshwater marshes or along river and stream banks.",
+        tiles           = { "yellow_flag.png" },
+        dye             = "yellow",
+        mcl_dye         = "mcl_dyes:yellow",
+        wield_image     = "yellow_flag.png",
+        inventory_image = "yellow_flag.png",
+        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+        noise_params    = {
+            offset = 0.0004794,
+            scale = 0.000059197,
+            spread = { x = 24, y = 16, z = 24 },
+            seed = math.random(),
+            octaves = 2,
+            persist = 0.1,
+        },
+        spawn_by = {"mcl_core:water_source","mcl_core:water_flowing","default:water_source","default:water_flowing"},
+        num_spawn_by = 1,
+        place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_snow" , "default:permafrost_with_moss", "default:dirt_with_coniferous_litter"},
+        biomes          = {"Swampland","JungleEdge","JungleEdgeM","rainforest","MangroveSwamp",""},
         potted          = true
     }
     }
