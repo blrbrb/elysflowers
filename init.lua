@@ -40,50 +40,57 @@ local function register_plant(def)
         groups["color_" .. def.dye] = 1
     end
 
+    -- in mineclonia based games, items tagged with "flower" are preventing from spawning on anything that isn't in the dirt group by an abm.
+    -- Flowers and plants that need to grow in sand, or on snow can't have the tag "flower" because they'll be popped.
+
+    if def._do_not_pop then
+        groups["flower"] = 0
+    end
+
     core.register_node(def.name, {
-        name                 = def.name,
-        _botanical_name      = def._botanical_name,
-        description          = def.description,
-        drawtype             = "plantlike",
-        _doc_items__doc_items_longdesc  = def._doc_items_longdesc,
-        tiles                = def.tiles,
-        wield_image          = def.wield_image,
-        inventory_image      = def.inventory_image,
-        visual_scale         = def.visual_scale,
-        waving               = 1,
-        paramtype            = "light",
-        sunlight_propagates  = true,
-        walkable             = false,
-        groups               = groups,
-        _mcl_crafting_output = { single = { output = def.mcl_dye } },
-        _sound_def           = {
+        name                           = def.name,
+        _botanical_name                = def._botanical_name,
+        description                    = def.description,
+        drawtype                       = "plantlike",
+        _doc_items__doc_items_longdesc = def._doc_items_longdesc,
+        tiles                          = def.tiles,
+        wield_image                    = def.wield_image,
+        inventory_image                = def.inventory_image,
+        visual_scale                   = def.visual_scale,
+        waving                         = 1,
+        paramtype                      = "light",
+        sunlight_propagates            = true,
+        walkable                       = false,
+        groups                         = groups,
+        _mcl_crafting_output           = { single = { output = def.mcl_dye } },
+        _sound_def                     = {
             key = "node_sound_leaves_defaults",
             input = {},
         },
-        floodable            = true,
-        selection_box        = {
+        floodable                      = true,
+        selection_box                  = {
             type = "fixed",
             fixed = def.selection_box,
         },
-        drop                 = def.drop,
-        on_place             = def.on_place
+        drop                           = def.drop,
+        on_place                       = def.on_place
     })
-if not def._no_register_decoration then 
-    core.register_decoration({
-        name = def.name,
-        deco_type = "simple",
-        spawn_by = { "" } or def.spawn_by,
-        num_spawn_by = 0 or def.num_spawn_by,
-        noise_params = def.noise_params,
-        place_on = def.place_on or { xcompat.materials.dirt_with_grass },
-        sidelen = 16 or def.sidelen,
-        rotation = "random",
-        waving = true,
-        biomes = def.biomes,
-        y_min = 1,
-        y_max = 31000,
-        decoration = def.name,
-    })
+    if not def._no_register_decoration then
+        core.register_decoration({
+            name = def.name,
+            deco_type = "simple",
+            spawn_by = def.spawn_by or { "" },
+            num_spawn_by = def.num_spawn_by or -1,
+            noise_params = def.noise_params,
+            place_on = def.place_on or { xcompat.materials.dirt_with_grass },
+            sidelen = def.sidelen or 16,
+            rotation = "random",
+            waving = true,
+            biomes = def.biomes,
+            y_min = def.y_min or 1,
+            y_max = def.y_max or 31000,
+            decoration = def.name,
+        })
     end
 end
 
@@ -133,18 +140,18 @@ elysflowers = {
     nodes =
     {
         {
-            name            = "elysflowers:indian_paintbrush",
-            _botanical_name = "C. coccinea",
-            description     = S("Indian Paintbrush"),
-            _doc_items_longdesc        =
+            name                = "elysflowers:indian_paintbrush",
+            _botanical_name     = "C. coccinea",
+            description         = S("Indian Paintbrush"),
+            _doc_items_longdesc =
             "Commonly found in temperate praries",
-            tiles           = { "indian_paintbrush.png" },
-            wield_image     = "indian_paintbrush.png",
-            inventory_image = "indian_paintbrush.png",
-            mcl_dye         = "mcl_dyes:red",
-            dye             = "red",
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            tiles               = { "indian_paintbrush.png" },
+            wield_image         = "indian_paintbrush.png",
+            inventory_image     = "indian_paintbrush.png",
+            mcl_dye             = "mcl_dyes:red",
+            dye                 = "red",
+            selection_box       = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = 0.006227,
                 scale = 0.0002343,
                 spread = { x = 32, y = 32, z = 32 },
@@ -152,14 +159,15 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.3,
             },
-            place_on        = { xcompat.materials.dirt_with_grass, "default:dry_dirt_with_dry_grass", "default:dry_dirt",
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dry_dirt_with_dry_grass",
+                "default:dry_dirt",
                 "ethereal:dry_dirt",
                 "everness:dry_dirt_with_dry_grass", "everness:mineral_sand"
             },
-            biomes          = { "savanna", "Savanna", "everness:baobab_savanna", "everness:mineral_springs", "MesaPlateauFM_grasstop", "Mesa_sandlevel", "MesaPlateauFM", "mesa_redwood" },
-            spawn_by        = { "mcl_flowers:tallgrass", "default:dry_grass" },
-            num_spawn_by    = 2,
-            potted          = true
+            biomes              = { "savanna", "Savanna", "everness:baobab_savanna", "everness:mineral_springs", "MesaPlateauFM_grasstop", "Mesa_sandlevel", "MesaPlateauFM", "mesa_redwood" },
+            spawn_by            = { "mcl_flowers:tallgrass", "default:dry_grass" },
+            num_spawn_by        = 2,
+            potted              = true
         },
         {
             name            = "elysflowers:forget_me_not",
@@ -179,25 +187,26 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.4
             },
-            spawn_by = {xcompat.materials.water_source}, 
-            num_spawn_by =1,
+            spawn_by        = { xcompat.materials.water_source },
+            num_spawn_by    = 1,
             place_on        = { xcompat.materials.dirt_with_grass, },
             biomes          = { "RoofedForest", "Forest", "BirchForest", "BirchForestM", "grassland",
                 "deciduous_forest", "coniferous_forest", "grassytwo" },
             potted          = true
         },
         {
-            name             = "elysflowers:foxglove",
-            _botanical_name  = "D. purpurea",
-            description      = S("Foxglove"),
-            _doc_items_longdesc = "This highly toxic biennial herb is native to British Columbia and was later naturalized in the northern US.\n It produces showy purple and pink bells that dangle in clusters from the sides of the stem. \n Despite it's ornamental nature, foxglove is highly fatal if consumed in excess. It contains chemicals which inhibit neurotransmission. The heart medication, *digitalis* is actually derived from a relative of foxglove",
-            tiles            = { "foxglove2.png" },
-            wield_image      = "foxglove2.png",
-            dye              = "pink",
-            mcl_dye          = "mcl_dyes:pink",
-            inventory_image  = "foxglove2.png",
-            selection_box    = { -0.25, -0.49, -0.25, 0.25, 0.50, 0.25 },
-            noise_params     = {
+            name                = "elysflowers:foxglove",
+            _botanical_name     = "D. purpurea",
+            description         = S("Foxglove"),
+            _doc_items_longdesc =
+            "This highly toxic biennial herb is native to British Columbia and was later naturalized in the northern US.\n It produces showy purple and pink bells that dangle in clusters from the sides of the stem. \n Despite it's ornamental nature, foxglove is highly fatal if consumed in excess. It contains chemicals which inhibit neurotransmission. The heart medication, *digitalis* is actually derived from a relative of foxglove",
+            tiles               = { "foxglove2.png" },
+            wield_image         = "foxglove2.png",
+            dye                 = "pink",
+            mcl_dye             = "mcl_dyes:pink",
+            inventory_image     = "foxglove2.png",
+            selection_box       = { -0.25, -0.49, -0.25, 0.25, 0.50, 0.25 },
+            noise_params        = {
                 offset = -0.003123,
                 scale = 0.00414,
                 spread = { x = 32, y = 32, z = 64 },
@@ -205,12 +214,12 @@ elysflowers = {
                 octaves = 3,
                 persist = 0.4,
             },
-            place_on         = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves",
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves",
                 "woodsoils:grass_with_leaves_1"
             },
-            biomes           = { "Forest", "RoofedForest", "BirchForest", "BirchForestM", "deciduous_forest" },
-            sidelen          = 8,
-            potted           = true
+            biomes              = { "Forest", "RoofedForest", "BirchForest", "BirchForestM", "deciduous_forest" },
+            sidelen             = 8,
+            potted              = true
         },
         {
             name            = "elysflowers:hibiscus",
@@ -274,22 +283,22 @@ elysflowers = {
                 octaves = 3,
                 persist = 0.4
             },
-            place_on        = { xcompat.materials.dirt_with_grass },
-            biomes          = { "SunflowerPlains", "Plains", "grassland", "plains", "savanna" },
+            place_on        = { xcompat.materials.dirt_with_grass, "ethereal:prarie_dirt" },
+            biomes          = { "SunflowerPlains", "Plains", "grassland", "plains", "savanna", "prarie" },
             potted          = true
         },
         {
-            name            = "elysflowers:phlox",
-            _botanical_name = "P. drummondii",
-            description     = S("Phlox"),
+            name                = "elysflowers:phlox",
+            _botanical_name     = "P. drummondii",
+            description         = S("Phlox"),
             _doc_items_longdesc = "",
-            tiles           = { "phlox.png" },
-            dye             = "violet",
-            mcl_dye         = "mcl_dyes:purple",
-            wield_image     = "phlox.png",
-            inventory_image = "phlox.png",
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            tiles               = { "phlox.png" },
+            dye                 = "violet",
+            mcl_dye             = "mcl_dyes:purple",
+            wield_image         = "phlox.png",
+            inventory_image     = "phlox.png",
+            selection_box       = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = 0.00593,
                 scale = 0.000015,
                 spread = { x = 8, y = 8, z = 8 },
@@ -298,13 +307,13 @@ elysflowers = {
                 persist = 0.0,
 
             },
-            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves",
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_leaves",
                 "woodsoils:grass_with_leaves_1"
             },
-            biomes          = { "Forest", "coniferous_forest", "RoofedForest" },
-            spawn_by        = { "default:tree", "mcl_trees:tree", "mcl_core:tree", "mcl_core:birchtree", "mcl_core:darktree", "mcl_trees:tree_dark_oak" },
-            num_spawn_by    = 1,
-            potted          = true
+            biomes              = { "Forest", "coniferous_forest", "RoofedForest" },
+            spawn_by            = { "default:tree", "mcl_trees:tree", "mcl_core:tree", "mcl_core:birchtree", "mcl_core:darktree", "mcl_trees:tree_dark_oak" },
+            num_spawn_by        = 1,
+            potted              = true
         },
         {
             name                      = "elysflowers:purple_coneflower_1",
@@ -326,8 +335,8 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.5,
             },
-            place_on                  = { xcompat.materials.dirt_with_grass },
-            biomes                    = { "ExtremeHills", "grassland", "grassytwo", "deciduous_forest", "Plains", "ExtremeHillsM", "ExtremeHills++" },
+            place_on                  = { xcompat.materials.dirt_with_grass, "ethereal:prarie_dirt" },
+            biomes                    = { "ExtremeHills", "grassland", "grassytwo", "deciduous_forest", "Plains", "ExtremeHillsM", "ExtremeHills++", "prarie" },
             spawn_by                  = "elysflowers:purple_coneflower",
             num_spawn_by              = 1,
             sidelen                   = 16,
@@ -370,49 +379,50 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.5,
             },
-            place_on = { xcompat.materials.dirt_with_grass },
-            biomes = { "ExtremeHills", "grassland", "grassytwo", "deciduous_forest", "Plains", "ExtremeHillsM", "ExtremeHills++" },
+            place_on = { xcompat.materials.dirt_with_grass, "ethereal:prarie_dirt" },
+            biomes = { "ExtremeHills", "grassland", "grassytwo", "deciduous_forest", "Plains", "ExtremeHillsM", "ExtremeHills++", "prarie" },
             sidelen = 16,
             potted = false
         },
         {
-            name            = "elysflowers:california_poppy",
-            _botanical_name = "E. californica",
-            description     = S("California Poppy"),
-            drawtype        = "plantlike",
-            _doc_items_longdesc        = "The state flower of California, the California poppy is native to the western seaboard of the United States. Before western settlers arrived in California, \n it's rumoured that entire hillsides would turn bright orange due to the immense number of poppies.\n The California Poppy is very drought tolerant, and incredibly responsive to intense sunlight & heat. It can be found growing in any distributed area of grass, desert scrub, or even dry gravel. ",
-            tiles           = { "california_poppy.png" },
-            wield_image     = "california_poppy.png",
-            inventory_image = "california_poppy.png",
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-           noise_params = {
-			offset = -0.7,
-			scale = 0.9,
-			spread = {x = 32, y = 64, z = 32},
-			seed = math.random(),
-			octaves = 1,
-			persist = 0.0,
-			flags = {"absvalue, eased"}
-		},
-	    y_min = 25,
-	    y_max = 100,
-            biomes          = { "savanna", "mesa", "Savanna", "MesaPlateauF", "MesaPlateauFM_grasstop", "MesaPlateauFM", "everness:baobab_savanna" },
-            place_on        = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dry_dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
-            sidelen         = 16,
-            potted          = true
+            name                = "elysflowers:california_poppy",
+            _botanical_name     = "E. californica",
+            description         = S("California Poppy"),
+            drawtype            = "plantlike",
+            _doc_items_longdesc =
+            "The state flower of California, the California poppy is native to the western seaboard of the United States. Before western settlers arrived in California, \n it's rumoured that entire hillsides would turn bright orange due to the immense number of poppies.\n The California Poppy is very drought tolerant, and incredibly responsive to intense sunlight & heat. It can be found growing in any distributed area of grass, desert scrub, or even dry gravel. ",
+            tiles               = { "california_poppy.png" },
+            wield_image         = "california_poppy.png",
+            inventory_image     = "california_poppy.png",
+            selection_box       = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
+                offset = -0.7,
+                scale = 0.9,
+                spread = { x = 32, y = 64, z = 32 },
+                seed = math.random(),
+                octaves = 1,
+                persist = 0.0,
+                flags = { "absvalue, eased" }
+            },
+            y_min               = 25,
+            y_max               = 100,
+            biomes              = { "savanna", "mesa", "Savanna", "MesaPlateauF", "MesaPlateauFM_grasstop", "MesaPlateauFM", "everness:baobab_savanna" },
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dry_dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
+            sidelen             = 16,
+            potted              = true
         },
         {
-            name            = "elysflowers:hyacinth",
-            _botanical_name = "Hyacinthus Orientalis",
-            description     = S("Hyacinth"),
-            _doc_items_longdesc        = "Herbacious & fragrant perennial with alluring purple blooms",
-            tiles           = { "hyacinth.png" },
-            wield_image     = "hyacinth.png",
-            dye             = "blue",
-            mcl_dye         = "mcl_dyes:blue",
-            inventory_image = "hyacinth.png",
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            name                = "elysflowers:hyacinth",
+            _botanical_name     = "Hyacinthus Orientalis",
+            description         = S("Hyacinth"),
+            _doc_items_longdesc = "Herbacious & fragrant perennial with alluring purple blooms",
+            tiles               = { "hyacinth.png" },
+            wield_image         = "hyacinth.png",
+            dye                 = "blue",
+            mcl_dye             = "mcl_dyes:blue",
+            inventory_image     = "hyacinth.png",
+            selection_box       = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = 0.00423,
                 scale = 0.00012,
                 spread = { x = 16, y = 16, z = 16 },
@@ -420,23 +430,24 @@ elysflowers = {
                 octaves = 1,
                 persist = 0,
             },
-            place_on        = { xcompat.materials.dirt_with_grass },
-            biomes          = { "Taiga", "MegaTaiga", "ExtremeHills", "grassland", "grassytwo", "RoofedForest", "taiga", "coniferous_forest" },
-            sidelen         = 16,
-            potted          = true
+            place_on            = { xcompat.materials.dirt_with_grass },
+            biomes              = { "Taiga", "MegaTaiga", "ExtremeHills", "grassland", "grassytwo", "RoofedForest", "taiga", "coniferous_forest" },
+            sidelen             = 16,
+            potted              = true
         },
         {
-            name            = "elysflowers:lavender",
-            _botanical_name = "L. officinalis",
-            description     = S("Lavender"),
-            _doc_items_longdesc        = "Lavender is a staple herb with a tranquilizing aromatic scent. Native lavender needs very cold temperatures in order to reproduce properly.",
-            tiles           = { "lavender.png" },
-            wield_image     = "lavender.png",
-            dye             = "violet",
-            mcl_dye         = "mcl_dyes:purple",
-            inventory_image = "lavender.png",
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            name                = "elysflowers:lavender",
+            _botanical_name     = "L. officinalis",
+            description         = S("Lavender"),
+            _doc_items_longdesc =
+            "Lavender is a staple herb with a tranquilizing aromatic scent. Native lavender needs very cold temperatures in order to reproduce properly.",
+            tiles               = { "lavender.png" },
+            wield_image         = "lavender.png",
+            dye                 = "violet",
+            mcl_dye             = "mcl_dyes:purple",
+            inventory_image     = "lavender.png",
+            selection_box       = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = -0.0135193,
                 scale = 0.0222,
                 spread = { x = 32, y = 32, z = 32 },
@@ -444,33 +455,37 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.4,
             },
-            place_on        = { xcompat.materials.dirt_with_grass, "ethereal:bamboo_dirt", "ethereal:grove_dirt" },
-            biomes          = { "Plains", "ExtremeHills", "grassytwo", "CherryGrove", "bamboo", "meditteranean" },
-            potted          = true,
-            potted_image    = "lavender_potted.png"
+            place_on            = { xcompat.materials.dirt_with_grass, "ethereal:bamboo_dirt", "ethereal:grove_dirt" },
+            biomes              = { "Plains", "ExtremeHills", "grassytwo", "CherryGrove", "bamboo", "meditteranean" },
+            potted              = true,
+            potted_image        = "lavender_potted.png"
         },
         {
-            name            = "elysflowers:marshmallow",
-            _botanical_name = "A. officinalis",
-            _doc_items_longdesc = "Often mistaken for the gooey sugar treat of the same namesake, 'marshmellows' actually get their name from this flower. \n The roots of the marshmallow contain a tetriary metabolite that may act as a mild numbing agent. \n It was often used by Native Americans as a remedy for sore throat, cooked and sweetened with a mixture of gluten, honey, and sugar.",
-            description     = S("Marshmallow"),
-            tiles           = { "marshmallow.png" },
-            wield_image     = "marshmallow.png",
-            inventory_image = "marshmallow.png",
-            dye             = "pink",
-            mcl_dye         = "mcl_dyes:pink",
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
-                offset = -0.0496,
-                scale = 0.029,
-                spread = { x = 32, y = 32, z = 32 },
+            name                = "elysflowers:marshmallow",
+            _botanical_name     = "A. officinalis",
+            _doc_items_longdesc =
+            "Often mistaken for the gooey sugar treat of the same namesake, 'marshmellows' actually get their name from this flower. \n The roots of the marshmallow contain a tetriary metabolite that may act as a mild numbing agent. \n It was often used by Native Americans as a remedy for sore throat, cooked and sweetened with a mixture of gluten, honey, and sugar.",
+            description         = S("Marshmallow"),
+            tiles               = { "marshmallow.png" },
+            wield_image         = "marshmallow.png",
+            inventory_image     = "marshmallow.png",
+            dye                 = "pink",
+            mcl_dye             = "mcl_dyes:pink",
+            selection_box       = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
+                offset = 0.0496,
+                scale = 0.0029,
+                spread = { x = 16, y = 16, z = 16 },
                 seed = math.random(),
-                octaves = 2,
+                octaves = 3,
+                lacunarity = 1.9,
+                persist = 0.7
             },
-            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter" },
-            biomes          = { "swamp", "Swampland", "Swampland_ocean", "swamp", "JungleEdgeM" },
-            spawn_by        = { "default:water_source", "mcl_core:water_source" },
-            potted          = true
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter" },
+            biomes              = { "swamp", "Swampland", "Swampland_ocean", "swamp", "JungleEdgeM" },
+            -- spawn_by            = { "default:water_source", "mcl_core:water_source" },
+            num_spawn_by        = 1,
+            potted              = true
         },
         {
             name            = "elysflowers:yarrow_pink",
@@ -496,17 +511,18 @@ elysflowers = {
             potted          = true
         },
         {
-            name            = "elysflowers:african_marigold",
-            _botanical_name = "Tagetes. Erecta",
-            description     = S("African Marigold"),
-            _doc_items_longdesc        = "Despite it's name, this flower is actually native to the hot and humid steppes of Latin America, inhabiting a wide variety of tropical and subtropical climates",
-            tiles           = { "marigold.png" },
-            wield_image     = "marigold.png",
-            inventory_image = "marigold.png",
-            dye             = "orange",
-            mcl_dye         = "mcl_dyes:orange",
-            selection_box   = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            name                = "elysflowers:african_marigold",
+            _botanical_name     = "Tagetes. Erecta",
+            description         = S("African Marigold"),
+            _doc_items_longdesc =
+            "Despite it's name, this flower is actually native to the hot and humid steppes of Latin America, inhabiting a wide variety of tropical and subtropical climates",
+            tiles               = { "marigold.png" },
+            wield_image         = "marigold.png",
+            inventory_image     = "marigold.png",
+            dye                 = "orange",
+            mcl_dye             = "mcl_dyes:orange",
+            selection_box       = { -0.35, -0.5, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = 0.000545,
                 scale = 0.00029,
                 spread = { x = 16, y = 16, z = 16 },
@@ -514,22 +530,23 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.2,
             },
-            place_on        = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
-            biomes          = { "savanna", "Savanna", "mesa", "MesaPlateauF_grasstop", "jumble", "mesa_redwood", "everness:baobab_savanna" },
-            potted          = true
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dry_dirt", "default:dirt_with_dry_grass", "ethereal:dry_dirt", "everness:dry_dirt_with_dry_grass" },
+            biomes              = { "savanna", "Savanna", "mesa", "MesaPlateauF_grasstop", "jumble", "mesa_redwood", "baobab_savanna" },
+            potted              = true
         },
         {
-            name = "elysflowers:arctic_poppy",
-            _botanical_name = "P. radicatum",
-            description = S("Arctic Poppy"),
-             _doc_items_longdesc        = "The artic poppy (unsurprisingly) is a tundra flower found throughout large stretches of the North America arctic and sub-arctic.\n It prefers to grow in well-drained dry gravels and loose soils, and has an impressive reputation for being nearly impossible to kill. \n The roots of these flowers have been found alive, extracting nutrients through solid ice!",
-            tiles = { "arctic_poppy.png" },
-            wield_image = "arctic_poppy.png",
-            inventory_image = "arctic_poppy.png",
-            dye = "yellow",
-            mcl_dye = "mcl_dyes:yellow",
-            selection_box = { -0.45, -0.5, -0.35, 0.35, 0.45, 0.35, },
-            noise_params = {
+            name                = "elysflowers:arctic_poppy",
+            _botanical_name     = "P. radicatum",
+            description         = S("Arctic Poppy"),
+            _doc_items_longdesc =
+            "The artic poppy (unsurprisingly) is a tundra flower found throughout large stretches of the North America arctic and sub-arctic.\n It prefers to grow in well-drained dry gravels and loose soils, and has an impressive reputation for being nearly impossible to kill. \n The roots of these flowers have been found alive, extracting nutrients through solid ice!",
+            tiles               = { "arctic_poppy.png" },
+            wield_image         = "arctic_poppy.png",
+            inventory_image     = "arctic_poppy.png",
+            dye                 = "yellow",
+            mcl_dye             = "mcl_dyes:yellow",
+            selection_box       = { -0.45, -0.5, -0.35, 0.35, 0.45, 0.35, },
+            noise_params        = {
                 offset = -0.01945,
                 scale = 0.04,
                 spread = { x = 32, y = 32, z = 32 },
@@ -537,19 +554,20 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.6,
             },
-            place_on = { xcompat.materials.dirt_with_grass, "default:permafrost_with_stones",
+            place_on            = { xcompat.materials.dirt_with_grass, "default:permafrost_with_stones",
                 "default:permafrost_with_moss",
                 "etheral:cold_dirt", "default:snowblock",
                 "default:dirt_with_snow", "default:dirt_with_coniferous_litter"
             },
-            biomes = { "tundra", "taiga", "frost", "Taiga", "ColdTaiga", "IcePlains", "IcePlainsSpikes", "coniferous_forest", "cold_desert" },
-            potted = false
+            biomes              = { "tundra", "taiga", "frost", "Taiga", "ColdTaiga", "IcePlains", "IcePlainsSpikes", "coniferous_forest", "cold_desert" },
+            potted              = false
         },
         {
             name = "elysflowers:dames_rocket",
             _botanical_name = "H. matronalis",
             description = S("Dame's Rocket"),
-            _doc_items_longdesc = "This biennial herb is a short-lived, and shade tolerant forest-dweller that can often grow as tall as a standing person! \n The dames rocket produces blooms in early to late spring, which vary in color from off white to bright pink or purple. ",
+            _doc_items_longdesc =
+            "This biennial herb is a short-lived, and shade tolerant forest-dweller that can often grow as tall as a standing person! \n The dames rocket produces blooms in early to late spring, which vary in color from off white to bright pink or purple. ",
             tiles = { "dames_rocket.png" },
             wield_image = "dames_rocket.png",
             inventory_image = "dames_rocket.png",
@@ -602,7 +620,7 @@ elysflowers = {
             name                      = "elysflowers:fireweed_4",
             _botanical_name           = "C. angustifolium",
             description               = S("Fireweed"),
-            _doc_items_longdesc                  = "Fireweed",
+            _doc_items_longdesc       = "Fireweed",
             tiles                     = { "fireweed_3.png" },
             wield_image               = "fireweed_0.png",
             inventory_image           = "fireweed_0.png",
@@ -627,7 +645,7 @@ elysflowers = {
             name                      = "elysflowers:fireweed_3",
             _botanical_name           = "C. angustifolium",
             description               = S("Fireweed"),
-            _doc_items_longdesc                  = "Fireweed",
+            _doc_items_longdesc       = "Fireweed",
             tiles                     = { "fireweed_2.png" },
             wield_image               = "fireweed_0.png",
             inventory_image           = "fireweed_0.png",
@@ -652,7 +670,7 @@ elysflowers = {
             name                      = "elysflowers:fireweed_2",
             _botanical_name           = "C. angustifolium",
             description               = S("Fireweed"),
-            _doc_items_longdesc                  = "Fireweed",
+            _doc_items_longdesc       = "Fireweed",
             tiles                     = { "fireweed_1.png" },
             wield_image               = "fireweed_0.png",
             inventory_image           = "fireweed_0.png",
@@ -673,17 +691,17 @@ elysflowers = {
             drop                      = "elysflowers:fireweed"
         },
         {
-            name            = "elysflowers:fireweed",
-            _botanical_name = "C. angustifolium",
-            description     = S("Fireweed"),
-            _doc_items_longdesc        = "Fireweed",
-            tiles           = { "fireweed_0.png" },
-            dye             = "magenta",
-            mcl_dye         = "mcl_dyes:magenta",
-            wield_image     = "fireweed_0.png",
-            inventory_image = "fireweed_0.png",
-            selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            name                = "elysflowers:fireweed",
+            _botanical_name     = "C. angustifolium",
+            description         = S("Fireweed"),
+            _doc_items_longdesc = "Fireweed",
+            tiles               = { "fireweed_0.png" },
+            dye                 = "magenta",
+            mcl_dye             = "mcl_dyes:magenta",
+            wield_image         = "fireweed_0.png",
+            inventory_image     = "fireweed_0.png",
+            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = -0.031,
                 scale = 0.240,
                 spread = { x = 64, y = 64, z = 64 },
@@ -691,10 +709,10 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.6
             },
-            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter"
             },
-            biomes          = { "taiga_valley", "Taiga_valley" },
-            on_place        = function(itemstack, placer, pointed_thing)
+            biomes              = { "taiga_valley", "Taiga_valley" },
+            on_place            = function(itemstack, placer, pointed_thing)
                 if not pointed_thing or pointed_thing.type ~= "node" then
                     return itemstack
                 end
@@ -711,20 +729,21 @@ elysflowers = {
                 itemstack:take_item()
                 return itemstack
             end,
-            potted          = true
+            potted              = true
         },
         {
-            name            = "elysflowers:chamomile",
-            _botanical_name = "M. chamomilla",
-            description     = S("chamomile"),
-            _doc_items_longdesc        = "Chamomile is a common herbal additive. Emitting an alluring fresh apple like scent, the flowerheads of chamomile are used commonly in teas and skincare products. \n Chamomile is widely naturalized through North America, and can be found in the wild in distributed open areas, on roadsides, fields, irrigation ditches, and shallow riverbanks.",
-            tiles           = { "chamomile.png" },
-            dye             = "white",
-            mcl_dye         = "mcl_dyes:light_grey",
-            wield_image     = "chamomile.png",
-            inventory_image = "chamomile.png",
-            selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            name                = "elysflowers:chamomile",
+            _botanical_name     = "M. chamomilla",
+            description         = S("chamomile"),
+            _doc_items_longdesc =
+            "Chamomile is a common herbal additive. Emitting an alluring fresh apple like scent, the flowerheads of chamomile are used commonly in teas and skincare products. \n Chamomile is widely naturalized through North America, and can be found in the wild in distributed open areas, on roadsides, fields, irrigation ditches, and shallow riverbanks.",
+            tiles               = { "chamomile.png" },
+            dye                 = "white",
+            mcl_dye             = "mcl_dyes:light_grey",
+            wield_image         = "chamomile.png",
+            inventory_image     = "chamomile.png",
+            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = 0.00014239,
                 scale = 0.000059872,
                 spread = { x = 8, y = 8, z = 8 },
@@ -732,23 +751,24 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.1,
             },
-            sidelen         = 16,
-            biomes          = { "Forest", "deciduous_forest", "Plains", "grassland", "BirchForest", "BirchForestM", "SunflowerPlains", "ExtremeHills" },
-            place_on = {xcompat.materials.dirt_with_grass},
-            potted          = true
+            sidelen             = 16,
+            biomes              = { "Forest", "deciduous_forest", "Plains", "grassland", "BirchForest", "BirchForestM", "SunflowerPlains", "ExtremeHills" },
+            place_on            = { xcompat.materials.dirt_with_grass },
+            potted              = true
         },
         {
-            name            = "elysflowers:rose_pogonia",
-            _botanical_name = "P. ophioglossoides",
-            description     = S("rose pogonia"),
-            _doc_items_longdesc        = "Native to the cooler damp forests of the great lakes basin \n this showy orchid is often refered to as the 'snake-mouth plant' because of the peculiar geometry of it's bloom. \n The American romantic era poet Henry David Thoreau once allegedly remaked that the rose pogonia '...smells exactly like a snake.' ",
-            tiles           = { "rose_pogonia.png" },
-            dye             = "white",
-            mcl_dye         = "mcl_dyes:light_grey",
-            wield_image     = "rose_pogonia.png",
-            inventory_image = "rose_pogonia.png",
-            selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            name                = "elysflowers:rose_pogonia",
+            _botanical_name     = "P. ophioglossoides",
+            description         = S("rose pogonia"),
+            _doc_items_longdesc =
+            "Native to the cooler damp forests of the great lakes basin \n this showy orchid is often refered to as the 'snake-mouth plant' because of the peculiar geometry of it's bloom. \n The American romantic era poet Henry David Thoreau once allegedly remaked that the rose pogonia '...smells exactly like a snake.' ",
+            tiles               = { "rose_pogonia.png" },
+            dye                 = "white",
+            mcl_dye             = "mcl_dyes:light_grey",
+            wield_image         = "rose_pogonia.png",
+            inventory_image     = "rose_pogonia.png",
+            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = 0.00041998,
                 scale = 0.00024332,
                 spread = { x = 16, y = 16, z = 16 },
@@ -756,24 +776,25 @@ elysflowers = {
                 octaves = 1,
                 persist = 0.1,
             },
-            sidelen         = 16,
-            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
-            biomes          = { "coniferous_forest","deciduos_forest", "BirchForest", "BirchForestM", "Taiga","taiga_valley", "Taiga_valley",
+            sidelen             = 16,
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
+            biomes              = { "coniferous_forest", "deciduos_forest", "BirchForest", "BirchForestM", "Taiga",
+                "taiga_valley", "Taiga_valley",
                 "Taiga_beach" },
-            potted          = true
+            potted              = true
         },
         {
-            name            = "elysflowers:yellow_bell",
-            _botanical_name = "T. stans",
-            description     = S("yellow bell"),
-            _doc_items_longdesc        = "yellow bell",
-            tiles           = { "yellow_bell.png" },
-            dye             = "yellow",
-            mcl_dye         = "mcl_dyes:yellow",
-            wield_image     = "yellow_bell.png",
-            inventory_image = "yellow_bell.png",
-            selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-            noise_params    = {
+            name                = "elysflowers:yellow_bell",
+            _botanical_name     = "T. stans",
+            description         = S("yellow bell"),
+            _doc_items_longdesc = "yellow bell",
+            tiles               = { "yellow_bell.png" },
+            dye                 = "yellow",
+            mcl_dye             = "mcl_dyes:yellow",
+            wield_image         = "yellow_bell.png",
+            inventory_image     = "yellow_bell.png",
+            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
                 offset = 0.00182020,
                 scale = 0.00114512,
                 spread = { x = 16, y = 16, z = 16 },
@@ -781,24 +802,24 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.39,
             },
-            sidelen         = 16,
-            place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
-            biomes          = { "coniferous_forest", "BirchForest", "BirchForestM", "Taiga",
+            sidelen             = 16,
+            place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
+            biomes              = { "coniferous_forest", "BirchForest", "BirchForestM", "Taiga",
                 "taiga_valley", "Taiga_valley",
                 "Taiga_beach" },
-            potted          = true
+            potted              = true
         }, {
-        name            = "elysflowers:bergamot",
-        _botanical_name = "P. ophioglossoides",
-        description     = S("bergamot"),
-        _doc_items_longdesc        = "bergamot",
-        tiles           = { "bergamot.png" },
-        dye             = "violet",
-        mcl_dye         = "mcl_dyes:purple",
-        wield_image     = "bergamot.png",
-        inventory_image = "bergamot.png",
-        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-        noise_params    = {
+        name                = "elysflowers:bergamot",
+        _botanical_name     = "P. ophioglossoides",
+        description         = S("bergamot"),
+        _doc_items_longdesc = "bergamot",
+        tiles               = { "bergamot.png" },
+        dye                 = "violet",
+        mcl_dye             = "mcl_dyes:purple",
+        wield_image         = "bergamot.png",
+        inventory_image     = "bergamot.png",
+        selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+        noise_params        = {
             offset = 0.000277660,
             scale = 0.00021572,
             spread = { x = 32, y = 32, z = 32 },
@@ -806,127 +827,185 @@ elysflowers = {
             octaves = 1,
             persist = 0.29,
         },
-        place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
-        biomes          = { "Forest", "BirchForest", "BirchForestM", "grassland", "Plains", "ExtremeHills", "ExtremeHills++","Taiga" },
-        potted          = false
+        place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
+        biomes              = { "Forest", "BirchForest", "BirchForestM", "grassland", "Plains", "ExtremeHills", "ExtremeHills++", "Taiga" },
+        potted              = false
     },
-    {
-        name            = "elysflowers:cold_desert_phlox",
-        _botanical_name = "P. stansburyi",
-        description     = S("Cold Desert Phlox"),
-        _doc_items_longdesc        = "This perennial herb is native to dry arid regions of the American southwest, as it's name suggests \n cold desert phlox can often be found among the desert scrub",
-        tiles           = { "cold_desert_phlox.png" },
-        dye             = "violet",
-        mcl_dye         = "mcl_dyes:purple",
-        wield_image     = "cold_desert_phlox.png",
-        inventory_image = "cold_desert_phlox.png",
-        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-        noise_params    = {
-            offset = 0.00277660,
-            scale = 0.00021572,
-            spread = { x = 8, y = 8, z = 8 },
-            seed = math.random(),
-            octaves = 2,
-            persist = 0.0,
+        {
+            name                = "elysflowers:cold_desert_phlox",
+            _botanical_name     = "P. stansburyi",
+            description         = S("Cold Desert Phlox"),
+            _doc_items_longdesc =
+            "This perennial herb is native to dry arid regions of the American southwest, as it's name suggests \n cold desert phlox can often be found among the desert scrub",
+            tiles               = { "cold_desert_phlox.png" },
+            dye                 = "violet",
+            mcl_dye             = "mcl_dyes:purple",
+            wield_image         = "cold_desert_phlox.png",
+            inventory_image     = "cold_desert_phlox.png",
+            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
+                offset = 0.00277660,
+                scale = 0.00021572,
+                spread = { x = 8, y = 8, z = 8 },
+                seed = math.random(),
+                octaves = 2,
+                persist = 0.7,
+            },
+            place_on            = { xcompat.materials.dirt_with_grass, "default:silver_sand", "default:sand" },
+            biomes              = { "cold_desert", "Taiga" },
+            potted              = true
         },
-        sidelen         = 16,
-        place_on        = { xcompat.materials.dirt_with_grass,"default:silver_sand", "default:sand"},
-        biomes          = { "cold_desert", "Taiga" },
-        potted          = true
-    },
-    {
-        name            = "elysflowers:western_bleeding_heart",
-        _botanical_name = "D. formosa",
-        description     = S("Western Bleeding-Heart"),
-        _doc_items_longdesc        = "This orchid was introduced to North America from Japan. \n It has since colonized much of the western seaboard from British Columbia all the way to southern California. \n Prefers to grow in damp, heavily shaded areas.",
-        tiles           = { "western_bleeding_heart.png" },
-        dye             = "pink",
-        mcl_dye         = "mcl_dyes:pink",
-        wield_image     = "western_bleeding_heart.png",
-        inventory_image = "western_bleeding_heart.png",
-        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-        noise_params    = {
-            offset = 0.0009469,
-            scale = 0.0001,
-            spread = { x = 8, y = 8, z = 8 },
-            seed = math.random(),
-            octaves = 1,
-            persist = 0.2,
+        {
+            name                = "elysflowers:western_bleeding_heart",
+            _botanical_name     = "D. formosa",
+            description         = S("Western Bleeding-Heart"),
+            _doc_items_longdesc =
+            "This orchid was introduced to North America from Japan. \n It has since colonized much of the western seaboard from British Columbia all the way to southern California. \n Prefers to grow in damp, heavily shaded areas.",
+            tiles               = { "western_bleeding_heart.png" },
+            dye                 = "pink",
+            mcl_dye             = "mcl_dyes:pink",
+            wield_image         = "western_bleeding_heart.png",
+            inventory_image     = "western_bleeding_heart.png",
+            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
+                offset = 0.0009469,
+                scale = 0.0001,
+                spread = { x = 8, y = 8, z = 8 },
+                seed = math.random(),
+                octaves = 1,
+                persist = 0.2,
+            },
+            place_on            = { xcompat.materials.dirt_with_grass },
+            biomes              = { "Swampland", "MangroveSwamp", "JungleEdge", "JungleEdgeM", "RoofedForest", "rainforest_swamp", "rainforest" },
+            potted              = true
         },
-        place_on        = { xcompat.materials.dirt_with_grass},
-        biomes          = { "Swampland","MangroveSwamp","JungleEdge", "JungleEdgeM","RoofedForest","rainforest_swamp","rainforest"},
-        potted          = true
-    }, 
-    {
-        name            = "elysflowers:siberian_chive",
-        _botanical_name = "A. schoenoprasum",
-        description     = S("Siberian Chive"),
-        _doc_items_longdesc        = "This grassy herb is native to the upper stretches of the Yukon\n, althought it can be found as far south as Ontario.\n The siberian chive is found most commonly in the wild near mountain streams, and cool damp meadows.\n The siberan chive was registered by the Vermont State office of Fish & Wildlife as an endangered species in 2024. \n See, https://www.vtfishandwildlife.com",
-        tiles           = { "siberian_chive.png" },
-        dye             = "violet",
-        mcl_dye         = "mcl_dyes:purple",
-        wield_image     = "siberian_chive.png",
-        inventory_image = "siberian_chive.png",
-        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-        noise_params    = {
-            offset = 0.000469,
-            scale = 0.00049,
-            spread = { x = 16, y = 16, z = 16 },
-            seed = math.random(),
-            octaves = 2,
-            persist = 0.1,
-        },
-        place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_snow" , "default:permafrost_with_moss", "default:dirt_with_coniferous_litter"},
-        biomes          = { "Taiga","MegaSpruceTaiga","taiga", "tundra"},
-        potted          = true
-    }, {
-        name            = "elysflowers:evening_primrose",
-        _botanical_name = "",
-        description     = S("Evening Primrose"),
-        _doc_items_longdesc        = "The common evening primrose is native to eastern and central North America. The flowers open in the evening, and close by noon.\n It can be found scattered in fields, alongside roads, in irrigation ditches, and just about anywhere that gets enough light and water across North America.",
-        tiles           = { "evening_primrose.png" },
-        dye             = "yellow",
-        mcl_dye         = "mcl_dyes:yellow",
-        wield_image     = "evening_primrose.png",
-        inventory_image = "evening_primrose.png",
-        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-        noise_params    = {
+        {
+            name                = "elysflowers:siberian_chive",
+            _botanical_name     = "A. schoenoprasum",
+            description         = S("Siberian Chive"),
+            _doc_items_longdesc =
+            "This grassy herb is native to the upper stretches of the Yukon\n, althought it can be found as far south as Ontario.\n The siberian chive is found most commonly in the wild near mountain streams, and cool damp meadows.\n The siberan chive was registered by the Vermont State office of Fish & Wildlife as an endangered species in 2024. \n See, https://www.vtfishandwildlife.com",
+            tiles               = { "siberian_chive.png" },
+            dye                 = "violet",
+            mcl_dye             = "mcl_dyes:purple",
+            wield_image         = "siberian_chive.png",
+            inventory_image     = "siberian_chive.png",
+            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
+                offset = 0.00469,
+                scale = 0.00049,
+                spread = { x = 16, y = 16, z = 16 },
+                seed = math.random(),
+                octaves = 2,
+                persist = 0.5,
+            },
+            place_on            = { xcompat.materials.dirt_with_grass, "ethereal:cold_dirt", "default:permafrost_with_moss", "default:dirt_with_coniferous_litter" },
+            biomes              = { "Taiga", "MegaSpruceTaiga", "taiga", "tundra", "snowy_grassland", "ColdTaiga" },
+            potted              = true
+        }, {
+        name                = "elysflowers:evening_primrose",
+        _botanical_name     = "",
+        description         = S("Evening Primrose"),
+        _doc_items_longdesc =
+        "The common evening primrose is native to eastern and central North America. The flowers open in the evening, and close by noon.\n It can be found scattered in fields, alongside roads, in irrigation ditches, and just about anywhere that gets enough light and water across North America.",
+        tiles               = { "evening_primrose.png" },
+        dye                 = "yellow",
+        mcl_dye             = "mcl_dyes:yellow",
+        wield_image         = "evening_primrose.png",
+        inventory_image     = "evening_primrose.png",
+        selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+        noise_params        = {
             offset = 0.0008121,
             scale = 0.0000212314,
             spread = { x = 16, y = 16, z = 16 },
             seed = math.random(),
             octaves = 1,
             persist = 0.4,
-            flags = {"eased"}
+            flags = { "eased" }
         },
-        place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_snow" , "default:permafrost_with_moss", "default:dirt_with_coniferous_litter"},
-        biomes          = { "Plains","Forest","RoofedForest","JungleEdgeM","JungleEdge","ExtremeHills","ExtremeHills++","MegaSpruceTaiga","Taiga","taiga", "tundra", "grassland"},
-        potted          = true
+        place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter" },
+        biomes              = { "Plains", "Forest", "RoofedForest", "JungleEdgeM", "JungleEdge", "ExtremeHills", "ExtremeHills++", "MegaSpruceTaiga", "Taiga", "taiga", "tundra", "grassland" },
+        potted              = true
     },
-     {
-        name            = "elysflowers:yellow_flag",
-        _botanical_name = "L. pseudoacorus",
-        description     = S("Yellow Flag"),
-        _doc_items_longdesc        = "The yellow flag is recognized as an invasive species of iris in North America. \n The yellow flag iris is highly tolerant of low oxygen, and high salinity enviornments. It prefers to grow in salt or freshwater marshes or along river and stream banks.",
-        tiles           = { "yellow_flag.png" },
-        dye             = "yellow",
-        mcl_dye         = "mcl_dyes:yellow",
-        wield_image     = "yellow_flag.png",
-        inventory_image = "yellow_flag.png",
-        selection_box   = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-        noise_params    = {
+        {
+            name                = "elysflowers:yellow_flag",
+            _botanical_name     = "L. pseudoacorus",
+            description         = S("Yellow Flag"),
+            _doc_items_longdesc =
+            "The yellow flag is recognized as an invasive species of iris in North America. \n The yellow flag iris is highly tolerant of low oxygen, and high salinity enviornments. It prefers to grow in salt or freshwater marshes or along river and stream banks.",
+            tiles               = { "yellow_flag.png" },
+            dye                 = "yellow",
+            mcl_dye             = "mcl_dyes:yellow",
+            wield_image         = "yellow_flag.png",
+            inventory_image     = "yellow_flag.png",
+            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params        = {
+                offset = 0.0004794,
+                scale = 0.000059197,
+                spread = { x = 24, y = 16, z = 24 },
+                seed = math.random(),
+                octaves = 2,
+                persist = 0.1,
+            },
+            spawn_by            = { "mcl_core:water_source", "mcl_core:water_flowing", "default:water_source", "default:water_flowing" },
+            num_spawn_by        = 1,
+            place_on            = { xcompat.materials.dirt_with_grass },
+            biomes              = { "Swampland", "JungleEdge", "JungleEdgeM", "rainforest", "MangroveSwamp", "" },
+            potted              = true
+        }, {
+        name                = "elysflowers:beach_heath",
+        _botanical_name     = "",
+        description         = S("Beach Heath"),
+        _doc_items_longdesc = "",
+        tiles               = { "beach_heath.png" },
+        dye                 = "yellow",
+        mcl_dye             = "mcl_dyes:yellow",
+        wield_image         = "beach_heath.png",
+        inventory_image     = "beach_heath.png",
+        selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+        noise_params        = {
             offset = 0.0004794,
-            scale = 0.000059197,
-            spread = { x = 24, y = 16, z = 24 },
+            scale = 0.029197,
+            spread = { x = 16, y = 32, z = 16 },
             seed = math.random(),
             octaves = 2,
-            persist = 0.1,
+            persist = 0.2,
+            flags = { "absvalue", "eased" }
         },
-        spawn_by = {"mcl_core:water_source","mcl_core:water_flowing","default:water_source","default:water_flowing"},
-        num_spawn_by = 1,
-        place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_snow" , "default:permafrost_with_moss", "default:dirt_with_coniferous_litter"},
-        biomes          = {"Swampland","JungleEdge","JungleEdgeM","rainforest","MangroveSwamp",""},
-        potted          = true
+        --spawn_by = {"mcl_core:water_source","mcl_core:water_flowing","default:water_source","default:water_flowing"},
+        --num_spawn_by = 1,
+        place_on            = { xcompat.materials.sand, "mcl_core:redsand", "default:red_sand" },
+        _do_not_pop         = true,
+        biomes              = { "Savanna", "Forest_beach", "Forest_shore", "Jungle_shore", "Plains_beach", "FlowerForest_beach", "ExtremeHills_beach", "grassland_dunes" },
+        potted              = false
+    }, {
+        name                = "elysflowers:glacier_lilly",
+        _botanical_name     = "",
+        description         = S("Glacier Lilly"),
+        _doc_items_longdesc = "",
+        tiles               = { "glacier_lilly.png" },
+        dye                 = "yellow",
+        mcl_dye             = "mcl_dyes:yellow",
+        wield_image         = "glacier_lilly.png",
+        inventory_image     = "glacier_lilly.png",
+        selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+        noise_params        = {
+            offset = 0.1,
+            scale = 0.00062041,
+            spread = { x = 8, y = 8, z = 8 },
+            seed = math.random(),
+            octaves = 2,
+            persist = 0.6,
+            lacunarity = 2.0,
+            flags = { "absvalue", "eased" }
+        },
+        spawn_by            = { "mcl_core:snow", "mcl_core:dirt_with_grass_snow", "default:snow", "default:dirt_with_snow", },
+        num_spawn_by        = 1,
+        place_on            = { xcompat.materials.dirt_with_grass, "default:dirt_with_coniferous_litter", "ethereal:cold_dirt" },
+        --We want this to be placed NEAR snow, on the borders of biomes which are dominated by snow. IcePlains and ColdTaiga are often
+        -- surrounded by Plains, ExtremeHills etc. And these biomes have suitable grass nodes directly adjacent to snow.
+        biomes              = { "ColdTaiga", "taiga", "coniferous_forest", "tundra", "Taiga", "IcePlains", "ExtremeHills+", "ExtremeHills++", "Plains", "snowy_grassland", "grassland" },
+        potted              = true
     }
     }
 }
@@ -963,5 +1042,3 @@ for a, dat in pairs(elysflowers.nodes) do
         end
     end
 end
-
-
