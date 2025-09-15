@@ -27,36 +27,105 @@ local function tprint(tbl, indent)
     return toprint
 end
 
-core.register_chatcommand("groups", {
-    params = "<node_name>",
-    description = "Prints all the groups a node is registered to.",
-    privs = { debug = true }, -- optional: require debug privilege
-    func = function(name, param)
-        if param == "" then
-            return false, "Usage: /node_groups <node_name>"
-        end
-
-        local def = core.registered_nodes[param]
-        if not def then
-            return false, "Node '" .. param .. "' is not registered."
-        end
-
-        local groups = def.groups or {}
-        local group_list = {}
-
-        for group, value in pairs(groups) do
-            table.insert(group_list, group .. " = " .. tostring(value))
-        end
-
-        if #group_list == 0 then
-            return true, "Node '" .. param .. "' has no groups."
-        end
-
-        return true, "Groups for '" .. param .. "': " .. table.concat(group_list, ", ")
+local function register_water_plant(def)
+    local groups = { dig_by_boat = 1, destroy_by_lava_flow = 1, dig_by_water = 1, dig_immediate = 3, snappy = 3, plant = 1, deco_block = 1, compostability = 35, floating_node = 3 }
+    local waving_def = {}
+    if def.not_in_creative_inventory then
+        groups["not_in_creative_inventory"] = 1
+    else
+        groups["not_in_creative_inventory"] = 0
     end
-})
+    if def.dye then
+        groups["color_" .. def.dye] = 1
+    end
 
 
+    core.register_node(def.name, {
+        name                      = def.name,
+        _botanical_name           = def._botanical_name,
+        description               = def.description,
+        drawtype                  = "nodebox",
+        _doc_items_longdesc       = def._doc_items_longdesc,
+        tiles                     = def.tiles,
+        wield_image               = def.wield_image,
+        waving                    = 3,
+        inventory_image           = def.inventory_image,
+        visual_scale              = def.visual_scale,
+        paramtype                 = "light",
+        paramtype2                = "facedir",
+        use_texture_alpha         = "clip",
+        buildable_to              = true,
+        sunlight_propagates       = true,
+        walkable                  = false,
+        liquids_pointable         = true,
+        groups                    = groups,
+        node_placement_prediction = "",
+        _mcl_crafting_output      = { single = { output = def.mcl_dye } },
+        _sound_def                = {
+            key = "node_sound_leaves_defaults",
+            input = {},
+        },
+        _pathfinding_class        = "TRAPDOOR",
+        on_rotate                 = screwdriver.rotate_simple,
+        floodable                 = true,
+        selection_box             = {
+            type = "fixed",
+            fixed = { -7 / 16, -0.5, -7 / 16, 7 / 16, -15 / 32, 7 / 16 }
+        },
+        node_box                  = {
+            type = "fixed",
+            fixed = { -0.5, -32 / 64, -0.5, 0.5, -15 / 32, 0.5 }
+        },
+        drop                      = def.drop,
+        on_place                  = function(itemstack, placer, pointed_thing)
+            local pos = pointed_thing.above
+            local node = core.get_node(pointed_thing.under)
+            local bl = core.registered_nodes[node.name]
+
+            if bl and bl.on_rightclick then
+                return bl.on_rightclick(pointed_thing.under, node, placer, itemstack,
+                    pointed_thing)
+            end
+
+            if bl and bl.liquidtype == "source" and
+                core.get_item_group(node.name, "water") > 0 then
+                local player_name = placer and placer:get_player_name() or ""
+                if not core.is_protected(pos, player_name) then
+                    core.set_node(pos, {
+                        name = def.name ..
+                            "",
+                        param2 = math.random(0, 3)
+                    })
+                    if not core.is_creative_enabled(player_name) then
+                        itemstack:take_item()
+                    end
+                else
+                    core.chat_send_player(player_name, "Node is protected")
+                    core.record_protection_violation(pos, player_name)
+                end
+            end
+
+            return itemstack
+        end,
+    })
+
+    core.register_decoration({
+        name = def.name,
+        deco_type = "simple",
+        spawn_by = def.spawn_by or nil,
+        waving = 3,
+        num_spawn_by = def.num_spawn_by or -1,
+        noise_params = def.noise_params,
+        place_on = def.place_on or { xcompat.materials.dirt_with_grass },
+        sidelen = def.sidelen or 16,
+        rotation = "random",
+        biomes = def.biomes,
+        param2 = 0,
+        param2_max = 3,
+        flags = "place_center_x, place_center_z, liquid_surface",
+        decoration = def.name,
+    })
+end
 
 local function register_plant(def)
     local groups = { attached_node = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 3, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, deco_block = 1, compostability = 35 }
@@ -78,32 +147,33 @@ local function register_plant(def)
     end
 
     core.register_node(def.name, {
-        name                           = def.name,
-        _botanical_name                = def._botanical_name,
-        description                    = def.description,
-        drawtype                       = "plantlike",
-        _doc_items__doc_items_longdesc = def._doc_items_longdesc,
-        tiles                          = def.tiles,
-        wield_image                    = def.wield_image,
-        inventory_image                = def.inventory_image,
-        visual_scale                   = def.visual_scale,
-        waving                         = 1,
-        paramtype                      = "light",
-        sunlight_propagates            = true,
-        walkable                       = false,
-        groups                         = groups,
-        _mcl_crafting_output           = { single = { output = def.mcl_dye } },
-        _sound_def                     = {
+        name                 = def.name,
+        _botanical_name      = def._botanical_name,
+        description          = def.description,
+        drawtype             = "plantlike",
+        _doc_items_longdesc  = def._doc_items_longdesc,
+        tiles                = def.tiles,
+        wield_image          = def.wield_image,
+        inventory_image      = def.inventory_image,
+        visual_scale         = def.visual_scale,
+        waving               = 1,
+        paramtype            = "light",
+        sunlight_propagates  = true,
+        walkable             = false,
+        liquids_pointable    = def.liquids_pointable or false,
+        groups               = groups,
+        _mcl_crafting_output = { single = { output = def.mcl_dye } },
+        _sound_def           = {
             key = "node_sound_leaves_defaults",
             input = {},
         },
-        floodable                      = true,
-        selection_box                  = {
+        floodable            = true,
+        selection_box        = {
             type = "fixed",
             fixed = def.selection_box,
         },
-        drop                           = def.drop,
-        on_place                       = def.on_place
+        drop                 = def.drop,
+        on_place             = def.on_place
     })
 
     core.register_decoration({
@@ -190,10 +260,10 @@ elysflowers = {
             },
             place_on            = { xcompat.materials.dirt_with_grass, "default:dry_dirt_with_dry_grass",
                 "default:dry_dirt",
-                "ethereal:dry_dirt",
-                "everness:dry_dirt_with_dry_grass", "everness:mineral_sand", "ebiomes:dry_dirt_with_dry_grass_arid"
+                "ethereal:dry_dirt"
+                , "ebiomes:dry_dirt_with_dry_grass_arid"
             },
-            biomes              = { "savanna", "Savanna", "ebiomes:grassland_arid", "everness:baobab_savanna", "everness:mineral_springs", "MesaPlateauFM_grasstop", "Mesa_sandlevel", "MesaPlateauFM", "mesa_redwood" },
+            biomes              = { "savanna", "Savanna", "ebiomes:grassland_arid", "MesaPlateauFM_grasstop", "Mesa_sandlevel", "MesaPlateauFM", "mesa_redwood" },
             spawn_by            = { "mcl_flowers:tallgrass", "default:dry_grass" },
             num_spawn_by        = 2,
             potted              = true
@@ -267,13 +337,11 @@ elysflowers = {
                 persist = 0.5,
             },
             place_on        = { xcompat.materials.dirt_with_grass, "default:dirt_with_rainforest_litter", "everness:dirt_with_grass", "ebiomes:dirt_with_jungle_savanna_grass" },
-            biomes          = { "rainforest_ocean", "Forest_beach", "everness:bamboo_forest", "Swampland_ocean",
-                "Swampland_deep_ocean",
-                "Swampland_shore", "JungleEdge", "JungleEdge_ocean", "Savanna_beach", "Plains_beach",
+            biomes          = { "rainforest_ocean",
+                "JungleEdge", "JungleEdge_ocean",
                 "MangroveSwamp_shore", "JungleM_shore",
                 "Jungle_shore", "JungleEdge_ocean", "JungleEdge_deep_ocean", "JungleM_ocean", "Jungle_ocean",
-                "savanna_shore", "savanna_ocean",
-                "sandstone_desert_ocean", "desert_ocean", "rainforest", "jungle_savanna"
+                "rainforest", "japanese_rainforest", "jungle_savanna"
             },
             sidelen         = 16,
             potted          = true
@@ -471,7 +539,7 @@ elysflowers = {
                 octaves = 1,
                 persist = 0,
             },
-            place_on            = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_steppe_cold" },
+            place_on            = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_steppe_cold", "ethereal:cold_dirt" },
             biomes              = { "Taiga", "MegaTaiga", "ExtremeHills", "grassland", "RoofedForest", "taiga", "coniferous_forest", "cold_steppe", "grassland_coldish" },
             sidelen             = 16,
             potted              = true
@@ -569,7 +637,7 @@ elysflowers = {
                 octaves = 3,
                 persist = 0.3,
             },
-            place_on            = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_warm" },
+            place_on            = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_warm", "default:dirt_with_dry_grass" },
             biomes              = { "savanna", "Savanna", "mesa", "MesaPlateauF_grasstop", "jumble", "mesa_redwood", "baobab_savanna", "humid_savanna" },
             potted              = true,
             _do_not_pop         = true
@@ -587,20 +655,20 @@ elysflowers = {
             mcl_dye             = "mcl_dyes:yellow",
             selection_box       = { -0.45, -0.5, -0.35, 0.35, 0.45, 0.35, },
             noise_params        = {
-                offset = -0.01945,
-                scale = 0.04,
-                spread = { x = 32, y = 32, z = 32 },
-                seed = 22123,
+                offset = 0.00021945,
+                scale = 0.0000798134,
+                spread = { x = 14, y = 32, z = 14 },
+                seed = math.random(),
                 octaves = 2,
                 persist = 0.6,
             },
             place_on            = { xcompat.materials.dirt_with_grass, "default:permafrost_with_stones",
                 "default:permafrost_with_moss",
-                "etheral:cold_dirt", "default:snowblock",
+                "etheral:cold_dirt", "default:snowblock", "mcl_core:snow", "mcl_core:dirt_with_grass_snow",
                 "default:dirt_with_snow", "default:dirt_with_coniferous_litter", "ebiomes:dirt_with_grass_steppe_cold",
                 "ebiomes:dirt_with_grass_cold"
             },
-            biomes              = { "tundra", "taiga", "frost", "Taiga", "ColdTaiga", "IcePlains", "IcePlainsSpikes", "coniferous_forest", "cold_desert", "cold_steppe", "deciduous_forest_cold" },
+            biomes              = { "tundra", "taiga", "frost", "Taiga", "ColdTaiga", "IcePlains", "IcePlainsSpikes", "coniferous_forest", "cold_desert", "cold_steppe", "deciduous_forest_cold", "snowy_grassland" },
             potted              = false
         },
         {
@@ -644,10 +712,10 @@ elysflowers = {
             mcl_dye = "mcl_dyes:purple",
             selection_box = { -0.25, -0.5, -0.25, 0.25, 0.3, 0.25 },
             noise_params = {
-                offset = -0.0287,
-                scale = 0.0013,
+                offset = 0.000287,
+                scale = 0.000013,
                 spread = { x = 32, y = 32, z = 32 },
-                seed = 2323142,
+                seed = math.random(),
                 octaves = 3,
                 persist = 0.2,
                 flags = { "absvalue" }
@@ -778,18 +846,19 @@ elysflowers = {
             potted              = true
         },
         {
-            name                = "elysflowers:chamomile",
-            _botanical_name     = "M. chamomilla",
-            description         = S("Chamomile"),
-            _doc_items_longdesc =
-            "Chamomile is a common herbal additive. Emitting an alluring fresh apple like scent, the flowerheads of chamomile are used commonly in teas and skincare products. \n Chamomile is widely naturalized through North America, and can be found in the wild in distributed open areas, on roadsides, fields, irrigation ditches, and shallow riverbanks.",
-            tiles               = { "elysflowers_chamomile.png" },
-            dye                 = "grey",
-            mcl_dye             = "mcl_dyes:grey",
-            wield_image         = "elysflowers_chamomile.png",
-            inventory_image     = "elysflowers_chamomile.png",
-            selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
-            noise_params        = {
+            name                    = "elysflowers:chamomile",
+            _botanical_name         = "M. chamomilla",
+            description             = S("Chamomile"),
+            _doc_items_longdesc     =
+            "Chamomile is a common herbal additive. Emitting an alluring fresh apple like scent, the flowerheads of chamomile are used commonly in teas and skincare products.Chamomile is widely naturalized through North America, and can be found in the wild in distributed open areas, on roadsides, fields, irrigation ditches, and shallow riverbanks.",
+            _doc_items_create_entry = true,
+            tiles                   = { "elysflowers_chamomile.png" },
+            dye                     = "grey",
+            mcl_dye                 = "mcl_dyes:grey",
+            wield_image             = "elysflowers_chamomile.png",
+            inventory_image         = "elysflowers_chamomile.png",
+            selection_box           = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
+            noise_params            = {
                 offset = 0.00014239,
                 scale = 0.000059872,
                 spread = { x = 8, y = 8, z = 8 },
@@ -797,10 +866,10 @@ elysflowers = {
                 octaves = 2,
                 persist = 0.1,
             },
-            sidelen             = 16,
-            biomes              = { "Forest", "deciduous_forest", "deciduous_forest_cold", "grassland", "grassland_coldish", "Plains", "grassland", "BirchForest", "BirchForestM", "SunflowerPlains", "ExtremeHills" },
-            place_on            = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_cold" },
-            potted              = true
+            sidelen                 = 16,
+            biomes                  = { "Forest", "deciduous_forest", "deciduous_forest_cold", "grassland", "grassland_coldish", "Plains", "grassland", "BirchForest", "BirchForestM", "SunflowerPlains", "ExtremeHills" },
+            place_on                = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_cold" },
+            potted                  = true
         },
         {
             name                = "elysflowers:rose_pogonia",
@@ -842,8 +911,8 @@ elysflowers = {
             inventory_image     = "elysflowers_yellow_bell.png",
             selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
             noise_params        = {
-                offset = 0.00182020,
-                scale = 0.00114512,
+                offset = 0.000182020,
+                scale = 0.000114512,
                 spread = { x = 16, y = 16, z = 16 },
                 seed = math.random(),
                 octaves = 2,
@@ -962,7 +1031,7 @@ elysflowers = {
         inventory_image     = "elysflowers_evening_primrose.png",
         selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
         noise_params        = {
-            offset = 0.0008121,
+            offset = -0.0008121,
             scale = 0.0000212314,
             spread = { x = 16, y = 16, z = 16 },
             seed = math.random(),
@@ -995,7 +1064,7 @@ elysflowers = {
                 persist = 0.1,
             },
             place_on            = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_swamp", "ebiomes:dirt_with_forest_litter" },
-            biomes              = { "Swampland", "JungleEdge", "JungleEdgeM", "rainforest", "MangroveSwamp", "rainforest", "swamp", "temperate_rainforest", "bog" },
+            biomes              = { "Swampland", "JungleEdge", "JungleEdgeM", "rainforest", "MangroveSwamp", "rainforest", "swamp", "temperate_rainforest", "bog", "jumble" },
             potted              = true
         }, {
         name                = "elysflowers:beach_heath",
@@ -1022,7 +1091,7 @@ elysflowers = {
         biomes              = { "Savanna", "grassland_ocean", "Forest_beach", "Forest_shore", "Jungle_shore",
             "Plains_beach", "FlowerForest_beach",
             "ExtremeHills_beach", "grassland_dunes", "mediteranean_ocean", "deciduous_forest_shore",
-            "deciduous_forest_warm_shore", "mediteranean_dunes" },
+            "deciduous_forest_warm_shore", "mediteranean_dunes", "grove_ocean" },
         potted              = false
     }, {
         name                = "elysflowers:glacier_lilly",
@@ -1036,13 +1105,13 @@ elysflowers = {
         inventory_image     = "elysflowers_glacier_lilly.png",
         selection_box       = { -0.35, -0.4, -0.35, 0.35, 0.40, 0.35 },
         noise_params        = {
-            offset = 0.1,
-            scale = 0.00062041,
+            offset = 0.0081,
+            scale = 0.062041,
             spread = { x = 8, y = 8, z = 8 },
             seed = math.random(),
-            octaves = 2,
-            persist = 0.6,
-            lacunarity = 2.0,
+            octaves = 4,
+            persist = 0.9,
+            lacunarity = 1.0,
             flags = { "absvalue", "eased" }
         },
         spawn_by            = { "mcl_core:snow", "mcl_core:dirt_with_grass_snow", "default:snow", "default:dirt_with_snow" },
@@ -1131,7 +1200,7 @@ elysflowers = {
         },
         {
             name               = "elysflowers:western_springbeauty",
-            _botanical_name    = "E. englemannii",
+            _botanical_name    = "C. lanceolata",
             description        = S("Western Springbeauty"),
             _doc_item_longdesc = "",
             tiles              = { "elysflowers_western_springbeauty.png" },
@@ -1158,7 +1227,7 @@ elysflowers = {
             _do_not_pop        = true,
         }, {
         name               = "elysflowers:tree_cholla",
-        _botanical_name    = "E. englemannii",
+        _botanical_name    = "C. Imbricata",
         description        = S("Tree Cholla"),
         _doc_item_longdesc = "",
         tiles              = { "elysflowers_tree_cholla.png" },
@@ -1172,21 +1241,142 @@ elysflowers = {
         noise_params       = {
             offset = 0.00064200,
             scale = 0.000214606,
-            spread = { x = 8, y = 4, z = 8 },
+            spread = { x = 16, y = 4, z = 16 },
             seed = math.random(),
-            octaves = 4,
-            persist = 0.42,
+            octaves = 6,
+            persist = 0.871,
             lacunarity = 0.756,
         },
-        place_on           = { xcompat.materials.sand, "mcl_core:redsand", "default:desert_sand", "default:red_sand", "ebiomes:dirt_with_grass_arid", "ebiomes:dirt_with_grass_arid_cool" },
-        biomes             = { "Desert", "desert", "MesaPlateauF", "Mesa", "grassland_arid" },
+        place_on           = { xcompat.materials.sand, "mcl_core:redsand", "default:desert_sand", "default:red_sand" },
+        biomes             = { "Desert", "desert", "MesaPlateauF", "Mesa" },
         potted             = true,
         _do_not_pop        = true,
-    }
-
-
-    }
+    },
+        {
+            name               = "elysflowers:desert_plume",
+            _botanical_name    = "S. Pinnata",
+            description        = S("Desert Plume"),
+            _doc_item_longdesc = "",
+            tiles              = { "elysflowers_desert_plume.png" },
+            dye                = "yellow",
+            mcl_dye            = "mcl_dyes:yellow",
+            wield_image        = "elysflowers_desert_plume.png",
+            inventory_image    = "elysflowers_desert_plume.png",
+            selection_box      = { -0.35, -0.4, -0.35, 0.25, 0.40, 0.35 },
+            noise_params       = {
+                offset = 0.000097812,
+                scale = 0.000244716,
+                spread = { x = 32, y = 4, z = 32 },
+                seed = math.random(),
+                octaves = 8,
+                persist = 0.92,
+                lacunarity = 0.056,
+            },
+            place_on           = { xcompat.materials.sand, "mcl_core:redsand", "default:desert_sand", "default:red_sand", "ebiomes:dirt_with_grass_arid", "everness:mineral_sands" },
+            biomes             = { "Desert", "desert", "MesaPlateauF", "Mesa", "grassland_arid", "mesa", "everness:mineral_waters", "MesaPlateauF_sandlevel" },
+            potted             = true,
+            _do_not_pop        = true,
+        },
+        {
+            name               = "elysflowers:canada_violet",
+            _botanical_name    = "O. Digyna",
+            description        = S("Canada Violet"),
+            _doc_item_longdesc = "",
+            tiles              = { "elysflowers_canada_violet.png" },
+            dye                = "white",
+            mcl_dye            = "mcl_dyes:white",
+            wield_image        = "elysflowers_canada_violet.png",
+            inventory_image    = "elysflowers_canada_violet.png",
+            selection_box      = { -0.35, -0.4, -0.35, 0.25, 0.40, 0.35 },
+            noise_params       = {
+                offset = 0.000190944,
+                scale = 0.000717701,
+                spread = { x = 24, y = 6, z = 24 },
+                seed = math.random(),
+                octaves = 4,
+                persist = 0.69,
+                lacunarity = 0.21,
+            },
+            place_on           = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_cold", "default:dirt_with_coniferous_litter" },
+            biomes             = { "deciduous_forest", "Taiga", "Taiga_valley", "deciduous_forest_cold" },
+            potted             = true,
+        },
+        {
+            name               = "elysflowers:prarie_clover",
+            _botanical_name    = "D. purpurea",
+            description        = S("Prarie Clover"),
+            _doc_item_longdesc = "",
+            tiles              = { "elysflowers_prarie_clover.png" },
+            dye                = "",
+            mcl_dye            = "",
+            wield_image        = "elysflowers_prarie_clover.png",
+            inventory_image    = "elysflowers_prarie_clover.png",
+            selection_box      = { -0.35, -0.4, -0.35, 0.25, 0.40, 0.35 },
+            noise_params       = {
+                offset = 0.000178129,
+                scale = 0.00084902,
+                spread = { x = 24, y = 12, z = 24 },
+                seed = math.random(),
+                octaves = 4,
+                persist = 0.7,
+                lacunarity = 0.062,
+            },
+            place_on           = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_cold", "default:dirt_with_coniferous_litter" },
+            biomes             = { "prarie", "steppe", "grassland", "Plains" },
+            potted             = true,
+        }, {
+        name               = "elysflowers:calla_lily",
+        _botanical_name    = "C. palustris",
+        description        = S("Calla Lily"),
+        _doc_item_longdesc = "",
+        tiles              = { "elysflowers_calla_lily.png" },
+        dye                = "",
+        mcl_dye            = "",
+        wield_image        = "elysflowers_calla_lily.png",
+        inventory_image    = "elysflowers_calla_lily.png",
+        selection_box      = { -0.35, -0.4, -0.35, 0.25, 0.40, 0.35 },
+        noise_params       = {
+            offset = 0.00042071,
+            scale = 0.00059122,
+            spread = { x = 7, y = 12, z = 7 },
+            seed = math.random(),
+            octaves = 6,
+            persist = 0.491,
+            lacunarity = 0.081,
+        },
+        spawn_by           = { xcompat.materials.water_source },
+        num_spawn_by       = 1,
+        place_on           = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_swamp", "ebiomes:peat_with_swamp_moss_yellow" },
+        biomes             = { "deciduous_forest", "deciduous_forest_cold", "deciduous_forest_woody", "bog", "swamp", "BirchForest", "BirchForestM" },
+        potted             = false,
+    },
+    },
+    water_plants = { {
+        name               = "elysflowers:water_buttercup",
+        _botanical_name    = "",
+        description        = S("Water Buttercup"),
+        _doc_item_longdesc = "",
+        tiles              = { "elysflowers_water_buttercup.png", "elysflowers_water_buttercup_back.png" },
+        wield_image        = "elysflowers_water_buttercup.png",
+        inventory_image    = "elysflowers_water_buttercup.png",
+        noise_params       = {
+            offset = 0.0241291,
+            scale = 0.00417701,
+            spread = { x = 32, y = 12, z = 32 },
+            seed = math.random(),
+            octaves = 3,
+            persist = 0.79,
+            lacunarity = 0.406,
+        },
+        place_on           = { "default:water_source", "mcl_core:water_source" },
+        biomes             = { "Forest", "Swampland", "Forest_beach", "BirchForestM", "BirchForest", "Plains_beach",
+            "Forest_ocean", "RoofedForest_ocean",
+            "MangroveSwamp_shore", "Jungle_shore", "ExtremeHills_beach", "mediteranean_dunes", "deciduous_forest",
+            "deciduous_forest_woody", "japanese_rainforest_shore", "japanese_rainforest", "bamboo", "grove_ocean",
+            "grassytwo" },
+    } }
 }
+
 
 
 -- add botanical names to item descriptions if global setting == yes
@@ -1219,4 +1409,12 @@ for a, dat in pairs(elysflowers.nodes) do
         else
         end
     end
+end
+
+for a, dat in pairs(elysflowers.water_plants) do
+    if not core.settings:get("elysflowers_botanical_descriptions") then
+        format_description(dat)
+    end
+
+    register_water_plant(dat)
 end
