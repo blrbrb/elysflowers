@@ -1401,23 +1401,6 @@ elysflowers = {
             },
             place_on           = { xcompat.materials.dirt_with_grass, "ebiomes:dirt_with_grass_warm", "default:dirt_with_dry_grass", "default:dry_dirt_with_dry_grass", "ethereal:prairie_dirt", "ebiomes:dry_dirt_with_grass_arid" },
             biomes             = { "steppe", "prairie", "grassland", "Plains", "" },
-            on_place           = function(itemstack, placer, pointed_thing)
-                if not pointed_thing or pointed_thing.type ~= "node" then
-                    return itemstack
-                end
-
-                local variant = math.random(0, 2)
-                local pos = pointed_thing.above
-                local node_name = "elysflowers" .. ":goldenrod_" .. variant
-
-                if variant == 0 then
-                    core.set_node(pos, { name = "elysflowers:goldenrod" })
-                else
-                    core.set_node(pos, { name = node_name })
-                end
-                itemstack:take_item()
-                return itemstack
-            end,
             potted             = false,
             schematic_node     = true
         },
