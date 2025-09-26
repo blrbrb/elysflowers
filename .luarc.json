@@ -1,12 +1,18 @@
 {
-  "diagnostics.globals": ["core", "xcompat",
-        "vector"],
+  "diagnostics.globals": ["xcompat", "vector"],
   "workspace.library": [
     "/home/eli/.var/app/org.luanti.luanti/.minetest/mods",
     "/home/eli/.var/app/org.luanti.luanti/.minetest/games/mineclonia/mods",
     "/home/eli/.var/app/org.luanti.luanti/.minetest/games/minetest_game/mods",
     "/home/eli/.var/app/org.luanti.luanti/.minetest/games/mineclonia/mods/ITEMS/mcl_flowers",
-    "/home/eli/.var/app/org.luanti.luanti/.minetest/mods/xcompat/src"
+    "/home/eli/.var/app/org.luanti.luanti/.minetest/mods/xcompat/src",
+    "/var/lib/flatpak/app/org.luanti.luanti/x86_64/stable/2efb4dd6372c69e66c7a71765cb581d2803ec75aca5dda1b827bea589fcddc17/files/share/luanti/builtin/client",
+    "/var/lib/flatpak/app/org.luanti.luanti/x86_64/stable/2efb4dd6372c69e66c7a71765cb581d2803ec75aca5dda1b827bea589fcddc17/files/share/luanti/builtin/common",
+    "/var/lib/flatpak/app/org.luanti.luanti/x86_64/stable/2efb4dd6372c69e66c7a71765cb581d2803ec75aca5dda1b827bea589fcddc17/files/share/luanti/builtin/game",
+    "/var/lib/flatpak/app/org.luanti.luanti/x86_64/stable/2efb4dd6372c69e66c7a71765cb581d2803ec75aca5dda1b827bea589fcddc17/files/share/luanti/builtin/fstk",
+    "/var/lib/flatpak/app/org.luanti.luanti/x86_64/stable/2efb4dd6372c69e66c7a71765cb581d2803ec75aca5dda1b827bea589fcddc17/files/share/luanti/builtin/emerge",
+    "/var/lib/flatpak/app/org.luanti.luanti/x86_64/stable/2efb4dd6372c69e66c7a71765cb581d2803ec75aca5dda1b827bea589fcddc17/files/share/luanti/builtin/mainmenu",
+    "/var/lib/flatpak/app/org.luanti.luanti/x86_64/stable/2efb4dd6372c69e66c7a71765cb581d2803ec75aca5dda1b827bea589fcddc17/files/share/luanti/builtin/pause_menu"
   ],
   "diagnostics.disable": ["lowercase-global"]
 }
