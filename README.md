@@ -1,3 +1,5 @@
+[![ContentDB](https://content.luanti.org/packages/erey23/elysflowers/shields/title/)](https://content.luanti.org/packages/erey23/elysflowers/)
+
 Adds a massive spoonful of real flowers and plants across a huge variety of biomes. 
 
 ## Works Across Many Different Games!
@@ -22,9 +24,19 @@ If both `ebiomes` and `ethereal` are installed:
 *  `mesa`
 *  `baobab_savanna`
 
-## Bestiary System 
 
-The mod provides an optional handbook feature. It tracks discoveries as you encounter new species. Allowing you to view a few fun facts about each flower you discover in a craftable guidebook item. The mod provides a flag to the mod options menu to control this:
+## Botanical Handbook  <img src="https://github.com/blrbrb/elysflowers/blob/main/textures/elysflowers_botanical_handbook.png?raw=true" width="32">
+
+This mod provides a handbook feature. Enabled by default, but optional. It tracks discoveries as you encounter new species, similar to a bestiary but for flowers! It allows you to view a few fun facts about each flower you discover within a craftable item called the Botanical Handbook
+
+### Recipe 
+
+<img width="638" height="358" alt="demonstration" src="https://github.com/user-attachments/assets/ebea595f-8cb3-4c75-ac9e-3f563e0cf58c"/>
+
+The handbook can be crafted by placing any three flowers from this mod (any node in the `elysflowers` group) vertically in the center of a 3x3 crafting grid. The exact same way you make books in minetest_game. 
+
+### Can I turn it off? 
+Yes! the mod provides a flag to the mod options menu to control this:
 `elysflowers.botanical_handbook` which is enabled by default. 
 
 If you don't want this feature don't fret! Simply toggle it off from the main menu. Open the settings (gear icon in the top right). Scroll down to Content: Mods > Elysflowers and toggle the `botanical_handbook` flag. Worlds which previously had the feature enabled will have no problem if it's disabled ( except for a few missing items that is, if you had the handbook in your inventory ).
