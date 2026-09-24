@@ -1,0 +1,3159 @@
+{
+  "nodes": [
+    {
+      "name": "elysflowers:prairie_fire",
+      "description": "Prairie Fire",
+      "_botanical_name": "C. coccinea",
+      "_guidebook_entry": "<big>Prairie Fire</big>Commonly found in temperate prairies",
+      "tiles": [
+        "elysflowers_prairie_fire.png"
+      ],
+      "wield_image": "elysflowers_prairie_fire.png",
+      "inventory_image": "elysflowers_prairie_fire.png",
+      "not_in_creative_inventory": false,
+      "mcl_dye": "mcl_dyes:red",
+      "dye": "red",
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.006227,
+        "scale": 0.0002343,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "octaves": 1,
+        "seed": 22301,
+        "persist": 0.3
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dry_dirt_with_dry_grass",
+          "default:dry_dirt"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dry_dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dry_dirt_with_dry_grass_arid"
+        ],
+        "ethereal": [
+          "ethereal:dry_dirt",
+          "ethereal:prairie_dirt"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:outback_litter"
+        ],
+        "prairie": [
+          "prairie:prairie_dirt_with_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "savanna"
+        ],
+        "mcl_biomes": [
+          "Savanna",
+          "MesaPlateauFM_grasstop",
+          "Mesa_sandlevel",
+          "MesaPlateauFM"
+        ],
+        "ebiomes": [
+          "grassland_arid",
+          "warm_steppe"
+        ],
+        "prairie": [
+          "prairie"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:outback"
+        ],
+        "everness": [
+          ""
+        ]
+      },
+      "spawn_by": {
+        "default": [
+          "default:dry_grass_0",
+          "default:dry_grass_3"
+        ],
+        "mcl_biomes": [
+          "mcl_flowers:tallgrass"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:outback_grass"
+        ]
+      },
+      "num_spawn_by": 2,
+      "potted": true
+    },
+    {
+      "name": "elysflowers:forget_me_not",
+      "description": "Forget-me-not",
+      "_botanical_name": "M. scorpiodies",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_forget_me_not.png"
+      ],
+      "dye": "blue",
+      "mcl_dye": "mcl_dyes:light_blue",
+      "wield_image": "elysflowers_forget_me_not.png",
+      "inventory_image": "elysflowers_forget_me_not.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00022,
+        "scale": 0.0029,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "seed": 200240,
+        "octaves": 2,
+        "persist": 0.4
+      },
+      "spawn_by": {
+        "default": [
+          "default:water_source"
+        ],
+        "mcl_biomes": [
+          "mcl_core:water_source"
+        ]
+      },
+      "num_spawn_by": 1,
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold"
+        ],
+        "naturalbiomes":["naturalbiomes:alpine_litter"]
+      },
+      "biomes": {
+        "default": [
+          "grassland",
+          "deciduous_forest",
+          "coniferous_forest"
+        ],
+        "mcl_biomes": [
+          "RoofedForest",
+          "Forest",
+          "BirchForest",
+          "BirchForestM"
+        ],
+        "ethereal": [
+          "grassytwo"
+        ],
+        "ebiomes": [
+          "deciduous_forest_cold"
+        ],
+        "naturalbiomes":["naturalbiomes:alpine"]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:foxglove",
+      "description": "Foxglove",
+      "_botanical_name": "D. purpurea",
+      "_guidebook_entry": "This highly toxic biennial herb is native to British Columbia and was later naturalized in the northern US.\n It produces showy purple and pink bells that dangle in clusters from the sides of the stem. \n Despite it's ornamental nature, foxglove is highly fatal if consumed in excess. It contains chemicals which inhibit neurotransmission. The heart medication, <i>digitalis</i> is actually derived from a relative of foxglove",
+      "tiles": [
+        "elysflowers_foxglove.png"
+      ],
+      "wield_image": "elysflowers_foxglove.png",
+      "dye": "grey",
+      "mcl_dye": "mcl_dyes:grey",
+      "inventory_image": "elysflowers_foxglove.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "scale": 0.00414,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 64
+        },
+        "seed": 881933,
+        "octaves": 3,
+        "persist": 0.4
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_leaves"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "deciduous_forest"
+        ],
+        "mcl_biomes": [
+          "Forest",
+          "RoofedForest",
+          "BirchForest",
+          "BirchForestM"
+        ],
+        "ebiomes": [
+          "deciduous_forest_cold"
+        ]
+      },
+      "sidelen": 8,
+      "potted": true
+    },
+    {
+      "name": "elysflowers:hibiscus",
+      "description": "Hibiscus",
+      "_botanical_name": "H. Aponeurus",
+      "dye": "magenta",
+      "mcl_dye": "mcl_dyes:magenta",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_hibiscus.png"
+      ],
+      "wield_image": "elysflowers_hibiscus.png",
+      "inventory_image": "elysflowers_hibiscus.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "scale": 0.001412,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "seed": 2983671,
+        "octaves": 2,
+        "persist": 0.5
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_rainforest_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "everness": [
+          "everness:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_jungle_savanna_grass"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:palmbeach_sand"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "rainforest"
+        ],
+        "mcl_biomes": [
+          "JungleEdge",
+          "JungleEdge_ocean",
+          "MangroveSwamp_shore",
+          "JungleM_shore",
+          "Jungle_shore",
+          "JungleEdge_ocean",
+          "JungleEdge_deep_ocean",
+          "JungleM_ocean",
+          "Jungle_ocean"
+        ],
+        "ebiomes": [
+          "rainforest_ocean",
+          "rainforest",
+          "japanese_rainforest"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:palmbeach"
+        ]
+      },
+      "sidelen": 16,
+      "potted": true
+    },
+    {
+      "name": "elysflowers:larkspur",
+      "description": "Larkspur",
+      "_botanical_name": "Digitalis nuttallianum",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_larkspur.png"
+      ],
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "wield_image": "elysflowers_larkspur.png",
+      "inventory_image": "elysflowers_larkspur.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0009029,
+        "scale": 0.000212,
+        "spread": {
+          "x": 12,
+          "y": 4,
+          "z": 12
+        },
+        "octaves": 1,
+        "seed": 649537,
+        "persist": 0.5
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_core": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold",
+          "ebiomes:dirt_with_grass_steppe_cold"
+        ]
+      },
+      "sidelen": 16,
+      "biomes": {
+        "default": [
+          "grassland",
+          "deciduous_forest",
+          "coniferous_forest"
+        ],
+        "mcl_biomes": [
+          "Forest",
+          "BirchForest",
+          "RoofedForest"
+        ],
+        "ebiomes": [
+          "deciduous_forest_woody",
+          "deciduous_forest_cold"
+        ],
+        "etheral": [
+          "grassytwo"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:black_eyed_susan",
+      "description": "Black-Eyed Susan",
+      "_botanical_name": "Rudbeckia Hirta",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_black_eyed_susan.png"
+      ],
+      "wield_image": "elysflowers_black_eyed_susan.png",
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "inventory_image": "elysflowers_black_eyed_susan.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00052,
+        "scale": 0.0019,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "seed": 911389,
+        "octaves": 3,
+        "persist": 0.4
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ethereal": [
+          "ethereal:prairie_dirt"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_steppe"
+        ],
+        "prairie": [
+          "prairie:prairie_dirt_with_grass"
+        ],
+        "naturalbiomes":["naturalbiomes:bushland_bushlandlitter","naturalbiomes:bushland_bushlandlitter2","naturalbiomes:bushland_bushlandlitter3"]
+      },
+      "biomes": {
+        "default": [
+          "grassland",
+          "savanna"
+        ],
+        "mcl_biomes": [
+          "SunflowerPlains",
+          "Plains"
+        ],
+        "prairie": [
+          "prairie"
+        ],
+        "ethereal": [
+          "plains"
+        ],
+        "ebiomes": [
+          "steppe"
+        ],
+        "naturalbiomes":["naturalbiomes:bushland"]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:phlox",
+      "description": "Phlox",
+      "_botanical_name": "Phlox drummondii",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_phlox.png"
+      ],
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "wield_image": "elysflowers_phlox.png",
+      "inventory_image": "elysflowers_phlox.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00593,
+        "scale": 0.000015,
+        "spread": {
+          "x": 8,
+          "y": 8,
+          "z": 8
+        },
+        "octaves": 1,
+        "seed": 511101,
+        "persist": 0
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_leaves"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_warm"
+        ],
+        "dorwinion": [
+          "dorwinion_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "deciduous_forest"
+        ],
+        "mcl_biomes": [
+          "Forest",
+          "RoofedForest"
+        ],
+        "ebiomes": [
+          "deciduous_forest_woody",
+          "deciduous_forest_warm"
+        ],
+        "asuna_core": [
+          "dorwinion"
+        ]
+      },
+      "spawn_by": {
+        "default": [
+          "default:tree"
+        ],
+        "mcl_biomes": [
+          "mcl_trees:tree",
+          "mcl_core:tree",
+          "mcl_core:birchtree",
+          "mcl_core:darktree",
+          "mcl_trees:tree_dark_oak"
+        ],
+        "ebiomes": [
+          "ebiomes:chestnut_tree",
+          "ebiomes:hornbeam_tree",
+          "ebiomes:maple_tree"
+        ],
+        "asuna_core": [
+          "default:tree"
+        ]
+      },
+      "num_spawn_by": 1,
+      "potted": true
+    },
+    {
+      "name": "elysflowers:purple_coneflower_1",
+      "description": "Purple Coneflower",
+      "_botanical_name": "Echinacea purpurea",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_purple_coneflower_1.png"
+      ],
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "wield_image": "elysflowers_purple_coneflower_0.png",
+      "not_in_creative_inventory": true,
+      "inventory_image": "elysflowers_purple_coneflower_0.png",
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "scale": 0.0212,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "seed": 832313,
+        "octaves": 1,
+        "persist": 0.5
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ethereal": [
+          "ethereal:prairie_dirt"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_steppe"
+        ],
+        "prairie": [
+          "prairie_dirt_with_grass"
+        ],
+        "naturalbiomes":["naturalbiomes:bushland_bushlandlitter","naturalbiomes:bushland_bushlandlitter2","naturalbiomes:bushland_bushlandlitter3"]
+      },
+      "biomes": {
+        "default": [
+          "grassland",
+          "deciduous_forest"
+        ],
+        "mcl_biomes": [
+          "ExtremeHills",
+          "Plains",
+          "ExtremeHillsM",
+          "ExtremeHills+"
+        ],
+        "ethereal": [
+          "grassytwo",
+          "prairie"
+        ],
+        "ebiomes": [
+          "steppe"
+        ],
+        "prairie": [
+          "prairie"
+        ],
+        "naturalbiomes":["naturalbiomes:bushland"]
+      },
+      "spawn_by": {
+        "default": [
+          "elysflowers:purple_coneflower"
+        ],
+        "mcl_biomes": [
+          "elysflowers:purple_coneflower"
+        ]
+      },
+      "num_spawn_by": 1,
+      "sidelen": 16,
+      "drop": "elysflowers:purple_coneflower"
+    },
+    {
+      "name": "elysflowers:purple_coneflower",
+      "description": "Purple Coneflower",
+      "_botanical_name": "E. purpurea",
+      "_guidebook_entry": "The purple coneflower is a common sight across the prairies and open fields of Eastern and Central North America. It's name is derived from the greek word (ἐχῖνος). Which means 'spiny one'. As it's name suggests, the cone of the purple coneflower is made from many spiky protrusions where the seed capsules grow.",
+      "tiles": [
+        "elysflowers_purple_coneflower_0.png"
+      ],
+      "wield_image": "elysflowers_purple_coneflower_0.png",
+      "inventory_image": "elysflowers_purple_coneflower_0.png",
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0009451,
+        "scale": 0.00212,
+        "spread": {
+          "x": 64,
+          "y": 32,
+          "z": 64
+        },
+        "seed": 713492,
+        "octaves": 2,
+        "persist": 0.5
+      },
+      "has_variants": true,
+      "num_variants": 1,
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ethereal": [
+          "ethereal:prairie_dirt"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_steppe"
+        ],
+        "prairie": [
+          "prairie_dirt_with_grass"
+        ],
+        "naturalbiomes":["naturalbiomes:bushland_bushlandlitter","naturalbiomes:bushland_bushlandlitter2","naturalbiomes:bushland_bushlandlitter3"]
+      },
+      "biomes": {
+        "default": [
+          "grassland",
+          "deciduous_forest"
+        ],
+        "mcl_biomes": [
+          "ExtremeHills",
+          "Plains",
+          "ExtremeHillsM",
+          "ExtremeHills+"
+        ],
+        "ethereal": [
+          "grassytwo",
+          "prairie"
+        ],
+        "ebiomes": [
+          "steppe"
+        ],
+        "prairie": [
+          "prairie"
+        ],
+        "naturalbiomes":["naturalbiomes:bushland"]
+      },
+      "sidelen": 16,
+      "potted": false
+    },
+    {
+      "name": "elysflowers:california_poppy",
+      "description": "California Poppy",
+      "_botanical_name": "E. californica",
+      "drawtype": "plantlike",
+      "dye": "orange",
+      "mcl_dye": "mcl_dyes:orange",
+      "_guidebook_entry": "The state flower of California, the California poppy is native to the western seaboard of the United States. Before European settlers arrived in California, \n It's rumoured that entire hillsides would turn bright orange due to the immense number of poppies.\n The California Poppy is very drought tolerant, and incredibly responsive to intense sunlight & heat. It can be found growing in any distributed area of grass, desert scrub, or even dry gravel.",
+      "tiles": [
+        "elysflowers_california_poppy.png"
+      ],
+      "wield_image": "elysflowers_california_poppy.png",
+      "inventory_image": "elysflowers_california_poppy.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00081,
+        "scale": 0.00141,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "seed": 492766,
+        "octaves": 1,
+        "persist": 0,
+        "flags": [
+          "absvalu",
+          "eased"
+        ]
+      },
+      "y_min": 25,
+      "y_max": 100,
+      "biomes": {
+        "default": [
+          "savanna"
+        ],
+        "mcl_biomes": [
+          "Savanna",
+          "MesaPlateauF",
+          "MesaPlateauFM_grasstop",
+          "MesaPlateauFM"
+        ],
+        "ebiomes": [
+          "warm_steppe",
+          "grassland_arid"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:outback_litter"
+        ],
+        "everness": [
+          "everness:baobab_savanna"
+        ]
+      },
+      "place_on": {
+        "default": [
+          "default:dry_dirt",
+          "default:dry_dirt_with_dry_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ethereal": [
+          "ethereal:dry_dirt"
+        ],
+        "ebiomes": [
+          "ebiomes:dry_dirt_with_dry_grass_arid_cool",
+          "ebiomes:dirt_with_grass_steppe_warm"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:outback_litter"
+        ]
+      },
+      "sidelen": 16,
+      "potted": true
+    },
+    {
+      "name": "elysflowers:hyacinth",
+      "description": "Hyacinth",
+      "_botanical_name": "Hyacinthus Orientalis",
+      "_guidebook_entry": "stud",
+      "tiles": [
+        "elysflowers_hyacinth.png"
+      ],
+      "wield_image": "elysflowers_hyacinth.png",
+      "dye": "blue",
+      "mcl_dye": "mcl_dyes:light_blue",
+      "inventory_image": "elysflowers_hyacinth.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00423,
+        "scale": 0.00012,
+        "spread": {
+          "x": 16,
+          "y": 16,
+          "z": 16
+        },
+        "octaves": 1,
+        "seed": 669040,
+        "persist": 0
+      },
+      "octaves": 1,
+      "persist": 0,
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold"
+        ],
+        "ethereal": [
+          "ethereal:cold_dirt"
+        ],
+        "naturalbiomes":["naturalbiomes:heath_litter3","naturalbiomes:heath_litter2","naturalbiomes:heath_litter"]
+      },
+      "biomes": {
+        "default": [
+          "grassland",
+          "taiga",
+          "coniferous_forest"
+        ],
+        "mcl_biomes": [
+          "Taiga",
+          "MegaTaiga",
+          "ExtremeHills",
+          "RoofedForest"
+        ],
+        "ebiomes": [
+          "cold_steppe",
+          "grassland_coldish"
+        ],
+        "naturalbiomes":["naturalbiomes:heath"]
+      },
+      "sidelen": 16,
+      "potted": true
+    },
+    {
+      "name": "elysflowers:lavender",
+      "description": "Lavender",
+      "_botanical_name": "L. officinalis",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_lavender.png"
+      ],
+      "wield_image": "elysflowers_lavender.png",
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "inventory_image": "elysflowers_lavender.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "scale": 0.00522,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "octaves": 1,
+        "seed": 416064,
+        "persist": 0.4
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ethereal": [
+          "ethereal:bamboo_dirt",
+          "ethereal:grove_dirt"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_med"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:mediterranean_litter"
+        ],
+      },
+      "biomes": {
+        "default": [
+          "grassland"
+        ],
+        "mcl_biomes": [
+          "Plains",
+          "ExtremeHills",
+          "CherryGrove"
+        ],
+        "ethereal": [
+          "grassytwo",
+          "bamboo"
+        ],
+        "ebiomes": [
+          "mediteranean"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:heath",
+          "naturalbiomes:mediteranean"
+        ]
+      },
+      "potted": true,
+      "potted_image": "elysflowers_lavender_potted.png"
+    },
+    {
+      "name": "elysflowers:marshmallow",
+      "description": "Marshmallow",
+      "_botanical_name": "A. officinalis",
+      "_guidebook_entry": "Often mistaken for the gooey sugary treat of the same namesake, <i>'marshmellows'</i> actually get their name from this flower. The roots of the marshmallow contain a tetriary metabolite that may act as a mild numbing agent. \n It was often used by Native Americans as a remedy for sore throat, cooked and sweetened with a mixture of gluten, honey, and sugar.",
+      "tiles": [
+        "elysflowers_marshmallow.png"
+      ],
+      "wield_image": "elysflowers_marshmallow.png",
+      "inventory_image": "elysflowers_marshmallow.png",
+      "not_in_creative_inventory": false,
+      "dye": "pink",
+      "mcl_dye": "mcl_dyes:pink",
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.000496,
+        "scale": 0.00029,
+        "spread": {
+          "x": 16,
+          "y": 16,
+          "z": 16
+        },
+        "octaves": 3,
+        "seed": 207227,
+        "lacunarity": 1.9,
+        "persist": 0.7
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_rainforest_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_swamp",
+          "ebiomes:peat_with_swamp_moss_yellow"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "rainforest"
+        ],
+        "mcl_biomes": [
+          "Swampland",
+          "Swampland_ocean",
+          "JungleEdgeM"
+        ],
+        "ebiomes": [
+          "swamp",
+          "bog"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:yarrow_pink",
+      "description": "Yarrow",
+      "_botanical_name": "A. millefolium",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_yarrow.png"
+      ],
+      "wield_image": "elysflowers_yarrow.png",
+      "inventory_image": "elysflowers_yarrow.png",
+      "not_in_creative_inventory": false,
+      "dye": "pink",
+      "mcl_dye": "mcl_dyes:pink",
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00021,
+        "scale": 0.000019,
+        "spread": {
+          "x": 8,
+          "y": 8,
+          "z": 8
+        },
+        "seed": 9913789,
+        "octaves": 1,
+        "persist": 0.4
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "grassland",
+          "deciduous_forest"
+        ],
+        "mcl_biomes": [
+          "Plains",
+          "BirchForest",
+          "BirchForestM"
+        ],
+        "ebiomes": [
+          "deciduous_forest_woody"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:african_marigold",
+      "_botanical_name": "Tagetes. Erecta",
+      "description": "African Marigold",
+      "_guidebook_entry": "Despite it's name, this flower is actually native to the hot and humid steppes of Latin America, inhabiting a wide variety of tropical and subtropical climates",
+      "tiles": [
+        "elysflowers_marigold.png"
+      ],
+      "wield_image": "elysflowers_marigold.png",
+      "inventory_image": "elysflowers_marigold.png",
+      "not_in_creative_inventory": false,
+      "dye": "orange",
+      "mcl_dye": "mcl_dyes:orange",
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.000545,
+        "scale": 0.00029,
+        "spread": {
+          "x": 16,
+          "y": 8,
+          "z": 16
+        },
+        "octaves": 3,
+        "seed": 641277,
+        "persist": 0.3
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_dry_grass"
+        ],
+        "everness": [
+          "everness:dry_dirt_with_dry_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_warm",
+          "ebiomes:dirt_with_jungle_savanna_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "savanna"
+        ],
+        "mcl_biomes": [
+          "Savanna",
+          "MesaPlateauF_grasstop"
+        ],
+        "everness": [
+          "everness:baobab_savanna"
+        ],
+        "ebiomes": [
+          "mesa_redwood",
+          "humid_savanna",
+          "jumble",
+          "mesa",
+          "jungle_savanna"
+        ]
+      },
+      "potted": true,
+      "_do_not_pop": true
+    },
+    {
+      "name": "elysflowers:arctic_poppy",
+      "_botanical_name": "P. radicatum",
+      "description": "Arctic Poppy",
+      "_guidebook_entry": "The artic poppy (unsurprisingly) is a tundra flower found throughout large stretches of the North America arctic and sub-arctic.\\n It prefers to grow in well-drained dry gravels and loose soils, and has an impressive reputation for being nearly impossible to kill. \\n The roots of these flowers have been found alive, extracting nutrients through solid ice!",
+      "tiles": [
+        "elysflowers_arctic_poppy.png"
+      ],
+      "wield_image": "elysflowers_arctic_poppy.png",
+      "inventory_image": "elysflowers_arctic_poppy.png",
+      "not_in_creative_inventory": false,
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "selection_box": {
+        "x1": -0.45,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.45,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00021945,
+        "scale": 0.0000798134,
+        "spread": {
+          "x": 14,
+          "y": 32,
+          "z": 14
+        },
+        "octaves": 2,
+        "seed": 462659,
+        "persist": 0.6
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:permafrost_with_stones",
+          "default:permafrost_with_moss",
+          "default:snowblock",
+          "default:dirt_with_snow",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_core": [
+          "mcl_core:dirt_with_grass",
+          "mcl_core:snow",
+          "mcl_core:dirt_with_grass_snow"
+        ],
+        "ethereal": [
+          "etheral:cold_dirt"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_steppe_cold",
+          "ebiomes:dirt_with_grass_cold"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "tundra",
+          "taiga",
+          "coniferous_forest",
+          "cold_desert",
+          "snowy_grassland"
+        ],
+        "mcl_biomes": [
+          "Taiga",
+          "ColdTaiga",
+          "IcePlains",
+          "IcePlainsSpikes"
+        ],
+        "ebiomes": [
+          "cold_steppe",
+          "deciduous_forest_cold"
+        ]
+      },
+      "potted": false
+    },
+    {
+      "name": "elysflowers:dames_rocket",
+      "_botanical_name": "Hesperis matronalis",
+      "description": "Dame's Rocket",
+      "_guidebook_entry": "This biennial herb is a short-lived, and shade tolerant forest-dweller that can often grow as tall as a standing person! \\n The dames rocket produces blooms in early to late spring, which vary in color from off white to bright pink or purple. ",
+      "tiles": [
+        "elysflowers_dames_rocket.png"
+      ],
+      "wield_image": "elysflowers_dames_rocket.png",
+      "inventory_image": "elysflowers_dames_rocket.png",
+      "not_in_creative_inventory": false,
+      "dye": "grey",
+      "mcl_dye": "mcl_dyes:grey",
+      "selection_box": {
+        "x1": -0.25,
+        "y1": -0.5,
+        "z1": -0.25,
+        "x2": 0.25,
+        "y2": 0.3,
+        "z2": 0.25
+      },
+      "noise_params": {
+        "scale": 0.02,
+        "spread": {
+          "x": 64,
+          "y": 64,
+          "z": 64
+        },
+        "octaves": 1,
+        "seed": 170438,
+        "persist": 0.5
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_leaves"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_warm",
+          "ebiomes:dirt_with_grass_cold"
+        ],
+        "ethereal": [
+          "ethereal:grove_dirt"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "deciduous_forest"
+        ],
+        "mcl_biomes": [
+          "Forest",
+          "RoofedForest",
+          "BirchForest"
+        ],
+        "ebiomes": [
+          "deciduous_forest_woody",
+          "deciduous_forest_cold"
+        ],
+        "etheral": [
+          "grove"
+        ]
+      },
+      "spawn_by": {
+        "default": [
+          "default:tree",
+          "default:aspen_tree",
+          "default:tree"
+        ],
+        "mcl_biomes": [
+          "mcl_trees:tree",
+          "mcl_core:tree",
+          "mcl_core:birchtree",
+          "mcl_trees:tree_dark_oak",
+          "mcl_core:darktree",
+          "mcl_trees:birch_tree"
+        ],
+        "ebiomes": [
+          "ebiomes:oak_tree",
+          "ebiomes:pear_tree",
+          "ebiomes:maple_tree"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:crocus",
+      "_botanical_name": "C. sativus",
+      "description": "Crocus",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_crocus.png"
+      ],
+      "wield_image": "elysflowers_crocus.png",
+      "inventory_image": "elysflowers_crocus.png",
+      "not_in_creative_inventory": false,
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "selection_box": {
+        "x1": -0.25,
+        "y1": -0.5,
+        "z1": -0.25,
+        "x2": 0.25,
+        "y2": 0.3,
+        "z2": 0.25
+      },
+      "noise_params": {
+        "offset": 0.000287,
+        "scale": 0.000013,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "octaves": 3,
+        "seed": 569786,
+        "persist": 0.2,
+        "flags": [
+          "absvalue"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "snowy_grassland",
+          "tundra",
+          "taiga",
+          "coniferous_forest"
+        ],
+        "mcl_biomes": [
+          "Taiga",
+          "MegaTaiga",
+          "IcePlains"
+        ],
+        "ebiomes": [
+          "deciduous_forest_cold"
+        ]
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_snow",
+          "default:permafrost_with_stones",
+          "default:permafrost_with_moss"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold",
+          "ebiomes:dirt_with_grass_steppe_cold"
+        ],
+        "ethereal": [
+          "etheral:cold_dirt"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:fireweed_3",
+      "_botanical_name": "C. angustifolium",
+      "description": "Fireweed",
+      "_guidebook_entry": "Fireweed",
+      "tiles": [
+        "elysflowers_fireweed_3.png"
+      ],
+      "wield_image": "elysflowers_fireweed_0.png",
+      "inventory_image": "elysflowers_fireweed_0.png",
+      "dye": "magenta",
+      "mcl_dye": "mcl_dyes:magenta",
+      "not_in_creative_inventory": true,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.10,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "scale": 0.94,
+        "spread": {
+          "x": 64,
+          "y": 64
+        },
+        "seed": 97822,
+        "octaves": 1,
+        "persist": 0.6
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "taiga_valley"
+        ],
+        "mcl_biomes": [
+          "Taiga_valley"
+        ]
+      },
+      "drop": "elysflowers:fireweed"
+    },
+    {
+      "name": "elysflowers:fireweed_2",
+      "_botanical_name": "C. angustifolium",
+      "description": "Fireweed",
+      "_guidebook_entry": "Fireweed",
+      "tiles": [
+        "elysflowers_fireweed_2.png"
+      ],
+      "wield_image": "elysflowers_fireweed_0.png",
+      "inventory_image": "elysflowers_fireweed_0.png",
+      "not_in_creative_inventory": true,
+      "dye": "magenta",
+      "mcl_dye": "mcl_dyes:magenta",
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.5,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "scale": 0.94,
+        "spread": {
+          "x": 64,
+          "y": 64,
+          "z": 64
+        },
+        "seed": 28912,
+        "octaves": 1,
+        "persist": 0.6
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "taiga_valley"
+        ],
+        "mcl_biomes": [
+          "Taiga_valley"
+        ]
+      },
+      "drop": "elysflowers:fireweed"
+    },
+    {
+      "name": "elysflowers:fireweed_1",
+      "_botanical_name": "C. angustifolium",
+      "description": "Fireweed",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_fireweed_1.png"
+      ],
+      "wield_image": "elysflowers_fireweed_0.png",
+      "inventory_image": "elysflowers_fireweed_0.png",
+      "not_in_creative_inventory": true,
+      "visual_scale": 1.5,
+      "selection_box": {
+        "x1": -0.25,
+        "y1": -0.5,
+        "z1": -0.25,
+        "x2": 0.30,
+        "y2": 1.0,
+        "z2": 0.30
+      },
+      "noise_params": {
+        "scale": 0.94,
+        "spread": {
+          "x": 64,
+          "y": 64,
+          "z": 64
+        },
+        "seed": 374142,
+        "octaves": 2,
+        "persist": 0.6
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "taiga_valley"
+        ],
+        "mcl_biomes": [
+          "Taiga_valley"
+        ]
+      },
+      "drop": "elysflowers:fireweed"
+    },
+    {
+      "name": "elysflowers:fireweed",
+      "_botanical_name": "C. angustifolium",
+      "description": "Fireweed",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_fireweed_0.png"
+      ],
+      "dye": "magenta",
+      "mcl_dye": "mcl_dyes:magenta",
+      "wield_image": "elysflowers_fireweed_0.png",
+      "inventory_image": "elysflowers_fireweed_0.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "scale": 0.24,
+        "spread": {
+          "x": 64,
+          "y": 64,
+          "z": 64
+        },
+        "seed": 17822,
+        "octaves": 2,
+        "persist": 0.6
+      },
+      "has_variants": true,
+      "num_variants": 3,
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "taiga_valley"
+        ],
+        "mcl_biomes": [
+          "Taiga_valley"
+        ]
+      },
+      "node_name": "elysflowers",
+      "potted": true
+    },
+    {
+      "name": "elysflowers:chamomile",
+      "_botanical_name": "M. chamomilla",
+      "description": "Chamomile",
+      "_guidebook_entry": "Chamomile is a common herbal additive. Emitting an alluring fresh apple-like scent, the flowerheads of chamomile are used commonly in teas and skincare products. \n Chamomile is native to europe and the temperate regions of asia, althought it is widely naturalized through North America. It can be found in the wild in distributed open areas, on roadsides, fields, irrigation ditches, and shallow riverbanks.",
+      "_doc_items_create_entry": true,
+      "tiles": [
+        "elysflowers_chamomile.png"
+      ],
+      "dye": "grey",
+      "mcl_dye": "mcl_dyes:grey",
+      "wield_image": "elysflowers_chamomile.png",
+      "inventory_image": "elysflowers_chamomile.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00014239,
+        "scale": 0.000059872,
+        "spread": {
+          "x": 8,
+          "y": 8,
+          "z": 8
+        },
+        "octaves": 2,
+        "seed": 493203,
+        "persist": 0.1
+      },
+      "sidelen": 16,
+      "biomes": {
+        "default": [
+          "deciduous_forest",
+          "grassland"
+        ],
+        "mcl_biomes": [
+          "Forest",
+          "Plains",
+          "BirchForest",
+          "BirchForestM",
+          "ExtremeHills"
+        ],
+        "ebiomes": [
+          "deciduous_forest_cold",
+          "grassland_coldish"
+        ]
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:rose_pogonia",
+      "_botanical_name": "P. ophioglossoides",
+      "description": "Rose Pogonia",
+      "_guidebook_entry": "Native to the cooler damp forests of the great lakes basin this showy orchid is often refered to as the <i>'snake-mouth'</i> plant after the peculiar geometry of it's bloom. \n The American romantic era poet Henry David Thoreau once allegedly remaked that the rose pogonia <i>'...smells exactly like a snake.'</i> ",
+      "tiles": [
+        "elysflowers_rose_pogonia.png"
+      ],
+      "dye": "grey",
+      "mcl_dye": "mcl_dyes:grey",
+      "wield_image": "elysflowers_rose_pogonia.png",
+      "inventory_image": "elysflowers_rose_pogonia.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.40,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00041998,
+        "scale": 0.00024332,
+        "spread": {
+          "x": 16,
+          "y": 16,
+          "z": 16
+        },
+        "octaves": 1,
+        "seed": 59588,
+        "persist": 0.1
+      },
+      "sidelen": 16,
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alpine_litter"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "coniferous_forest",
+          "taiga_valley"
+        ],
+        "mcl_biomes": [
+          "BirchForest",
+          "BirchForestM",
+          "Taiga",
+          "Taiga_valley",
+          "Taiga_beach"
+        ],
+        "ebiomes": [
+          "deciduous_forest_cold",
+          "deciduous_forest_cold"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alpine"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:yellow_bell",
+      "_botanical_name": "Friti. pudica",
+      "description": "Yellow Bell",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_yellow_bell.png"
+      ],
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "wield_image": "elysflowers_yellow_bell.png",
+      "inventory_image": "elysflowers_yellow_bell.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00018202,
+        "scale": 0.000114512,
+        "spread": {
+          "x": 16,
+          "y": 16,
+          "z": 16
+        },
+        "octaves": 2,
+        "seed": 793067,
+        "persist": 0.39
+      },
+      "sidelen": 16,
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "default:dirt_with_grass"
+        ],
+        "natural_biomes": [
+          "naturalbiomes:alpine_litter"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "coniferous_forest",
+          "taiga_valley"
+        ],
+        "mcl_biomes": [
+          "MegaSpruceTaiga",
+          "Taiga_valley",
+          "Taiga_beach"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alpine"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:bergamot",
+      "_botanical_name": "Monarda fistulosa",
+      "description": "Bergamot",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_bergamot.png"
+      ],
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "wield_image": "elysflowers_bergamot.png",
+      "inventory_image": "elysflowers_bergamot.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00027766,
+        "scale": 0.00021572,
+        "spread": {
+          "x": 32,
+          "y": 32,
+          "z": 32
+        },
+        "octaves": 1,
+        "seed": 168404,
+        "persist": 0.29
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold",
+          "ebiomes:dirt_with_grass_steppe"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "grassland"
+        ],
+        "mcl_biomes": [
+          "Forest",
+          "BirchForest",
+          "BirchForestM",
+          "Plains",
+          "ExtremeHills",
+          "ExtremeHills+",
+          "Taiga"
+        ],
+        "ebiomes": [
+          "grassland_coldish",
+          "steppe"
+        ]
+      },
+      "potted": false
+    },
+    {
+      "name": "elysflowers:cold_desert_phlox",
+      "description": "Cold Desert Phlox",
+      "_botanical_name": "Phlox stansburyi",
+      "_guidebook_entry": "This perennial herb is native to dry arid regions of the American southwest. As it's name suggests cold desert phlox can often be found among the desert scrub of temperate, to mildly cold deserts and dry grasslands.",
+      "tiles": [
+        "elysflowers_cold_desert_phlox.png"
+      ],
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "wield_image": "elysflowers_cold_desert_phlox.png",
+      "inventory_image": "elysflowers_cold_desert_phlox.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.000027766,
+        "scale": 0.000091572,
+        "spread": {
+          "x": 16,
+          "y": 16,
+          "z": 16
+        },
+        "octaves": 2,
+        "seed": 628476,
+        "persist": 0.7
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:silver_sand",
+          "default:sand"
+        ],
+        "mcl_biomes": [
+          "default:dirt_with_grass"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:heath_litter"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "cold_desert"
+        ],
+        "mcl_biomes": [
+          "Taiga"
+        ],
+        "ebiomes": [
+          "cold_desert_buffer"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:heath"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:western_bleeding_heart",
+      "description": "Western Bleeding-Heart",
+      "_botanical_name": "Dicentra formosa",
+      "_guidebook_entry": "This orchid was introduced to North America from Japan. \n It has since colonized much of the western seaboard from British Columbia all the way to southern California. \n Prefers to grow in damp, heavily shaded areas.",
+      "tiles": [
+        "elysflowers_western_bleeding_heart.png"
+      ],
+      "dye": "pink",
+      "mcl_dye": "mcl_dyes:pink",
+      "wield_image": "elysflowers_western_bleeding_heart.png",
+      "inventory_image": "elysflowers_western_bleeding_heart.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0009469,
+        "scale": 0.0001,
+        "spread": {
+          "x": 8,
+          "y": 8,
+          "z": 8
+        },
+        "octaves": 1,
+        "seed": 219635,
+        "persist": 0.2
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_rainforest_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_swamp",
+          "ebiomes:dirt_with_jungle_savanna_grass",
+          "ebiomes:dirt_with_forest_litter",
+          "ebiomes:peat_with_swamp_moss_yellow"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alderswamp_litter"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "rainforest"
+        ],
+        "mcl_biomes": [
+          "Swampland",
+          "MangroveSwamp",
+          "JungleEdge",
+          "JungleEdgeM",
+          "RoofedForest"
+        ],
+        "ebiomes": [
+          "swamp",
+          "rainforest_swamp",
+          "jungle_savanna",
+          "temperate_rainforest",
+          "bog"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alderswamp"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:siberian_chive",
+      "_botanical_name": "A. nutans",
+      "description": "Siberian Chive",
+      "_guidebook_entry": "This grassy herb is native to the upper stretches of the Yukon, althought it can be found as far south as Ontario.\n The siberian chive is found most commonly in the wild near mountain streams, and cool damp meadows.\n The siberan chive was registered by the Vermont State office of Fish & Wildlife as an endangered species in 2024. ",
+      "tiles": [
+        "elysflowers_siberian_chive.png"
+      ],
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "wield_image": "elysflowers_siberian_chive.png",
+      "inventory_image": "elysflowers_siberian_chive.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00469,
+        "scale": 0.00049,
+        "spread": {
+          "x": 16,
+          "y": 16,
+          "z": 16
+        },
+        "octaves": 2,
+        "seed": 169758,
+        "persist": 0.5
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:permafrost_with_moss",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "ethereal": [
+          "ethereal:cold_dirt"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "coniferous_forest",
+          "taiga",
+          "tundra",
+          "snowy_grassland"
+        ],
+        "mcl_biomes": [
+          "Taiga",
+          "MegaSpruceTaiga",
+          "ColdTaiga"
+        ],
+        "ebiomes": [
+          "grassland_coldish",
+          "deciduous_forest_cold"
+        ],
+        "ethereal": [
+          "snowy_grassland"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:evening_primrose",
+      "_botanical_name": "O. clelandii",
+      "description": "Evening Primrose",
+      "_guidebook_entry": "The flowers open in the evening, and close by noon.\n It can be found scattered in fields, alongside roads, in irrigation ditches, and just about anywhere that gets enough light and water.",
+      "tiles": [
+        "elysflowers_evening_primrose.png"
+      ],
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "wield_image": "elysflowers_evening_primrose.png",
+      "inventory_image": "elysflowers_evening_primrose.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "scale": 0.0000212314,
+        "spread": {
+          "x": 32,
+          "y": 12,
+          "z": 32
+        },
+        "octaves": 1,
+        "seed": 133468,
+        "persist": 0.4,
+        "flags": [
+          "eased"
+        ]
+      },
+      "flags": [
+        "eased"
+      ],
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold"
+        ],
+        "naturalbiomes":["naturalbiomes:heath_litter","naturalbiomes:heath_litter2","naturalbiomes:heath_litter3"]
+      },
+      "biomes": {
+        "default": [
+          "taiga",
+          "tundra",
+          "grassland",
+          "deciduous_forest",
+          "coniferous_forest"
+        ],
+        "mcl_biomes": [
+          "Plains",
+          "Forest",
+          "RoofedForest",
+          "ExtremeHills+",
+          "MegaSpruceTaiga",
+          "Taiga"
+        ],
+        "ebiomes": [
+          "grassland_coldish"
+        ],
+        "naturalbiomes": ["naturalbiomes:heath"]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:yellow_flag",
+      "description": "Yellow Flag",
+      "_botanical_name": "I. pseudoacorus",
+      "_guidebook_entry": "The yellow flag is recognized as an invasive species of iris in North America. Due in part to it's natural tolerance of low oxygen, and high salinity substrate. It prefers to grow in salt or freshwater marshes or along river and stream banks.\n To reproduce effectively, the seeds of the yellow flag have small air-tight chambers that allow them to float across water over long distances ",
+      "tiles": [
+        "elysflowers_yellow_flag.png"
+      ],
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "wield_image": "elysflowers_yellow_flag.png",
+      "inventory_image": "elysflowers_yellow_flag.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0004794,
+        "scale": 0.000059197,
+        "spread": {
+          "x": 24,
+          "y": 16,
+          "z": 24
+        },
+        "octaves": 2,
+        "seed": 593241,
+        "persist": 0.1
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_swamp",
+          "ebiomes:dirt_with_forest_litter"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alderswamp_litter"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "rainforest"
+        ],
+        "mcl_biomes": [
+          "Swampland",
+          "JungleEdge",
+          "JungleEdgeM",
+          "MangroveSwamp"
+        ],
+        "ebiomes": [
+          "swamp",
+          "temperate_rainforest",
+          "bog",
+          "jumble"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alderswamp"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:beach_heath",
+      "description": "Beach Heath",
+      "_botanical_name": "",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_beach_heath.png"
+      ],
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "wield_image": "elysflowers_beach_heath.png",
+      "inventory_image": "elysflowers_beach_heath.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0004794,
+        "scale": 0.010897,
+        "spread": {
+          "x": 16,
+          "y": 32,
+          "z": 16
+        },
+        "octaves": 2,
+        "seed": 283247,
+        "persist": 0.2,
+        "flags": [
+          "absvalue",
+          "eased"
+        ]
+      },
+      "place_on": {
+        "default": [
+          "default:sand",
+          "default:red_sand",
+          "default:silver_sand"
+        ],
+        "mcl_biomes": [
+          "mcl_core:sand",
+          "mcl_core:redsand"
+        ]
+      },
+      "_do_not_pop": true,
+      "biomes": {
+        "default": [
+          "grassland_ocean",
+          "grassland_dunes",
+          "deciduous_forest_shore",
+          "deciduous_forest_ocean",
+          "coniferous_forest_ocean"
+        ],
+        "mcl_biomes": [
+          "Savanna",
+          "Forest_beach",
+          "Jungle_shore",
+          "Plains_beach",
+          "FlowerForest_beach",
+          "ExtremeHills_beach"
+        ],
+        "ebiomes": [
+          "mediteranean_ocean",
+          "deciduous_forest_warm_shore",
+          "mediteranean_dunes"
+        ],
+        "ethereal": [
+          "grove_ocean",
+          "grayness_shore"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:heath_shore",
+          "naturalbiomes:bushland_shore",
+        ]
+      },
+      "potted": false
+    },
+    {
+      "name": "elysflowers:glacier_lilly",
+      "description": "Glacier Lilly",
+      "_botanical_name": "E. grandiflorum",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_glacier_lilly.png"
+      ],
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "wield_image": "elysflowers_glacier_lilly.png",
+      "inventory_image": "elysflowers_glacier_lilly.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0081,
+        "scale": 0.062041,
+        "spread": {
+          "x": 8,
+          "y": 8,
+          "z": 8
+        },
+        "octaves": 4,
+        "seed": 207148,
+        "persist": 0.9,
+        "lacunarity": 1,
+        "flags": [
+          "absvalue",
+          "eased"
+        ]
+      },
+      "biomes": {},
+      "spawn_by": {
+        "default": [
+          "default:snow",
+          "default:dirt_with_snow"
+        ],
+        "mcl_biomes": [
+          "mcl_core:snow",
+          "mcl_core:dirt_with_grass_snow"
+        ]
+      },
+      "num_spawn_by": 1,
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "default:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_steppe_cold",
+          "ebiomes:dirt_with_grass_steppe",
+          "ebiomes:dirt_with_grass_cold"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alpine_litter"
+        ]
+      }
+    },
+    {
+      "name": "elysflowers:western_trilium",
+      "description": "Western Trillium",
+      "_botanical_name": "T. ovatum",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_western_trilium.png"
+      ],
+      "dye": "grey",
+      "mcl_dye": "mcl_dyes:grey",
+      "wield_image": "elysflowers_western_trilium.png",
+      "inventory_image": "elysflowers_western_trilium.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00052091,
+        "scale": 0.0009131,
+        "spread": {
+          "x": 16,
+          "y": 16,
+          "z": 16
+        },
+        "octaves": 2,
+        "seed": 613274,
+        "persist": 0.9,
+        "lacunarity": 1.4
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alpine"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "coniferous_forest",
+          "tundra"
+        ],
+        "mcl_biomes": [
+          "Taiga",
+          "ExtremeHills+",
+          "MegaSpruceTaiga"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alpine"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:virginia_spiderwort",
+      "description": "Virginia Spiderwort",
+      "_botanical_name": "T. virginiana",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_virginia_spiderwort.png"
+      ],
+      "dye": "white",
+      "mcl_dye": "mcl_dyes:purple",
+      "wield_image": "elysflowers_virginia_spiderwort.png",
+      "inventory_image": "elysflowers_virginia_spiderwort.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.00022091,
+        "scale": 0.0000721483,
+        "spread": {
+          "x": 8,
+          "y": 16,
+          "z": 8
+        },
+        "octaves": 3,
+        "seed": 985165,
+        "persist": 0.94,
+        "lacunarity": 1.4,
+        "flags": [
+          "eased"
+        ]
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_warm",
+          "ebiomes:dirt_with_rainforest_litter",
+          "ebiomes:dirt_with_grass_swamp",
+          "ebiomes:dirt_with_grass_warm"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "deciduous_forest"
+        ],
+        "mcl_biomes": [
+          "RoofedForest"
+        ],
+        "ebiomes": [
+          "deciduous_forest_warm",
+          "temperate_rainforest",
+          "swamp"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:hedgehog_cactus",
+      "description": "Hedgehog Cactus",
+      "_botanical_name": "E. englemannii",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_hedgehog_cactus.png"
+      ],
+      "dye": "violet",
+      "mcl_dye": "mcl_dyes:purple",
+      "wield_image": "elysflowers_hedgehog_cactus.png",
+      "inventory_image": "elysflowers_hedgehog_cactus.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0008024291,
+        "scale": 0.00002210311,
+        "spread": {
+          "x": 16,
+          "y": 8,
+          "z": 16
+        },
+        "octaves": 4,
+        "seed": 937512,
+        "persist": 0.209,
+        "lacunarity": 1.33
+      },
+      "place_on": {
+        "default": [
+          "default:desert_sand",
+          "default:red_sand"
+        ],
+        "mcl_biomes": [
+          "mcl_core:sand",
+          "mcl_core:redsand"
+        ],
+        "ebiomes": [
+          "ebiomes:dry_dirt_with_dry_grass_arid"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "desert",
+          "sandstone_desert"
+        ],
+        "mcl_biomes": [
+          "Desert",
+          "Mesa",
+          "MesaPlateauFM",
+          "MesaPlateauF"
+        ],
+        "ebiomes": [
+          "mesa"
+        ],
+        "naturalbiomes": []
+      },
+      "potted": true,
+      "_do_not_pop": true
+    },
+    {
+      "name": "elysflowers:western_springbeauty",
+      "description": "Western Springbeauty",
+      "_botanical_name": "C. lanceolata",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_western_springbeauty.png"
+      ],
+      "dye": "grey",
+      "mcl_dye": "mcl_dyes:grey",
+      "wield_image": "elysflowers_western_springbeauty.png",
+      "inventory_image": "elysflowers_western_springbeauty.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0497108,
+        "scale": 0.000904821,
+        "spread": {
+          "x": 16,
+          "y": 4,
+          "z": 16
+        },
+        "octaves": 2,
+        "seed": 619264,
+        "persist": 0.12,
+        "lacunarity": 0.2
+      },
+      "spawn_by": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ]
+      },
+      "num_spawn_by": 1,
+      "place_on": {
+        "default": [
+          "default:gravel"
+        ],
+        "mcl_biomes": [
+          "mcl_core:gravel"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_arid",
+          "ebiomes:dirt_with_grass_arid_cool"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "desert_ocean"
+        ],
+        "mcl_biomes": [
+          "StoneBeach",
+          "ExtremeHillsM",
+          "ExtremeHills+",
+          "ExtremeHills",
+          "StoneBeach"
+        ],
+        "ebiomes": [
+          "grassland_arid"
+        ]
+      },
+      "potted": true,
+      "_do_not_pop": true
+    },
+    {
+      "name": "elysflowers:tree_cholla",
+      "description": "Tree Cholla",
+      "_botanical_name": "C. Imbricata",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_tree_cholla.png"
+      ],
+      "wield_image": "elysflowers_tree_cholla.png",
+      "inventory_image": "elysflowers_tree_cholla.png",
+      "not_in_creative_inventory": false,
+      "potted_image": "elysflowers_tree_cholla_potted.png",
+      "selection_box": {
+        "x1": -0.25,
+        "y1": -0.4,
+        "z1": -0.25,
+        "x2": 0.25,
+        "y2": 0.9,
+        "z2": 0.25
+      },
+      "visual_scale": 1.5,
+      "noise_params": {
+        "offset": 0.000642,
+        "scale": 0.000214606,
+        "spread": {
+          "x": 16,
+          "y": 4,
+          "z": 16
+        },
+        "octaves": 6,
+        "seed": 627249,
+        "persist": 0.871,
+        "lacunarity": 0.756
+      },
+      "place_on": {
+        "default": [
+          "default:desert_sand",
+          "default:red_sand"
+        ],
+        "mcl_biomes": [
+          "mcl_core:sand",
+          "mcl_core:redsand"
+        ],
+        "ebiomes": [
+          "ebiomes:dry_dirt_with_dry_grass_arid"
+        ],
+        "everness": [
+          "everness:mineral_sands"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "desert"
+        ],
+        "mcl_biomes": [
+          "Desert",
+          "MesaPlateauF",
+          "Mesa"
+        ],
+        "everness": [
+          "everness:mineral_waters"
+        ]
+      },
+      "potted": true,
+      "_do_not_pop": true
+    },
+    {
+      "name": "elysflowers:desert_plume",
+      "description": "Desert Plume",
+      "_botanical_name": "Stanleya Pinnata",
+      "_guidebook_entry": "The Desert Plume, also known as the <i>Desert Prince's Plume</i> is the <i>prince</i> of arid open deserts. They are highly drought tolerant. After their deep taproots are properly established they can survive dozens of completey rainless seasons.\n Interestingly, the Desert Plume might be a biological indicator of higher than normal selenieum presence in the enviorment",
+      "tiles": [
+        "elysflowers_desert_plume.png"
+      ],
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "wield_image": "elysflowers_desert_plume.png",
+      "inventory_image": "elysflowers_desert_plume.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.35,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.000097812,
+        "scale": 0.000644716,
+        "spread": {
+          "x": 32,
+          "y": 4,
+          "z": 32
+        },
+        "octaves": 8,
+        "seed": 554297,
+        "persist": 0.92,
+        "lacunarity": 0.056
+      },
+      "place_on": {
+        "default": [
+          "default:desert_sand",
+          "default:red_sand"
+        ],
+        "mcl_biomes": [
+          "mcl_core:sand",
+          "mcl_core:redsand"
+        ],
+        "ebiomes": [
+          "ebiomes:dry_dirt_with_dry_grass_arid"
+        ],
+        "everness": [
+          "everness:mineral_sands"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "desert"
+        ],
+        "mcl_biomes": [
+          "Desert",
+          "MesaPlateauF",
+          "Mesa",
+          "MesaPlateauF_sandlevel"
+        ],
+        "ebiomes": [
+          "grassland_arid",
+          "mesa"
+        ],
+        "everness": [
+          "everness:mineral_waters"
+        ]
+      },
+      "potted": true,
+      "_do_not_pop": true
+    },
+    {
+      "name": "elysflowers:canada_violet",
+      "description": "Canada Violet",
+      "_botanical_name": "Viola canadensis",
+      "_guidebook_entry": "The deep green and heart-shaped leaves of the Canada violet make ideal hosts for the larva of some small butterflies. The Canada violet is partial to the nutrient rich, old-growth, and often coniferious hardwood forests of western Canada. Where it will usually be found happily subsisting among the scrub of the forest floor.\n The leaves are edible, and make a fine addition or garish to a salad.",
+      "tiles": [
+        "elysflowers_canada_violet.png"
+      ],
+      "dye": "white",
+      "mcl_dye": "mcl_dyes:white",
+      "wield_image": "elysflowers_canada_violet.png",
+      "inventory_image": "elysflowers_canada_violet.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.25,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.000190944,
+        "scale": 0.000717701,
+        "spread": {
+          "x": 24,
+          "y": 6,
+          "z": 24
+        },
+        "octaves": 4,
+        "seed": 114447,
+        "persist": 0.69,
+        "lacunarity": 0.21
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alpine_litter"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold",
+          "default:dirt_with_coniferous_litter"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "deciduous_forest",
+          "taiga_valley"
+        ],
+        "mcl_biomes": [
+          "Taiga",
+          "Taiga_valley"
+        ],
+        "ebiomes": [
+          "deciduous_forest_cold"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:alpine"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:prairie_clover",
+      "description": "Prairie Clover",
+      "_botanical_name": "Dalea purpurea",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_prairie_clover.png"
+      ],
+      "dye": "grey",
+      "mcl_dye": "mcl_dyes:grey",
+      "wield_image": "elysflowers_prairie_clover.png",
+      "inventory_image": "elysflowers_prairie_clover.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.25,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.000178129,
+        "scale": 0.00084902,
+        "spread": {
+          "x": 24,
+          "y": 6,
+          "z": 24
+        },
+        "octaves": 4,
+        "seed": 812048,
+        "persist": 0.7,
+        "lacunarity": 0.062
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ethereal": [
+          "ethereal:prairie_dirt"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold",
+          "ebiomes:dirt_with_grass_steppe"
+        ],
+        "prairie": [
+          "prairie:prairie_dirt_with_grass"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "grassland"
+        ],
+        "mcl_biomes": [
+          "Plains"
+        ],
+        "ebiomes": [
+          "steppe"
+        ],
+        "etheral": [
+          "prairie"
+        ],
+        "prairie": [
+          "prairie"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:calla_lily",
+      "description": "Calla Lily",
+      "_botanical_name": "C. palustris",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_calla_lily.png"
+      ],
+      "dye": "grey",
+      "mcl_dye": "mcl_dyes:grey",
+      "wield_image": "elysflowers_calla_lily.png",
+      "inventory_image": "elysflowers_calla_lily.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.25,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.000178129,
+        "scale": 0.00084902,
+        "spread": {
+          "x": 24,
+          "y": 12,
+          "z": 24
+        },
+        "octaves": 4,
+        "seed": 582931,
+        "persist": 0.7,
+        "lacunarity": 0.062
+      },
+      "spawn_by": {
+        "default": [
+          "default:water_source"
+        ],
+        "mcl_biomes": [
+          "mcl_core:water_source"
+        ]
+      },
+      "num_spawn_by": 1,
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_swamp",
+          "ebiomes:peat_with_swamp_moss_yellow",
+          "ebiomes:dirt_with_grass_cold"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "deciduous_forest",
+          "coniferous_forest"
+        ],
+        "mcl_biomes": [
+          "Forest",
+          "BirchForest",
+          "BirchForestM",
+          "CherryGrove"
+        ],
+        "ethereal": [
+          "woodytwo"
+        ],
+        "ebiomes": [
+          "deciduous_forest_woody",
+          "deciduous_forest_cold",
+          "bog",
+          "swamp"
+        ]
+      },
+      "potted": false
+    },
+    {
+      "name": "elysflowers:yellow_star_thistle",
+      "description": "Yellow Star Thistle",
+      "_botanical_name": "C. solstitialis",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_yellow_star_thistle.png"
+      ],
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "wield_image": "elysflowers_yellow_star_thistle.png",
+      "inventory_image": "elysflowers_yellow_star_thistle.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.35,
+        "y1": -0.4,
+        "z1": -0.35,
+        "x2": 0.25,
+        "y2": 0.4,
+        "z2": 0.35
+      },
+      "noise_params": {
+        "offset": 0.0002909,
+        "scale": 0.00014341,
+        "seed": 972946,
+        "spread": {
+          "x": 12,
+          "y": 8,
+          "z": 12
+        },
+        "octaves": 3,
+        "persist": 0.203,
+        "lacunarity": 0.04
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_dry_grass",
+          "default:dry_dirt_with_dry_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dry_dirt_with_grass_arid",
+          "ebiomes:dirt_with_grass_warm"
+        ],
+        "ethereal": [
+          "ethereal:prairie_dirt"
+        ],
+        "naturalbiomes": [
+          "naturalbiomes:savannalitter"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "savanna"
+        ],
+        "mcl_biomes": [
+          "Savanna"
+        ],
+        "ebiomes": [
+          "steppe",
+          "grassland_arid_cool",
+          "cold_steppe"
+        ],
+        "ethereal": [
+          "prairie"
+        ],
+        "prairie": [
+          "prairie"
+        ],
+        "naturalbiomes": [
+          "savanna"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:goldenrod",
+      "description": "Goldenrod",
+      "_botanical_name": "S. nemoralis",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_goldenrod_0.png"
+      ],
+      "dye": "yellow",
+      "mcl_dye": "mcl_dyes:yellow",
+      "wield_image": "elysflowers_goldenrod_0.png",
+      "inventory_image": "elysflowers_goldenrod_0.png",
+      "not_in_creative_inventory": false,
+      "selection_box": {
+        "x1": -0.25,
+        "y1": -0.5,
+        "z1": -0.25,
+        "x2": 0.30,
+        "y2": 0.5,
+        "z2": 0.30
+      },
+      "noise_params": {
+        "scale": 0.00434,
+        "spread": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "seed": 9458745,
+        "octaves": 2,
+        "persist": 0,
+        "flags": [
+          "absvalue",
+          "eased"
+        ]
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dry_dirt_with_dry_grass",
+          "default:dirt_with_dry_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dry_dirt_with_grass_arid"
+        ],
+        "ethereal": [
+          "ethereal:prairie_dirt"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "grassland"
+        ],
+        "mcl_biomes": [
+          "Plains"
+        ],
+        "ebiomes": [
+          "steppe"
+        ],
+        "ethereal": [
+          "prairie"
+        ],
+        "prairie": [
+          "prairie"
+        ]
+      },
+      "potted": false
+    }
+  ],
+  "water_surface_plants": [
+    {
+      "name": "elysflowers:water_buttercup",
+      "description": "Water Buttercup",
+      "_botanical_name": "",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_water_buttercup.png",
+        "elysflowers_water_buttercup_back.png"
+      ],
+      "wield_image": "elysflowers_water_buttercup.png",
+      "inventory_image": "elysflowers_water_buttercup.png",
+      "not_in_creative_inventory": false,
+      "noise_params": {
+        "offset": 0.000241291,
+        "scale": 0.000417701,
+        "spread": {
+          "x": 32,
+          "y": 12,
+          "z": 32
+        },
+        "octaves": 3,
+        "seed": 120484,
+        "persist": 0.29,
+        "lacunarity": 0.406
+      },
+      "place_on": {
+        "default": [
+          "default:water_source"
+        ],
+        "mcl_biomes": [
+          "mcl_core:water_source"
+        ]
+      },
+      "biomes": {
+        "default": [
+          "deciduous_forest_shore"
+        ],
+        "mcl_biomes": [
+          "Forest",
+          "Swampland",
+          "Forest_beach",
+          "BirchForestM",
+          "BirchForest",
+          "Plains_beach",
+          "MangroveSwamp_shore",
+          "Jungle_shore",
+          "ExtremeHills_beach"
+        ],
+        "ebiomes": [
+          "mediteranean_dunes",
+          "deciduous_forest",
+          "deciduous_forest_woody",
+          "japanese_rainforest_shore",
+          "japanese_rainforest"
+        ],
+        "ethereal": [
+          "bamboo",
+          "grassytwo"
+        ]
+      }
+    }
+  ]
+}

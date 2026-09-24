@@ -1,0 +1,151 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Luanti textdomain elysflowers x.x.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-19 04:32-0400\n"
+"PO-Revision-Date: 2026-09-23 21:45-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
+
+msgid "Elysflowers"
+msgstr "Elysblumen"
+
+msgid ""
+"The wildflowers you've encountered will show up here. The ones you haven't "
+"discovered yet are greyed out"
+msgstr ""
+"Die Wildblumen, denen du begegnet bist, werden hier angezeigt. Diejenigen, "
+"die du noch nicht entdeckt hast, sind ausgegraut"
+
+msgid "African Marigold"
+msgstr "Aufrechte Samtblume"
+
+msgid "Arctic Poppy"
+msgstr "Arktischer Mohn"
+
+msgid "Beach Heath"
+msgstr ""
+
+msgid "Bergamot"
+msgstr "Scharlach-Monarde"
+
+msgid "Black-Eyed Susan"
+msgstr "Raue Rudbeckie"
+
+msgid "Botanical Handbook"
+msgstr "Botanisches Handbuch"
+
+msgid "California Poppy"
+msgstr "Kalifornische Mohn"
+
+msgid "Calla Lily"
+msgstr "Calla-Lilie"
+
+msgid "Canada Violet"
+msgstr "Kanada-Veilchen"
+
+msgid "Chamomile"
+msgstr "Echte Kamille"
+
+msgid "Cold Desert Phlox"
+msgstr "Flox del desierto frío"
+
+msgid "Crocus"
+msgstr "Krokus"
+
+msgid "Dame's Rocket"
+msgstr "Matronenviole"
+
+msgid "Desert Plume"
+msgstr "Pluma del desierto"
+
+msgid "Evening Primrose"
+msgstr "Onagra"
+
+msgid "Fireweed"
+msgstr "Schmalblättrige Weidenröschen"
+
+msgid "Forget-me-not"
+msgstr "Vergissmeinnicht"
+
+msgid "Foxglove"
+msgstr "Roter Fingerhut"
+
+msgid "Prairie Fire"
+msgstr ""
+
+msgid "Glacier Lilly"
+msgstr "Großblütige Hundszahn"
+
+msgid "Goldenrod"
+msgstr "Goldrute"
+
+msgid "Hedgehog Cactus"
+msgstr "Violettstacheliger Igelkaktus"
+
+msgid "Hibiscus"
+msgstr "Hibiskus"
+
+msgid "Hyacinth"
+msgstr "Gartenhyazinthe"
+
+msgid "Larkspur"
+msgstr "Rittersporne"
+
+msgid "Lavender"
+msgstr "Lavendel"
+
+msgid "Marshmallow"
+msgstr "Echter Eibisch"
+
+msgid "Phlox"
+msgstr "Flammenblume"
+
+msgid "Prairie Clover"
+msgstr ""
+
+msgid "Purple Coneflower"
+msgstr "Purpur-Sonnenhut"
+
+msgid "Rose Pogonia"
+msgstr "Moor-Pogonie"
+
+msgid "Siberian Chive"
+msgstr "Nickender Lauch"
+
+msgid "Tree Cholla"
+msgstr "Baum-Feigenkaktus"
+
+msgid "Virginia Spiderwort"
+msgstr ""
+
+msgid "Western Bleeding-Heart"
+msgstr "Pazifische Herzblume"
+
+msgid "Western Springbeauty"
+msgstr ""
+
+msgid "Western Trilium"
+msgstr "Westliche Dreizipfellilie"
+
+msgid "Yarrow"
+msgstr "Schafgarbe"
+
+msgid "Yellow Bell"
+msgstr "Schamhafte Fritillarie"
+
+msgid "Water Buttercup"
+msgstr "Gewöhnlicher Wasserhahnenfuß"
+
+msgid "Yellow Flag"
+msgstr "Wasserschwertlilie"
+
+msgid "Yellow Star Thistle"
+msgstr "Sonnenwend-Flockenblume"

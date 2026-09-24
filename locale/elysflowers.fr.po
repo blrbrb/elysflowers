@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Luanti textdomain elysflowers x.x.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-18 07:21+0000\n"
+"PO-Revision-Date: 2026-09-23 21:44-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.9\n"
+
+msgid "Elysflowers"
+msgstr "Elysfleurs"
+
+msgid "African Marigold"
+msgstr "Rose d'Inde"
+
+msgid "The wildflowers you've encountered will show up here. The ones you haven't discovered yet are greyed out"
+msgstr "Les fleurs sauvages que vous avez rencontrées apparaîtront ici. Celles que vous n'avez pas encore découvertes sont grisées"
+
+msgid "Arctic Poppy"
+msgstr "Pavot arctique"
+
+msgid "Beach Heath"
+msgstr "Hudsonie intermédiaire"
+
+msgid "Bergamot"
+msgstr "Bergamote fistuleuse"
+
+msgid "Black-Eyed Susan"
+msgstr "Rudbeckie hérissée"
+
+msgid "Botanical Handbook"
+msgstr "Manuel de botanique"
+
+msgid "California Poppy"
+msgstr "Pavot de Californie"
+
+msgid "Calla Lily"
+msgstr "Arum"
+
+msgid "Canada Violet"
+msgstr "violette du Canada"
+
+msgid "Chamomile"
+msgstr "Camomille"
+
+msgid "Cold Desert Phlox"
+msgstr ""
+
+msgid "Crocus"
+msgstr "Crocus"
+
+msgid "Dame's Rocket"
+msgstr "Julienne des dames"
+
+msgid "Desert Plume"
+msgstr "Plume du Prince"
+
+msgid "Evening Primrose"
+msgstr "Onagre"
+
+msgid "Fireweed"
+msgstr "Épilobe à feuilles étroites"
+
+msgid "Forget-me-not"
+msgstr "Myosotis des marais"
+
+msgid "Foxglove"
+msgstr "Gant-de-Notre-Dame"
+
+msgid "Prairie Fire"
+msgstr "Castilléjie écarlate"
+
+msgid "Glacier Lilly"
+msgstr "L'érythrone à grandes fleurs"
+
+msgid "Goldenrod"
+msgstr "Verge d'or"
+
+msgid "Hedgehog Cactus"
+msgstr ""
+
+msgid "Hibiscus"
+msgstr "Hibiscus"
+
+msgid "Hyacinth"
+msgstr "Jacinthe"
+
+msgid "Larkspur"
+msgstr "Pied-d'alouette"
+
+msgid "Lavender"
+msgstr "Lavande"
+
+msgid "Marshmallow"
+msgstr "Guimauve"
+
+msgid "Phlox"
+msgstr "Phlox"
+
+msgid "Prairie Clover"
+msgstr "Dalée violette"
+
+msgid "Purple Coneflower"
+msgstr "Échinacée pourpre"
+
+msgid "Rose Pogonia"
+msgstr "Pogonie langue-de-serpent"
+
+msgid "Siberian Chive"
+msgstr "Ciboulette de Sibérie"
+
+msgid "Tree Cholla"
+msgstr "Oponce arborescente"
+
+msgid "Virginia Spiderwort"
+msgstr "Éphémère de Virginie"
+
+msgid "Western Bleeding-Heart"
+msgstr "Cœur-de-Marie"
+
+msgid "Western Springbeauty"
+msgstr ""
+
+msgid "Western Trilium"
+msgstr "Trille à feuilles ovées"
+
+msgid "Yarrow"
+msgstr "Achillée millefeuille"
+
+msgid "Yellow Bell"
+msgstr "Fritillaire pudique"
+
+msgid "Water Buttercup"
+msgstr "Renoncule aquatique"
+
+msgid "Yellow Flag"
+msgstr "Iris des marais"
+
+msgid "Yellow Star Thistle"
+msgstr "Centaurée du solstice"

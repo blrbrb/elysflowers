@@ -1,0 +1,151 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Luanti textdomain elysflowers x.x.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-19 04:32-0400\n"
+"PO-Revision-Date: 2026-09-23 21:52-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
+
+msgid "Elysflowers"
+msgstr "Elysflores"
+
+msgid ""
+"The wildflowers you've encountered will show up here. The ones you haven't "
+"discovered yet are greyed out"
+msgstr ""
+"Aquí verás las flores silvestres que encontraste. Las que faltan por "
+"descubrir saldrán en gris"
+
+msgid "African Marigold"
+msgstr "Cempasúchil"
+
+msgid "Arctic Poppy"
+msgstr "Amapola ártica"
+
+msgid "Beach Heath"
+msgstr "Brezo de playa"
+
+msgid "Bergamot"
+msgstr "Bálsamo de abeja"
+
+msgid "Black-Eyed Susan"
+msgstr "Susana de ojos negros"
+
+msgid "Botanical Handbook"
+msgstr "Manual de botánica"
+
+msgid "California Poppy"
+msgstr "Amapola de California"
+
+msgid "Calla Lily"
+msgstr "Aro de agua"
+
+msgid "Canada Violet"
+msgstr "Violeta de Canadá"
+
+msgid "Chamomile"
+msgstr "Manzanilla"
+
+msgid "Cold Desert Phlox"
+msgstr ""
+
+msgid "Crocus"
+msgstr "Crocus"
+
+msgid "Dame's Rocket"
+msgstr "Juliana"
+
+msgid "Desert Plume"
+msgstr ""
+
+msgid "Evening Primrose"
+msgstr "Onagra"
+
+msgid "Fireweed"
+msgstr "Adelfilla o epilobio"
+
+msgid "Forget-me-not"
+msgstr "Nomeolvides de agua"
+
+msgid "Foxglove"
+msgstr "Campanita montés"
+
+msgid "Prairie Fire"
+msgstr "Flor de pincel escarlata"
+
+msgid "Glacier Lilly"
+msgstr "Lirio de glaciar"
+
+msgid "Goldenrod"
+msgstr "Vara de oro"
+
+msgid "Hedgehog Cactus"
+msgstr "Alicoche fresa"
+
+msgid "Hibiscus"
+msgstr "Hibiscus"
+
+msgid "Hyacinth"
+msgstr "Jacinto"
+
+msgid "Larkspur"
+msgstr "Delphinium"
+
+msgid "Lavender"
+msgstr "Lavanda"
+
+msgid "Marshmallow"
+msgstr "Malvavisco"
+
+msgid "Phlox"
+msgstr "Chamas"
+
+msgid "Prairie Clover"
+msgstr "Trébol púrpura de pradera"
+
+msgid "Purple Coneflower"
+msgstr "Equinácea"
+
+msgid "Rose Pogonia"
+msgstr "Orquídea boca de serpiente"
+
+msgid "Siberian Chive"
+msgstr "Cebollino siberiano"
+
+msgid "Tree Cholla"
+msgstr "Tencholote"
+
+msgid "Virginia Spiderwort"
+msgstr "Tradescantia de Virginia"
+
+msgid "Western Bleeding-Heart"
+msgstr "Corazón de la virgen occidental"
+
+msgid "Western Springbeauty"
+msgstr "Verdolaga rosa"
+
+msgid "Western Trilium"
+msgstr "Trilio del Pacífico"
+
+msgid "Yarrow"
+msgstr "Abrofia"
+
+msgid "Yellow Bell"
+msgstr "Fritillaria amarilla"
+
+msgid "Water Buttercup"
+msgstr "Ranúnculo acuático"
+
+msgid "Yellow Flag"
+msgstr "Lirio amarillo"
+
+msgid "Yellow Star Thistle"
+msgstr "Abrepuños"

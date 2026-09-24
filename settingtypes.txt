@@ -1,0 +1,4 @@
+# enables pretty-printing latin botanica names in the description field while hovering over a flower
+elysflowers_botanical_descriptions (botanical descriptions) bool true
+# enables the botany handguide, a way to learn about and keep track of the flowers you've discovered
+elysflowers_botany_handbook (botany handbook) bool true
