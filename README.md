@@ -1,10 +1,11 @@
+[![ContentDB](https://content.luanti.org/packages/erey23/elysflowers/shields/title/)](https://content.luanti.org/packages/erey23/elysflowers/)
+
 Adds a massive spoonful of real flowers and plants across a huge variety of biomes. 
 
-##### Works Across Many Different Games!
-
+## Works Across Many Different Games!
 All mineclonia/voxellibre and minetest_game based games are currently supported. The goal is to populate as many biomes from as many different mods, and games as possible and fit. Adding visual distinction to your world informed by real biology.
 
-#### Biome Integration
+### Biome Integration
 
 Plants will be generated in the biome that is the closest approximation of their natural habitat. 
 Take for example, *African Marigold*. In the wild, it thrives in regions of Mexico, and South America. To generalize, it prefers areas of moderate to low rainfall and high heat.
@@ -23,14 +24,24 @@ If both `ebiomes` and `ethereal` are installed:
 *  `mesa`
 *  `baobab_savanna`
 
-#### Bestiary System 
 
-The mod provides an optional handbook feature. It tracks discoveries as you encounter new species. Allowing you to view a few fun facts about each flower you discover in a craftable guidebook item. The mod provides a flag to the mod options menu to control this:
+## Botanical Handbook  <img src="https://github.com/blrbrb/elysflowers/blob/main/textures/elysflowers_botanical_handbook.png?raw=true" width="32">
+
+This mod provides a handbook feature. Enabled by default, but optional. It tracks discoveries as you encounter new species, similar to a bestiary but for flowers! It allows you to view a few fun facts about each flower you discover within a craftable item called the Botanical Handbook
+
+### Recipe 
+
+<img width="638" height="358" alt="demonstration" src="https://github.com/user-attachments/assets/ebea595f-8cb3-4c75-ac9e-3f563e0cf58c"/>
+
+The handbook can be crafted by placing any three flowers from this mod (any node in the `elysflowers` group) vertically in the center of a 3x3 crafting grid. The exact same way you make books in minetest_game. 
+
+### Can I turn it off? 
+Yes! the mod provides a flag to the mod options menu to control this:
 `elysflowers.botanical_handbook` which is enabled by default. 
 
 If you don't want this feature don't fret! Simply toggle it off from the main menu. Open the settings (gear icon in the top right). Scroll down to Content: Mods > Elysflowers and toggle the `botanical_handbook` flag. Worlds which previously had the feature enabled will have no problem if it's disabled ( except for a few missing items that is, if you had the handbook in your inventory ).
 
-#### Currently Adds
+## Currently Adds
 * *African Marigold*
 * *Arctic Poppy*
 * *Black Eyed Susan* -
@@ -65,10 +76,12 @@ If you don't want this feature don't fret! Simply toggle it off from the main me
 ---
 ---
 
-##### Assets
-All textures are sourced from my own photography, or hand illustrated drawings and are reusable for any non-commerical purpose under CC-BY-4.0.  
-Modders! Feel free to use any of the assets / items in your own mods/modpacks, either as a dependency or otherwise. Please steal my assets >.>
+## Assets
 
-#### Translations 
+All textures are sourced from my own photography, or hand illustrated drawings and are reusable for any non-commerical purpose under CC-BY-4.0.  
+Modders! Feel free to use any of the assets / items in your own mods/modpacks, either as a dependency or otherwise.
+
+### Translations 
+
 The translations for common plant names are sourced from Armenag Bedevian's *Illustrated Polyglottic Dictionary of Plant Names*. As well as from the the Global Biodiversity Information Facility's database of vernacular plant names. If there are any translation problems, or suggestions please feel free to open an issue!
----
+
