@@ -13,16 +13,14 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.9\n"
 
-msgid "Elysflowers"
-msgstr ""
-
-msgid "The wildflowers you've encountered will show up here. The ones you haven't discovered yet are greyed out"
-msgstr ""
 
 msgid "African Marigold"
 msgstr ""
 
 msgid "Arctic Poppy"
+msgstr ""
+
+msgid "Bamboo Lilly"
 msgstr ""
 
 msgid "Beach Heath"
@@ -59,6 +57,9 @@ msgid "Dame's Rocket"
 msgstr ""
 
 msgid "Desert Plume"
+msgstr ""
+
+msgid "Elysflowers"
 msgstr ""
 
 msgid "Evening Primrose"
@@ -100,6 +101,9 @@ msgstr ""
 msgid "Marshmallow"
 msgstr ""
 
+msgid "Naestrum"
+msgstr ""
+
 msgid "Phlox"
 msgstr ""
 
@@ -113,6 +117,12 @@ msgid "Rose Pogonia"
 msgstr ""
 
 msgid "Siberian Chive"
+msgstr ""
+
+msgid "Snow Glory"
+msgstr ""
+
+msgid "The wildflowers you've encountered will show up here. The ones you haven't discovered yet are greyed out"
 msgstr ""
 
 msgid "Tree Cholla"
@@ -144,3 +154,9 @@ msgstr ""
 
 msgid "Yellow Star Thistle"
 msgstr ""
+
+
+
+
+
+

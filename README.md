@@ -58,6 +58,9 @@ If you don't want this feature don't fret! Simply toggle it off from the main me
 *  *Yellow Flag* 
 *  *Canada Violet* 
 *  *Calla Lily*
+*  *Naestrum*
+*  *Bamboo Lily*
+*  *Snow Glory*
 *  More to come in the future 
 ---
 ---

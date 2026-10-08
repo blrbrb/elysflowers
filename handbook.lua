@@ -36,23 +36,27 @@ end
 
 local function create_handbook_pages(flowers,modcompat,S)
     local pages = {}
-    local page_template = "formspec_version[6]size[8,6]textarea[0.5,0.5;7,5;;;"
+   
     for index, flower in ipairs(flowers) do
         if flower.not_in_creative_inventory then
           goto continue
         end
         
         local textcolor = "#FFFFFF"
-        if modcompat.game_id() == "mineclonia" or modcompat.game_id() == "mineclone2" then
+        if modcompat.gameid == "mineclonia" or modcompat.gameid == "mineclone2" then
             textcolor = "#000000"
         end
 
-
-       
-        local page = "formspec_version[6]size[8,6]hypertext[0.5,0.5;7,5;" .. core.formspec_escape(flower.name) .. ";" .. "<style color=" .. textcolor .. ">" .. string.format("<big>%s</big>\n", S(flower.description):gsub("\n.*$", ""))
+        
+        local page = "formspec_version[6]size[8,6]hypertext[0.5,0.5;7,4.5;" .. core.formspec_escape(flower.name) .. ";" .. "<style color=" .. textcolor .. ">" .. string.format("<big>%s</big>\n", S(flower.description):gsub("\n.*$", ""))
         .. "<b><i>" .. flower._botanical_name .. "</b></i>"..  "\n" .. core.formspec_escape(flower._guidebook_entry) .. "</style>".. "]"
         
-        page = page .. "button[1,4;2,1;elysflowers_back;Back]"
+        local potted = (flower.potted == true) and "yes" or "no"
+        
+        page = page .. "label[6.0,5.5;2,3;can be potted?: " .. potted .. "]"
+        
+
+        page = page .. "button[1,5.1;1,0.5;elysflowers_back;Back]"
 
         local handle = function(player, fields)
             if fields.back then
@@ -75,6 +79,11 @@ local function item_discovery_callback(mod_storage)
                 if digger and digger:is_player() then
                     local known = {}
                     local player_name = digger:get_player_name()
+
+                    if player_name == nil then
+                        core.log("error","[elysflowers] player's name was nil for some reason. engine version: " .. core.get_version().string)
+                    end
+
                     known = core.deserialize(mod_storage:get(player_name))
 
                     if known == nil then
@@ -184,7 +193,7 @@ local function build_handbook(flowers,mod_storage,modcompat,S)
     }
     return recipe
     end
-    return {pages = pages, build = build, handle = handle, on_use = on_use, craftitem = craftitem}
+    return {pages = pages, build = build, handle = handle, craftitem = craftitem}
 end
 
 

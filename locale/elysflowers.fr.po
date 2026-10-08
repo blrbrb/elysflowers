@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Luanti textdomain elysflowers x.x.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-18 07:21+0000\n"
-"PO-Revision-Date: 2026-09-23 21:44-0400\n"
+"POT-Creation-Date: 2026-08-19 04:32-0400\n"
+"PO-Revision-Date: 2026-10-06 21:28-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -13,17 +13,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 3.9\n"
 
-msgid "Elysflowers"
-msgstr "Elysfleurs"
-
 msgid "African Marigold"
 msgstr "Rose d'Inde"
 
-msgid "The wildflowers you've encountered will show up here. The ones you haven't discovered yet are greyed out"
-msgstr "Les fleurs sauvages que vous avez rencontrées apparaîtront ici. Celles que vous n'avez pas encore découvertes sont grisées"
-
 msgid "Arctic Poppy"
 msgstr "Pavot arctique"
+
+msgid "Bamboo Lilly"
+msgstr "Lys du Japon"
 
 msgid "Beach Heath"
 msgstr "Hudsonie intermédiaire"
@@ -60,6 +57,9 @@ msgstr "Julienne des dames"
 
 msgid "Desert Plume"
 msgstr "Plume du Prince"
+
+msgid "Elysflowers"
+msgstr "Elysfleurs"
 
 msgid "Evening Primrose"
 msgstr "Onagre"
@@ -100,6 +100,9 @@ msgstr "Lavande"
 msgid "Marshmallow"
 msgstr "Guimauve"
 
+msgid "Naestrum"
+msgstr "Grande capucine"
+
 msgid "Phlox"
 msgstr "Phlox"
 
@@ -114,6 +117,16 @@ msgstr "Pogonie langue-de-serpent"
 
 msgid "Siberian Chive"
 msgstr "Ciboulette de Sibérie"
+
+msgid "Snow Glory"
+msgstr "Gloire des neiges"
+
+msgid ""
+"The wildflowers you've encountered will show up here. The ones you haven't "
+"discovered yet are greyed out"
+msgstr ""
+"Les fleurs sauvages que vous avez rencontrées apparaîtront ici. Celles que "
+"vous n'avez pas encore découvertes sont grisées"
 
 msgid "Tree Cholla"
 msgstr "Oponce arborescente"

@@ -3,8 +3,8 @@
     {
       "name": "elysflowers:prairie_fire",
       "description": "Prairie Fire",
-      "_botanical_name": "C. coccinea",
-      "_guidebook_entry": "<big>Prairie Fire</big>Commonly found in temperate prairies",
+      "_botanical_name": "Castilleja  coccinea",
+      "_guidebook_entry": "The crimson red fingers of the castilleja aren't flowers at all. They're bracts. A special type of leaf that forms at the tip of each lobe. Prairie fire is an opprotunistic parasite. In the wild, it will often attach it's root system to the rootballs of nearby grasses and shrubs. Although it's also possible for the castilleja plant to survive on it's own.The scientific name <i>Castilleja</i> comes from the Spanish botanist, Domingo Castillejo.",
       "tiles": [
         "elysflowers_prairie_fire.png"
       ],
@@ -89,7 +89,14 @@
           "mcl_flowers:tallgrass"
         ],
         "naturalbiomes": [
-          "naturalbiomes:outback_grass"
+          "naturalbiomes:outback_grass",
+          "naturalbiomes:outback_grass4",
+          "naturalbiomes:outback_grass5"
+        ],
+        "ebiomes":[
+        "ebiomes:grass_arid_5",
+        "ebiomes:grass_arid_1",
+        "ebiomes:grass_arid_4"
         ]
       },
       "num_spawn_by": 2,
@@ -98,8 +105,8 @@
     {
       "name": "elysflowers:forget_me_not",
       "description": "Forget-me-not",
-      "_botanical_name": "M. scorpiodies",
-      "_guidebook_entry": "stub",
+      "_botanical_name": "Myosotis scorpiodies",
+      "_guidebook_entry": "The forget-me-not is a common sight along damp riverbanks in temperate forests. The common name <i>forget-me-not</i> can be allegedly be traced in origin to medevial German folklore.\nFascinatingly, some species in the forget-me-not family demonstrate nocturnal scent emissions. Remaining virtually odorless in daylight. It's only long after the sun sets that the flowers begin to emit an intense, pleasing scent",
       "tiles": [
         "elysflowers_forget_me_not.png"
       ],
@@ -147,7 +154,9 @@
         "ebiomes": [
           "ebiomes:dirt_with_grass_cold"
         ],
-        "naturalbiomes":["naturalbiomes:alpine_litter"]
+        "naturalbiomes": [
+          "naturalbiomes:alpine_litter"
+        ]
       },
       "biomes": {
         "default": [
@@ -167,14 +176,16 @@
         "ebiomes": [
           "deciduous_forest_cold"
         ],
-        "naturalbiomes":["naturalbiomes:alpine"]
+        "naturalbiomes": [
+          "naturalbiomes:alpine"
+        ]
       },
       "potted": true
     },
     {
       "name": "elysflowers:foxglove",
       "description": "Foxglove",
-      "_botanical_name": "D. purpurea",
+      "_botanical_name": "Digitalis purpurea",
       "_guidebook_entry": "This highly toxic biennial herb is native to British Columbia and was later naturalized in the northern US.\n It produces showy purple and pink bells that dangle in clusters from the sides of the stem. \n Despite it's ornamental nature, foxglove is highly fatal if consumed in excess. It contains chemicals which inhibit neurotransmission. The heart medication, <i>digitalis</i> is actually derived from a relative of foxglove",
       "tiles": [
         "elysflowers_foxglove.png"
@@ -235,7 +246,7 @@
     {
       "name": "elysflowers:hibiscus",
       "description": "Hibiscus",
-      "_botanical_name": "H. Aponeurus",
+      "_botanical_name": "Hibiscus Aponeurus",
       "dye": "magenta",
       "mcl_dye": "mcl_dyes:magenta",
       "_guidebook_entry": "stub",
@@ -311,7 +322,7 @@
     {
       "name": "elysflowers:larkspur",
       "description": "Larkspur",
-      "_botanical_name": "Digitalis nuttallianum",
+      "_botanical_name": "Delphinium nuttallianum",
       "_guidebook_entry": "stub",
       "tiles": [
         "elysflowers_larkspur.png"
@@ -424,7 +435,11 @@
         "prairie": [
           "prairie:prairie_dirt_with_grass"
         ],
-        "naturalbiomes":["naturalbiomes:bushland_bushlandlitter","naturalbiomes:bushland_bushlandlitter2","naturalbiomes:bushland_bushlandlitter3"]
+        "naturalbiomes": [
+          "naturalbiomes:bushland_bushlandlitter",
+          "naturalbiomes:bushland_bushlandlitter2",
+          "naturalbiomes:bushland_bushlandlitter3"
+        ]
       },
       "biomes": {
         "default": [
@@ -444,7 +459,9 @@
         "ebiomes": [
           "steppe"
         ],
-        "naturalbiomes":["naturalbiomes:bushland"]
+        "naturalbiomes": [
+          "naturalbiomes:bushland"
+        ]
       },
       "potted": true
     },
@@ -583,7 +600,11 @@
         "prairie": [
           "prairie_dirt_with_grass"
         ],
-        "naturalbiomes":["naturalbiomes:bushland_bushlandlitter","naturalbiomes:bushland_bushlandlitter2","naturalbiomes:bushland_bushlandlitter3"]
+        "naturalbiomes": [
+          "naturalbiomes:bushland_bushlandlitter",
+          "naturalbiomes:bushland_bushlandlitter2",
+          "naturalbiomes:bushland_bushlandlitter3"
+        ]
       },
       "biomes": {
         "default": [
@@ -606,7 +627,9 @@
         "prairie": [
           "prairie"
         ],
-        "naturalbiomes":["naturalbiomes:bushland"]
+        "naturalbiomes": [
+          "naturalbiomes:bushland"
+        ]
       },
       "spawn_by": {
         "default": [
@@ -671,7 +694,11 @@
         "prairie": [
           "prairie_dirt_with_grass"
         ],
-        "naturalbiomes":["naturalbiomes:bushland_bushlandlitter","naturalbiomes:bushland_bushlandlitter2","naturalbiomes:bushland_bushlandlitter3"]
+        "naturalbiomes": [
+          "naturalbiomes:bushland_bushlandlitter",
+          "naturalbiomes:bushland_bushlandlitter2",
+          "naturalbiomes:bushland_bushlandlitter3"
+        ]
       },
       "biomes": {
         "default": [
@@ -694,7 +721,9 @@
         "prairie": [
           "prairie"
         ],
-        "naturalbiomes":["naturalbiomes:bushland"]
+        "naturalbiomes": [
+          "naturalbiomes:bushland"
+        ]
       },
       "sidelen": 16,
       "potted": false
@@ -702,7 +731,7 @@
     {
       "name": "elysflowers:california_poppy",
       "description": "California Poppy",
-      "_botanical_name": "E. californica",
+      "_botanical_name": "Eschscholzia californica",
       "drawtype": "plantlike",
       "dye": "orange",
       "mcl_dye": "mcl_dyes:orange",
@@ -830,7 +859,11 @@
         "ethereal": [
           "ethereal:cold_dirt"
         ],
-        "naturalbiomes":["naturalbiomes:heath_litter3","naturalbiomes:heath_litter2","naturalbiomes:heath_litter"]
+        "naturalbiomes": [
+          "naturalbiomes:heath_litter3",
+          "naturalbiomes:heath_litter2",
+          "naturalbiomes:heath_litter"
+        ]
       },
       "biomes": {
         "default": [
@@ -848,7 +881,9 @@
           "cold_steppe",
           "grassland_coldish"
         ],
-        "naturalbiomes":["naturalbiomes:heath"]
+        "naturalbiomes": [
+          "naturalbiomes:heath"
+        ]
       },
       "sidelen": 16,
       "potted": true
@@ -856,7 +891,7 @@
     {
       "name": "elysflowers:lavender",
       "description": "Lavender",
-      "_botanical_name": "L. officinalis",
+      "_botanical_name": "Lavandula officinalis",
       "_guidebook_entry": "stub",
       "tiles": [
         "elysflowers_lavender.png"
@@ -901,14 +936,13 @@
         ],
         "naturalbiomes": [
           "naturalbiomes:mediterranean_litter"
-        ],
+        ]
       },
       "biomes": {
         "default": [
           "grassland"
         ],
         "mcl_biomes": [
-          "Plains",
           "ExtremeHills",
           "CherryGrove"
         ],
@@ -930,7 +964,7 @@
     {
       "name": "elysflowers:marshmallow",
       "description": "Marshmallow",
-      "_botanical_name": "A. officinalis",
+      "_botanical_name": "Althea officinalis",
       "_guidebook_entry": "Often mistaken for the gooey sugary treat of the same namesake, <i>'marshmellows'</i> actually get their name from this flower. The roots of the marshmallow contain a tetriary metabolite that may act as a mild numbing agent. \n It was often used by Native Americans as a remedy for sore throat, cooked and sweetened with a mixture of gluten, honey, and sugar.",
       "tiles": [
         "elysflowers_marshmallow.png"
@@ -992,7 +1026,7 @@
     {
       "name": "elysflowers:yarrow_pink",
       "description": "Yarrow",
-      "_botanical_name": "A. millefolium",
+      "_botanical_name": "Achillea millefolium",
       "_guidebook_entry": "stub",
       "tiles": [
         "elysflowers_yarrow.png"
@@ -1119,7 +1153,7 @@
     },
     {
       "name": "elysflowers:arctic_poppy",
-      "_botanical_name": "P. radicatum",
+      "_botanical_name": "Oreomecon radicatum",
       "description": "Arctic Poppy",
       "_guidebook_entry": "The artic poppy (unsurprisingly) is a tundra flower found throughout large stretches of the North America arctic and sub-arctic.\\n It prefers to grow in well-drained dry gravels and loose soils, and has an impressive reputation for being nearly impossible to kill. \\n The roots of these flowers have been found alive, extracting nutrients through solid ice!",
       "tiles": [
@@ -1162,11 +1196,14 @@
         "mcl_core": [
           "mcl_core:dirt_with_grass",
           "mcl_core:snow",
-          "mcl_core:dirt_with_grass_snow"
+          "mcl_core:dirt_with_grass_snow",
+          "mcl_core:snowblock"
         ],
+        "everness":["everness:frosted_snowblock"],
         "ethereal": [
-          "etheral:cold_dirt"
+          "ethereal:cold_dirt"
         ],
+        "asuna_core":["frost_land:frosted_land_grass"],
         "ebiomes": [
           "ebiomes:dirt_with_grass_steppe_cold",
           "ebiomes:dirt_with_grass_cold"
@@ -1186,6 +1223,8 @@
           "IcePlains",
           "IcePlainsSpikes"
         ],
+        "everness":["everness:frosted_icesheet"],
+        "asuna_core":["frost_land"],
         "ebiomes": [
           "cold_steppe",
           "deciduous_forest_cold"
@@ -1282,7 +1321,7 @@
     },
     {
       "name": "elysflowers:crocus",
-      "_botanical_name": "C. sativus",
+      "_botanical_name": "Crocus sativus",
       "description": "Crocus",
       "_guidebook_entry": "stub",
       "tiles": [
@@ -1505,7 +1544,7 @@
     },
     {
       "name": "elysflowers:fireweed",
-      "_botanical_name": "C. angustifolium",
+      "_botanical_name": "Chamaenerion angustifolium",
       "description": "Fireweed",
       "_guidebook_entry": "stub",
       "tiles": [
@@ -1559,7 +1598,7 @@
     },
     {
       "name": "elysflowers:chamomile",
-      "_botanical_name": "M. chamomilla",
+      "_botanical_name": "Matricaria chamomilla",
       "description": "Chamomile",
       "_guidebook_entry": "Chamomile is a common herbal additive. Emitting an alluring fresh apple-like scent, the flowerheads of chamomile are used commonly in teas and skincare products. \n Chamomile is native to europe and the temperate regions of asia, althought it is widely naturalized through North America. It can be found in the wild in distributed open areas, on roadsides, fields, irrigation ditches, and shallow riverbanks.",
       "_doc_items_create_entry": true,
@@ -1624,7 +1663,7 @@
     },
     {
       "name": "elysflowers:rose_pogonia",
-      "_botanical_name": "P. ophioglossoides",
+      "_botanical_name": "Pogonia ophioglossoides",
       "description": "Rose Pogonia",
       "_guidebook_entry": "Native to the cooler damp forests of the great lakes basin this showy orchid is often refered to as the <i>'snake-mouth'</i> plant after the peculiar geometry of it's bloom. \n The American romantic era poet Henry David Thoreau once allegedly remaked that the rose pogonia <i>'...smells exactly like a snake.'</i> ",
       "tiles": [
@@ -1879,7 +1918,8 @@
         ],
         "naturalbiomes": [
           "naturalbiomes:heath"
-        ]
+        ],
+        "asuna_core": ["grayness"]
       },
       "potted": true
     },
@@ -1959,7 +1999,7 @@
     },
     {
       "name": "elysflowers:siberian_chive",
-      "_botanical_name": "A. nutans",
+      "_botanical_name": "Allium nutans",
       "description": "Siberian Chive",
       "_guidebook_entry": "This grassy herb is native to the upper stretches of the Yukon, althought it can be found as far south as Ontario.\n The siberian chive is found most commonly in the wild near mountain streams, and cool damp meadows.\n The siberan chive was registered by the Vermont State office of Fish & Wildlife as an endangered species in 2024. ",
       "tiles": [
@@ -2023,14 +2063,14 @@
           "deciduous_forest_cold"
         ],
         "ethereal": [
-          "snowy_grassland"
+
         ]
       },
       "potted": true
     },
     {
       "name": "elysflowers:evening_primrose",
-      "_botanical_name": "O. clelandii",
+      "_botanical_name": "Oenothera clelandii",
       "description": "Evening Primrose",
       "_guidebook_entry": "The flowers open in the evening, and close by noon.\n It can be found scattered in fields, alongside roads, in irrigation ditches, and just about anywhere that gets enough light and water.",
       "tiles": [
@@ -2050,22 +2090,16 @@
         "z2": 0.35
       },
       "noise_params": {
-        "scale": 0.0000212314,
+        "scale": 0.000212314,
         "spread": {
           "x": 32,
           "y": 12,
           "z": 32
         },
-        "octaves": 1,
+        "octaves": 2,
         "seed": 133468,
-        "persist": 0.4,
-        "flags": [
-          "eased"
-        ]
+        "persist": 0.4
       },
-      "flags": [
-        "eased"
-      ],
       "place_on": {
         "default": [
           "default:dirt_with_grass",
@@ -2077,7 +2111,11 @@
         "ebiomes": [
           "ebiomes:dirt_with_grass_cold"
         ],
-        "naturalbiomes":["naturalbiomes:heath_litter","naturalbiomes:heath_litter2","naturalbiomes:heath_litter3"]
+        "naturalbiomes": [
+          "naturalbiomes:heath_litter",
+          "naturalbiomes:heath_litter2",
+          "naturalbiomes:heath_litter3"
+        ]
       },
       "biomes": {
         "default": [
@@ -2098,7 +2136,9 @@
         "ebiomes": [
           "grassland_coldish"
         ],
-        "naturalbiomes": ["naturalbiomes:heath"]
+        "naturalbiomes": [
+          "naturalbiomes:heath"
+        ]
       },
       "potted": true
     },
@@ -2173,17 +2213,17 @@
       "potted": true
     },
     {
-      "name": "elysflowers:beach_heath",
-      "description": "Beach Heath",
+      "name": "elysflowers:beach_heather",
+      "description": "Beach Heather",
       "_botanical_name": "",
       "_guidebook_entry": "stub",
       "tiles": [
-        "elysflowers_beach_heath.png"
+        "elysflowers_beach_heather.png"
       ],
       "dye": "yellow",
       "mcl_dye": "mcl_dyes:yellow",
-      "wield_image": "elysflowers_beach_heath.png",
-      "inventory_image": "elysflowers_beach_heath.png",
+      "wield_image": "elysflowers_beach_heather.png",
+      "inventory_image": "elysflowers_beach_heather.png",
       "not_in_creative_inventory": false,
       "selection_box": {
         "x1": -0.35,
@@ -2223,11 +2263,13 @@
       "_do_not_pop": true,
       "biomes": {
         "default": [
+          "grassland_shore",
           "grassland_ocean",
           "grassland_dunes",
           "deciduous_forest_shore",
           "deciduous_forest_ocean",
-          "coniferous_forest_ocean"
+          "coniferous_forest_ocean",
+          "coniferous_forest_dunes"
         ],
         "mcl_biomes": [
           "Savanna",
@@ -2248,7 +2290,7 @@
         ],
         "naturalbiomes": [
           "naturalbiomes:heath_shore",
-          "naturalbiomes:bushland_shore",
+          "naturalbiomes:bushland_shore"
         ]
       },
       "potted": false
@@ -2291,7 +2333,6 @@
           "eased"
         ]
       },
-      "biomes": {},
       "spawn_by": {
         "default": [
           "default:snow",
@@ -2302,7 +2343,7 @@
           "mcl_core:dirt_with_grass_snow"
         ]
       },
-      "num_spawn_by": 1,
+      "num_spawn_by": 2,
       "place_on": {
         "default": [
           "default:dirt_with_grass",
@@ -2316,9 +2357,11 @@
           "ebiomes:dirt_with_grass_steppe",
           "ebiomes:dirt_with_grass_cold"
         ],
+        "everness":["everness:frosted_snowblock"],
         "naturalbiomes": [
           "naturalbiomes:alpine_litter"
-        ]
+        ],
+        "asuna_core":["frost_land:frost_land_grass"]
       }
     },
     {
@@ -2478,7 +2521,7 @@
           "y": 8,
           "z": 16
         },
-        "octaves": 4,
+        "octaves": 2,
         "seed": 937512,
         "persist": 0.209,
         "lacunarity": 1.33
@@ -2610,17 +2653,17 @@
       },
       "visual_scale": 1.5,
       "noise_params": {
-        "offset": 0.000642,
-        "scale": 0.000214606,
+        "offset": -0.000642,
+        "scale": 0.00021460,
         "spread": {
           "x": 16,
           "y": 4,
           "z": 16
         },
-        "octaves": 6,
+        "octaves": 2,
         "seed": 627249,
-        "persist": 0.871,
-        "lacunarity": 0.756
+        "persist": 0.071,
+        "lacunarity": 0.256
       },
       "place_on": {
         "default": [
@@ -2676,17 +2719,17 @@
         "z2": 0.35
       },
       "noise_params": {
-        "offset": 0.000097812,
-        "scale": 0.000644716,
+        "offset": -0.00027812,
+        "scale": 0.00344,
         "spread": {
-          "x": 32,
+          "x": 16,
           "y": 4,
-          "z": 32
+          "z": 16
         },
-        "octaves": 8,
+        "octaves": 1,
         "seed": 554297,
-        "persist": 0.92,
-        "lacunarity": 0.056
+        "persist": 0.02,
+        "lacunarity": 2.056
       },
       "place_on": {
         "default": [
@@ -2702,7 +2745,8 @@
         ],
         "everness": [
           "everness:mineral_sands"
-        ]
+        ],
+        "naturalbiomes": ["naturalbiomes:outback_grass"]
       },
       "biomes": {
         "default": [
@@ -2720,7 +2764,8 @@
         ],
         "everness": [
           "everness:mineral_waters"
-        ]
+        ],
+        "naturalbiomes":["naturalbiomes:outback"]
       },
       "potted": true,
       "_do_not_pop": true
@@ -2748,7 +2793,7 @@
       },
       "noise_params": {
         "offset": 0.000190944,
-        "scale": 0.000717701,
+        "scale": 0.000817701,
         "spread": {
           "x": 24,
           "y": 6,
@@ -2918,7 +2963,8 @@
           "ebiomes:dirt_with_grass_swamp",
           "ebiomes:peat_with_swamp_moss_yellow",
           "ebiomes:dirt_with_grass_cold"
-        ]
+        ],
+        "asuna_core":["dorwinion:dorwinion_grass"]
       },
       "biomes": {
         "default": [
@@ -2939,6 +2985,9 @@
           "deciduous_forest_cold",
           "bog",
           "swamp"
+        ],
+        "asuna_core":[
+          "dorwinion"
         ]
       },
       "potted": false
@@ -3091,6 +3140,277 @@
         ]
       },
       "potted": false
+    },
+    {
+      "name": "elysflowers:bamboo_lilly",
+      "description": "Bamboo Lilly",
+      "_botanical_name": "Lilium japonicum",
+      "_guidebook_entry": "stub",
+      "tiles": [
+        "elysflowers_bamboo_lilly.png"
+      ],
+      "dye": "red",
+      "mcl_dye": "mcl_dyes:red",
+      "wield_image": "elysflowers_bamboo_lilly.png",
+      "inventory_image": "elysflowers_bamboo_lilly.png",
+      "potted_image": "elysflowers_bamboo_lilly_potted.png",
+      "selection_box": {
+        "x1": -0.25,
+        "y1": -0.5,
+        "z1": -0.25,
+        "x2": 0.30,
+        "y2": 1.00,
+        "z2": 0.30
+      },
+      "visual_scale": 1.5,
+      "noise_params": {
+        "scale": 0.02626,
+        "spread": {
+          "x": 1,
+          "y": 1,
+          "z": 1
+        },
+        "seed": 821487,
+        "octaves": 4,
+        "persist": 0,
+        "lacunarity": 0.35794,
+        "flags": [
+          "eased"
+        ]
+      },
+      "drop": "elysflowers:bamboo_lilly",
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_rainforest_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_japanese_rainforest_litter"
+        ],
+        "ethereal": [
+          "ethereal:bamboo_dirt"
+        ],
+        "naturalbiomes":[
+          "naturalbiomes:bambooforest_litter"
+        ],
+        "asuna_core": [
+          "japaneseforest:japanese_dirt_with_grass"
+        ],
+        "everness":["everness:dirt_with_grass_1"]
+      },
+      "biomes": {
+        "default": [
+          "grassland",
+          "rainforest"
+        ],
+        "mcl_biomes": [
+          "BambooJungle"
+        ],
+        "ebiomes": [
+          "japanese_rainforest"
+        ],
+        "ethereal": [
+          "bamboo"
+        ],
+        "naturalbiomes":[
+          "bambooforest"
+        ],
+        "asuna_core": [
+          "japaneseforest"
+        ],
+        "everness": [
+          "everness:bamboo_forest"
+        ]
+      },
+      "spawn_by": {
+        "default": [
+          "default:papyrus"
+        ],
+        "mcl_biomes": [
+          "mcl_trees:tree_cherry_blossom",
+          "mcl_bamboo:bamboo_big",
+          "mcl_bamboo:bamboo",
+          "mcl_bamboo:bamboo_shoot",
+          "mcl_bamboo:bamboo_small"
+        ],
+        "ebiomes": [
+          "ebiomes:bamboo"
+        ],
+        "naturalbiomes":[
+        "naturalbiomes:bamboo_trunk"
+        ],
+        "ethereal": [
+          "ethereal:bamboo"
+        ],
+        "everness":["everness:bamboo_3","everness:bamboo_2", "everness:bamboo"],
+        "asuna_core": [
+          "japaneseforest:japanese_tree",
+          "everness:bamboo_3"
+        ]
+      },
+      "num_spawn_by": 1,
+      "potted": true
+    },
+    {
+      "name": "elysflowers:snow_glory",
+      "description": "Snow Glory",
+      "_botanical_name": "Scilla luciliae",
+      "_guidebook_entry": "The snow glory is a fast spreading bulb perennial that provides vital early season nectar to hardy insects and birds in colder climates. Their notorious determination to sprout through fresh layers of snow seems like a miracle. You might be surprised to learn that snowfall actually <i>increases</i> it's odds of survival! Heavily compacted layers of snow actually work to trap heat within pockets of air created when the snow glory pokes through the soil. Protecting it from harsh wind, like an igloo.",
+      "tiles": [
+        "elysflowers_snow_glory.png"
+      ],
+      "dye": "cyan",
+      "mcl_dye": "mcl_dyes:light_blue",
+      "wield_image": "elysflowers_snow_glory.png",
+      "inventory_image": "elysflowers_snow_glory.png",
+      "selection_box": {
+        "x1": -0.25,
+        "y1": -0.5,
+        "z1": -0.25,
+        "x2": 0.30,
+        "y2": 0.0,
+        "z2": 0.30
+      },
+      "visual_scale": 0.5,
+      "noise_params": {
+        "scale": 0.007210,
+        "spread": {
+          "x": 1,
+          "y": 2,
+          "z": 1
+        },
+        "seed": 821487,
+        "octaves": 2,
+        "persist": 0,
+        "lacunarity": 0.15794,
+        "flags": [
+          "eased"
+        ]
+      },
+      "place_on": {
+        "default": [
+          "default:permafrost",
+          "default:permafrost_with_moss",
+          "default:permafrost_with_stones",
+          "default:dirt_with_snow",
+          "default:dirt_with_coniferous_litter"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass_snow",
+          "mcl_core:snowblock"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_grass_cold"
+        ],
+        "ethereal": [
+          "ethereal:crystal_dirt"
+        ],
+        "naturalbiomes":["naturalbiomes:alpine_litter"],
+        "everness":["everness:dirt_with_grass_1"]
+      },
+      "biomes": {
+        "default": [
+          "snowy_grassland",
+          "taiga"
+        ],
+        "mcl_biomes": [
+          "ColdTaiga",
+          "SnowySlopes"
+        ],
+        "ebiomes": [
+          "grassland_coldish",
+          "deciduous_forest_cold"
+        ],
+        "naturalbiomes":["naturalbiomes:alpine"],
+        "ethereal": [
+          "frost"
+        ]
+      },
+      "potted": true
+    },
+    {
+      "name": "elysflowers:naestrum",
+      "description": "Naestrum",
+      "_botanical_name": "Tropaeolum majus",
+      "_guidebook_entry": "Naestrum is a vibrant-orange tropical South American plant from the watercress family. Named by the Swedish botanist Carl Linnaeus the scientific name <i>topaeolum</i> comes from the Greek word τρόπαιον. Which is where the English language derives the word <i>trophy</i>.\n So brilliantly orange are the blooms of the naestrum, that Carl Linnaeus's daughter would watch them shine with 'lightning flashes' in her father's garden... She would go on to write a paper about these strange orange flashes. The <i>Elisabeth-Linnaeus-Phenomän</i> - was arguably the first scientific observation of phosphorescence. Her research was pivotal for it's discovery.\n Strangely, these flowers prefer to grow in depleted and nitrogen sparse soils. They have a remarkable ability to survive in the abscense of nutrition provided adequate shade.\nThe entirety of the plant is edible -the flowers in particular are delightfully spicy with a slight sweetness. The petals are often used as key flavor notes in mediterranean salads, and other dishes.",
+      "tiles": [
+        "elysflowers_naestrum.png"
+      ],
+      "dye": "orange",
+      "mcl_dye": "mcl_dyes:orange",
+      "wield_image": "elysflowers_naestrum.png",
+      "inventory_image": "elysflowers_naestrum.png",
+      "selection_box": {
+        "x1": -0.25,
+        "y1": -0.5,
+        "z1": -0.25,
+        "x2": 0.30,
+        "y2": 0.5,
+        "z2": 0.30
+      },
+      "noise_params": {
+        "scale": 0.0086067,
+        "spread": {
+          "x": 1,
+          "y": 2,
+          "z": 1
+        },
+        "seed": 0.0017770,
+        "octaves": 4,
+        "persist": 0.01,
+        "lacunarity": 0.35794
+      },
+      "place_on": {
+        "default": [
+          "default:dirt_with_grass",
+          "default:dirt_with_rainforest_litter",
+          "default:dirt_with_coniferous_litter",
+          "default:dry_dirt_with_dry_grass"
+        ],
+        "mcl_biomes": [
+          "mcl_core:dirt_with_grass"
+        ],
+        "ebiomes": [
+          "ebiomes:dirt_with_forest_litter",
+          "ebiomes:humid_savanna",
+          "ebiomes:dirt_with_grass_warm",
+          "ebiomes:dirt_with_jungle_savanna_grass"
+        ],
+        "ethereal": [
+
+        ],
+        "naturalbiomes":["naturalbiomes:bambooforest_litter","naturalbiomes:savannalitter"]
+      },
+      "biomes": {
+        "default": [
+          "savanna",
+          "rainforest"
+        ],
+        "mcl_biomes": [
+          "Savanna",
+          "Jungle",
+          "BambooJungle",
+          "JungleM",
+          "JungleEdge"
+        ],
+        "ebiomes": [
+          "humid_savanna",
+          "grassland_warm",
+          "jungle_savanna"
+        ],
+        "naturalbiomes":["naturalbiomes:bambooforest", "naturalbiomes:wetsavanna"]
+      },
+      "spawn_by":{
+        "default":["default:acacia_tree"],
+        "mcl_biomes":["mcl_trees:tree_acacia","mcl_trees:tree_jungle","mcl_core:acaciatree"],
+        "ebiomes":["ebiomes:siri_tree","ebiomes:tamarind_tree"],
+        "naturalbiomes":["naturalbiomes:acacia_trunk"]
+      },
+      "potted": false,
+      "num_spawn_by": 1
     }
   ],
   "water_surface_plants": [
@@ -3106,6 +3426,8 @@
       "wield_image": "elysflowers_water_buttercup.png",
       "inventory_image": "elysflowers_water_buttercup.png",
       "not_in_creative_inventory": false,
+      "paramtype2": "facedir",
+      "use_texture_alpha": "clip",
       "noise_params": {
         "offset": 0.000241291,
         "scale": 0.000417701,
@@ -3115,9 +3437,9 @@
           "z": 32
         },
         "octaves": 3,
-        "seed": 120484,
-        "persist": 0.29,
-        "lacunarity": 0.406
+        "seed": 27807,
+        "persist": 0.02,
+        "lacunarity": 0.92
       },
       "place_on": {
         "default": [
