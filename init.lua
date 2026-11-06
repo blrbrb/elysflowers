@@ -1,39 +1,22 @@
 
+
 ---------------- helpers
-local modcompat = dofile(core.get_modpath("elysflowers") .. "/modcompat.lua")
+local modpath = core.get_modpath("elysflowers")
+local modcompat = dofile(modpath .. "/modcompat.lua")
 local storage = core.get_mod_storage()
 local handbook = nil
-local place = dofile(core.get_modpath("elysflowers") .. "/place.lua")
+local place = dofile(modpath .. "/place.lua")
 local S = core.get_translator("elysflowers")
+
 
 -------------- config booleans 
 local handbook_enabled =  (core.settings:get("elysflowers_botany_handbook") == "true")
 local botanic_descriptions = (core.settings:get("elysflowers_botanical_descriptions") == "true")
 
-if handbook_enabled then 
-   handbook = dofile(core.get_modpath("elysflowers") .. "/handbook.lua")
+-------------- handbook 
+if handbook_enabled then
+   handbook = dofile(modpath .. "/handbook.lua")
 end
-
-
----------------- load the node data 
-local dfile = io.open(core.get_modpath("elysflowers") .. "/data.json", "r")
-if dfile then
-
-local json_string = dfile:read("*all")
-
-dfile:close()
-
-elysflowers = core.parse_json(json_string)
-    if elysflowers then
-    core.log("action", "[elysflowers] Successfully loaded JSON flower data!")
-    else
-        core.log("error", "[elysflowers] Failed to parse JSON string. (this is probably my fault, oops)")
-    end
-
-else -- elf, can't open the file
-    core.log("error", "[elysflowers] Could not open data.json file at" .. dfile)
-end
-
 -- debug, func to print table properties to the console
 local function tprint(tbl, indent)
 if not indent then indent = 0 end
@@ -58,6 +41,29 @@ if not indent then indent = 0 end
                                 end
                                 toprint = toprint .. string.rep(" ", indent - 2) .. "}"
                                 return toprint
+end
+
+-------------- hanging flowerpot
+local hanging_flowerpot = dofile(modpath .. "/hanging_flowerpot.lua").build(S,modcompat)
+hanging_flowerpot.register_craft()
+
+---------------- node/flower data 
+local dfile = io.open(modpath .. "/data.json", "r")
+if dfile then
+
+local json_string = dfile:read("*all")
+
+dfile:close()
+
+elysflowers = core.parse_json(json_string)
+    if elysflowers then
+    core.log("action", "[elysflowers] Successfully loaded JSON flower data!")
+    else
+        core.log("error", "[elysflowers] Failed to parse JSON string. (this is probably my fault, oops)")
+    end
+
+else -- elf, can't open the file
+    core.log("error", "[elysflowers] Could not open data.json file at" .. dfile)
 end
 
 -- translate descriptions and 
@@ -142,7 +148,13 @@ local function register_water_surface_plant(def)
 end
 
 local function register_plant(def)
-    local groups = { attached_node = 1, dig_by_piston = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 0, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, deco_block = 1, elysflowers = 1, compost=35,compostability = 35 }
+    local groups = {}
+  
+    if def.groups == nil then
+        groups = { attached_node = 1, dig_by_piston = 1, unsticky = 1, non_mycelium_plant = 1, dig_by_water = 1, destroy_by_lava_flow = 1, fire_encouragement = 60, enderman_takable = 1, fire_flammability = 100, place_flowerlike = 1, dig_immediate = 0, snappy = 3, flammable = 2, flower = 1, flora = 1, plant = 1, color_white = 1, deco_block = 1, elysflowers = 1, compost=35,compostability = 35 }
+    else
+        groups = def.groups
+    end
 
     local on_place = nil
     local after_dig_node = nil
@@ -155,7 +167,7 @@ local function register_plant(def)
     
     -- make default digging behavior consistent with minetest_game
     -- only assign dig_immediate for mcl
-    if modcompat.gameid == "mineclonia" or modcompat.gameid == "mineclone2" then
+    if modcompat.game_id == "mineclonia" or modcompat.game_id == "mineclone2" then
         groups["dig_immediate"] = 3
     end
 
@@ -163,7 +175,7 @@ local function register_plant(def)
 
     if def.dye then
         groups["color_" .. def.dye] = 1
-        if modcompat.gameid == "mineclone2" then
+        if modcompat.game_id == "mineclone2" then
             if def.not_in_creative_inventory == false then
                 local namefix = string.gsub(def.mcl_dye, "s(:)", "%1")
                 core.register_craft({
@@ -184,9 +196,10 @@ local function register_plant(def)
     if def.has_variants then
         on_place = place.create_variants
     end
+   
     -- handbook discovery callback
     if handbook_enabled then
-       after_dig_node = handbook.item_discovery_callback(storage)
+        after_dig_node = handbook.item_discovery_callback(storage)
     end
 
     core.register_node(def.name, {
@@ -200,8 +213,9 @@ local function register_plant(def)
         inventory_image      = def.inventory_image,
         visual_scale         = def.visual_scale,
         waving               = def.waving or 1,
-        paramtype            = "light",
-        sunlight_propagates  = true,
+        paramtype            = def.paramtype or "light",
+        paramtype2 = def.paramtype2 or nil,
+        sunlight_propagates  = def.sunlight_propagates or true,
         walkable             = false,
         liquids_pointable    = def.liquids_pointable or false,
         groups               = groups,
@@ -219,7 +233,7 @@ local function register_plant(def)
         after_dig_node = after_dig_node,
         after_destruct = def.after_destruct
     })
-    --debug
+    -- for things like leaves, trunks, and treefruit that don't need to be registered as decorations 
     if def._no_register_decoration then
         return
     end
@@ -228,6 +242,8 @@ local function register_plant(def)
         name = def.name,
         deco_type = def.deco_type or "simple",
         spawn_by = modcompat.get_spawnby_nodes(def) or nil,
+        treedef = def.treedef or nil,
+        schematic = def.schematic or nil,
         num_spawn_by = def.num_spawn_by or -1,
         noise_params = def.noise_params,
         place_on =  modcompat.get_placeable_nodes(def) or nil,
@@ -235,13 +251,11 @@ local function register_plant(def)
         rotation = "random",
         waving = 1,
         biomes = modcompat.get_placeable_biomes(def) or nil,
-        schematic = def.schematic or nil,
         y_min = def.y_min or 1,
         y_max = def.y_max or 31000,
         decoration = def.name,
     })
 end
-
 
 local function register_normal()
 
@@ -260,8 +274,8 @@ core.register_biome({
     weight = 0.29
 })
 
-for a, def in pairs(elysflowers.nodes) do
-
+for a, def in pairs(elysflowers.flowers) do
+ 
     register_plant(def)
 
     if def.potted and modcompat.is_mod_loaded("flowerpot") then
@@ -273,6 +287,10 @@ end
 for a, def in pairs(elysflowers.water_surface_plants) do
     register_water_surface_plant(def)
 end
+
+core.register_on_mods_loaded(function()
+    hanging_flowerpot.register_existing_flowers(elysflowers.flowers,elysflowers.hanging_flowerpot_nodes)
+end)
 
 end
 
@@ -298,7 +316,7 @@ core.register_biome({
     weight = 1.0
 })
 
-for a, def in pairs(elysflowers.nodes) do
+for a, def in pairs(elysflowers.flowers) do
     -- work w/ mineclonia random plant positions mod. If
     if modcompat.is_mod_loaded("mcl_random_plant_positions") then
         def.paramtype2 = "meshoptions"
@@ -314,26 +332,30 @@ for a, def in pairs(elysflowers.nodes) do
             else
                 mcl_flowerpots.register_potted_flower(def.name,{ name = def.name, desc = def.description, image = def.tiles[1] })
             end
-        end
+    end
 end
 
 for a, def in pairs(elysflowers.water_surface_plants) do
     register_water_surface_plant(def)
 end
 
+core.register_on_mods_loaded(function()
+    hanging_flowerpot.register_existing_flowers(elysflowers.flowers,elysflowers.hanging_flowerpot_nodes)
+end)
+
 end
 
 
 --TD
 local function register_mineclonia_new_mapgen()
-    core.log("Currently, this mod only supports legacy level generators for mineclonia. To fix this, either remove elysflowers -- or create a world that does not use 'singlenode' mapgen")
+    core.log("warning","[elysflowers] Currently, this mod only supports legacy level generators for mineclonia. To fix this, either remove elysflowers -- or create a world that does not use 'singlenode' mapgen")
     --mcl_levelgen.register_levelgen_script(core.get_modpath("elysflowers") .. "/mineclonia-register.lua")
 end
 
-local function initalize_handbook(mod_storage, modcompat)
+local function initalize_handbook()
 
-   elysflowers.handbook = handbook.build_handbook(elysflowers.nodes, mod_storage, modcompat,S)
-   -- core.register_on_item_pickup(elysflowers.handbook.item_discovery_callback)
+   elysflowers.handbook = handbook.build_handbook(elysflowers.flowers, storage, modcompat,S)
+   --core.register_on_item_pickup(elysflowers.handbook.item_discovery_callback)
 
    core.register_craftitem("elysflowers:botanical_handbook", {
        output = "elysflowers:botanical_handbook",
@@ -361,11 +383,12 @@ local function initalize_handbook(mod_storage, modcompat)
 end
 
 
+-- handbook must be set up after all flower nodes have been registered
 if handbook_enabled then
-     initalize_handbook(storage, modcompat)
+     initalize_handbook()
 end
 
-if modcompat.gameid == "mineclonia" or modcompat.gameid == "mineclone2" then
+if modcompat.game_id == "mineclonia" or modcompat.game_id == "mineclone2" then
 
     if modcompat.get_mapgen_env() == "singlenode" then
     -- TD
@@ -381,6 +404,7 @@ end
 -- compat 
 core.register_alias("elysflowers:indian_paintbrush", "elysflowers:prairie_fire")
 
+-- fix typo
 core.register_alias("elysflowers:beach_heath", "elysflowers:beach_heather")
 
 core.register_lbm({
@@ -395,9 +419,13 @@ core.register_lbm({
                         param1 = node.param1,
                         param2 = node.param2
                     })
-
-
                 core.log("action", "[elysflowers] updated elysflowers:beach_heath to elysflowers:beach_heather at " .. core.pos_to_string(pos))
 end
 })
+
+
+
+
+
+
 

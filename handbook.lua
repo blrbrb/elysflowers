@@ -43,7 +43,7 @@ local function create_handbook_pages(flowers,modcompat,S)
         end
         
         local textcolor = "#FFFFFF"
-        if modcompat.gameid == "mineclonia" or modcompat.gameid == "mineclone2" then
+        if modcompat.game_id == "mineclonia" or modcompat.game_id == "mineclone2" then
             textcolor = "#000000"
         end
 
@@ -87,7 +87,7 @@ local function item_discovery_callback(mod_storage)
                     known = core.deserialize(mod_storage:get(player_name))
 
                     if known == nil then
-                        ---core.debug("action", "[elysflowers] Creating bestiary data for " .. player_name)
+                        core.debug("action", "[elysflowers] Creating bestiary data for " .. player_name)
                         known = {item_name = true}
                         mod_storage:set_string(player_name,core.serialize(known))
                     else
@@ -126,7 +126,7 @@ local function build_handbook(flowers,mod_storage,modcompat,S)
         end
         
         
-        for index, item_name in pairs(elysflowers.nodes) do
+        for index, item_name in pairs(elysflowers.flowers) do
             
             if item_name.not_in_creative_inventory then
                 index = index - 1

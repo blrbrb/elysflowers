@@ -1,5 +1,5 @@
 {
-  "nodes": [
+  "flowers": [
     {
       "name": "elysflowers:prairie_fire",
       "description": "Prairie Fire",
@@ -469,7 +469,7 @@
       "name": "elysflowers:phlox",
       "description": "Phlox",
       "_botanical_name": "Phlox drummondii",
-      "_guidebook_entry": "stub",
+      "_guidebook_entry": "The genus name [i]phlox[/i] comes from the Greek word φλόξ, meaning literally 'flame'. The Phlox genus is organicaly native to North America, with only a solitary species in eurasia. Many botanists and explorers took them back with them in the 1700s, and phlox is now a common sight across Europe.\n Plants in the phlox genus use a ballistic reproductive strategy. Each seed capsule forms a three-chambered valve that violently bursts open as it begins to loose moisture.",
       "tiles": [
         "elysflowers_phlox.png"
       ],
@@ -815,7 +815,7 @@
       "name": "elysflowers:hyacinth",
       "description": "Hyacinth",
       "_botanical_name": "Hyacinthus Orientalis",
-      "_guidebook_entry": "stud",
+      "_guidebook_entry": "The hyacinth genus is fairly new one... For a long time, hyacinths were classed under <i>Liliaceae</i>. It was beleived that they were lilies, as they share the same six-tepal six-stamen petal structure. But a 20th century DNA study from the Angiosperm Phylogeny Group revealed that hyacinths belong to the asparagus family.",
       "tiles": [
         "elysflowers_hyacinth.png"
       ],
@@ -1027,7 +1027,7 @@
       "name": "elysflowers:yarrow_pink",
       "description": "Yarrow",
       "_botanical_name": "Achillea millefolium",
-      "_guidebook_entry": "stub",
+      "_guidebook_entry": "Many plants in the yarrow genus contain a mixture of natural compounds that may act as blood coagulators. Slowing, or stopping small cuts from bleeding. Beware! Achillea can be mistaken for very similar-looking dangerous flowers. Like poison hemlock, or fool's parsley. The genus name <i>Achillea</i> is a nod to the Trojan war hero Achilles.",
       "tiles": [
         "elysflowers_yarrow.png"
       ],
@@ -1323,7 +1323,7 @@
       "name": "elysflowers:crocus",
       "_botanical_name": "Crocus sativus",
       "description": "Crocus",
-      "_guidebook_entry": "stub",
+      "_guidebook_entry": "In colder climates, crocus blooms are among the first signs of revival at the end of winter and the beginning of spring. Often stubbornly poking straight through several centimeters of snow.To protect the delicate stamens and their pollen from frost the trumpet shaped petals close tightly after the sun sets, and re-open in the morning as the rising sun heats them.\n Some species of Crocus produce seeds with a <i>elaiosome</i> (a layer of sweet and nutritious tissue) to encourage ants and other small insects to carry their seeds away.",
       "tiles": [
         "elysflowers_crocus.png"
       ],
@@ -1416,7 +1416,8 @@
         "scale": 0.94,
         "spread": {
           "x": 64,
-          "y": 64
+          "y": 64,
+          "z": 64
         },
         "seed": 97822,
         "octaves": 1,
@@ -3477,5 +3478,23 @@
         ]
       }
     }
-  ]
+  ],
+  "hanging_flowerpot_nodes":
+  {
+  "flowers":["flowers:dandelion_white","flowers:dandelion_yellow","flowers:geranium","flowers:rose","flowers:tulip","flowers:viola","flowers:tulip_black",
+  "flowers:chrysanthemum_green"],
+  "naturalbiomes":["naturalbiomes:alpine_dandelion"],
+  "ethereal":["ethereal:fire_flower"],
+  "everness":["everness:blooming_cooksonia"],
+  "ebiomes":["ebiomes:larkspur","ebiomes:savory","ebiomes:black_iris","ebiomes:altai_tulip","ebiomes:blue_allium","ebiomes:russian_iris","ebiomes:mountain_lily","ebiomes:siberian_lily",
+  "ebiomes:buttercup_persian","ebiomes:chrysanthemum_yellow"],
+  "mcl_flowers":["mcl_flowers:allium","mcl_flowers:poppy","mcl_flowers:dandelion","mcl_flowers:tulip_red","mcl_flowers:tulip_orange","mcl_flowers:wither_rose",
+  "mcl_flowers:tulip_pink","mcl_flowers:oxeye_daisy","mcl_flowers:tulip_white","mcl_flowers:cornflower","mcl_flowers:azure_bluet","mcl_flowers:blue_orchid","mcl_flowers:lily_of_the_valley"],
+  "beautiflowers":["beautiflowers:ada","beautiflowers:agnes","beautiflowers:alma","beautiflowers:amaia","beautiflowers:any","beautiflowers:belen","beautiflowers:berta",
+  "beautiflowers:cloe","beautiflowers:carla","beautiflowers:clara","beautiflowers:dafne","beautiflowers:delia","beautiflowers:diana","beautiflowers:dana","beautiflowers:elena","beautiflowers:erica",
+  "beautiflowers:fiona","beautiflowers:eva","beautiflowers:gala","beautiflowers:irene","beautiflowers:iris","beautiflowers:lara","beautiflowers:laura","beautiflowers:lidia","beautiflowers:lucia",
+  "beautiflowers:nadia","beautiflowers:nerea","beautiflowers:noemi","beautiflowers:paula","beautiflowers:rocio","beautiflowers:sofia","beautiflowers:sonia","beautiflowers:mara","beautiflowers:olga",
+  "beautiflowers:pia","beautiflowers:olimpia","beautiflowers:ruth","beautiflowers:sara","beautiflowers:suri","beautiflowers:valeria","beautiflowers:vera","beautiflowers:virginia","beautiflowers:xenia","beautiflowers:zaida"]
+  
+}
 }

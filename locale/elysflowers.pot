@@ -125,6 +125,12 @@ msgstr ""
 msgid "The wildflowers you've encountered will show up here. The ones you haven't discovered yet are greyed out"
 msgstr ""
 
+msgid "Hanging Flowerpot"
+msgstr ""
+
+msgid "Hanging flowerpot with @1"
+msgstr ""
+
 msgid "Tree Cholla"
 msgstr ""
 

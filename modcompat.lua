@@ -22,6 +22,8 @@ if not indent then indent = 0 end
                                 toprint = toprint .. string.rep(" ", indent - 2) .. "}"
                                 return toprint
                                 end
+                  
+                                
 
 -- mod presence flags used to define combinations for biome placement toggles
 -- bitwise logic SUM_FLAGS^2 is used to determine the comb. of mods currently enabled, and index the correct values in data.json accordingly
@@ -35,18 +37,11 @@ local supported_mods = {
     naturalbiomes = 16,
     prairie = 32,
     asuna_core = 64,
-    everness = 128
+    everness = 128,
+    mcl_flowers=256,
+    flowers=512,
+    beautiflowers=1024
 }
-
---is a mod on the list of currently enabled mods for the world?  
-local function is_mod_enabled(mod, _mods)
-    for _, str in ipairs(_mods) do
-        if str == mod then
-            return true
-        end
-    end
-    return false
-end
 
 -- generates a bitmask by fetching the list of enabled mods from core.get_modnames() [luanti 5.16] and BOR-ing the sum into a mod presence flag. 
 local function _get_mask()
@@ -58,6 +53,15 @@ for index, mod in pairs(core.get_modnames()) do
         end
         end
         return active_mask
+end
+--is a mod on the list of currently enabled mods for the world?  
+local function is_mod_enabled(mod, _mods)
+    for _, str in ipairs(_mods) do
+        if str == mod then
+            return true
+        end
+    end
+    return false
 end
 
 -- the list of currently enabled mods for the world. 
@@ -84,9 +88,10 @@ local function is_mod_loaded(modname)
     return core.global_exists(modname)
 end
 
+
 -- fetches the nodes that a flower is allowed to be placed on
 -- @param flowerdef - table of an individual flower
--- @param mods - list of currently enabled mods
+-- @param mods - [internal] list of currently enabled mods
 local function get_placeable_nodes(flower_def, _mods)
     local nodes = {}
     if not flower_def.place_on then return end
@@ -95,6 +100,24 @@ local function get_placeable_nodes(flower_def, _mods)
         for _, mod in ipairs(_mods) do
             if flower_def.place_on[mod] ~= nil then
             table.move(flower_def.place_on[mod],1,#flower_def.place_on[mod], #nodes + 1, nodes)
+            end
+        end
+
+    end
+    return nodes
+end
+
+
+-- fetches the nodes to be registered to the hanging flowerpot, if mods providing certain flower nodes are active
+-- @param mods - [internal] list of currently enabled mods
+local function get_hanging_flowerpot_nodes(hf_nodes, _mods)
+    local nodes = {}
+    if not hf_nodes then return end
+    
+    if #_mods > 0 then
+        for _, mod in ipairs(_mods) do
+            if hf_nodes[mod] ~= nil then          
+            table.move(hf_nodes[mod],1,#hf_nodes[mod], #nodes + 1, nodes)
             end
         end
 
@@ -120,20 +143,19 @@ end
     return biomes
 end
 
+
+
 -- fetches the nodes that a flower is set to spawn by, if set
 -- @param flower_def - table of an individual flower
 -- @param mods - list of currently enabled mods
 local function get_spawnby_nodes(flower_def, _mods)
 local nodes = {}
 -- no "spawn_by" property in node def
-
 if not flower_def.spawn_by then return end
 if #_mods > 0 then
     for _, mod in ipairs(_mods) do
             if flower_def.spawn_by[mod] ~= nil then
-            
             table.move(flower_def.spawn_by[mod],1,#flower_def.spawn_by[mod], #nodes + 1, nodes)
-          
             end
     end
 end
@@ -156,20 +178,22 @@ local function get_mapgen_env()
  return mg
 end
 
-
 local MASK=_get_mask()
 local MOD_ENV=_get_mod_environment(MASK)
 local GAMEID=game_id()
-return
+
+
+return 
 {
-    mask = MASK,
+   mask = MASK,
     mod_environment = MOD_ENV,
-    gameid = GAMEID,
+    game_id = GAMEID,
     get_placeable_nodes = function(flower_def) return get_placeable_nodes(flower_def, MOD_ENV) end,
     get_placeable_biomes = function(flower_def) return get_placeable_biomes(flower_def, MOD_ENV) end,
+    get_hanging_flowerpot_nodes=function(hf_nodes) return get_hanging_flowerpot_nodes(hf_nodes, MOD_ENV) end,
     get_spawnby_nodes = function(flower_def) return get_spawnby_nodes(flower_def, MOD_ENV) end,
     is_mod_enabled = function(mod) return is_mod_enabled(mod, MOD_ENV) end,
     get_default_grass_node_sounds = function() return get_default_grass_node_sounds(MOD_ENV,GAMEID) end,
     is_mod_loaded = is_mod_loaded,
     get_mapgen_env = get_mapgen_env
-}
+   }
