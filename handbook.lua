@@ -87,7 +87,7 @@ local function item_discovery_callback(mod_storage)
                     known = core.deserialize(mod_storage:get(player_name))
 
                     if known == nil then
-                        core.debug("action", "[elysflowers] Creating bestiary data for " .. player_name)
+                        --core.debug("action", "[elysflowers] Creating bestiary data for " .. player_name)
                         known = {item_name = true}
                         mod_storage:set_string(player_name,core.serialize(known))
                     else
